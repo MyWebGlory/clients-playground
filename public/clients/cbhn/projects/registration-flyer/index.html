@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=794">
+    <title>CBHN Conference Registration - Hidden Crises: Stress, Mental Health & Brain Health</title>
+    
+    <!-- Google Fonts - Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Critical assets -->
+    <link rel="preload" as="image" href="../../assets/images/cbhn-image-background.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../../assets/images/cbhn-logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../../assets/images/zoom-fondo-blanco-vertical-logo-png_seeklogo-381383.png">
+    <link rel="preload" as="image" href="../../assets/images/qr-code.png">
+    <link rel="preload" as="image" href="../../assets/images/headshots/Curley Bonds.jpeg">
+    <link rel="preload" as="image" href="../../assets/images/headshots/LCHarvey.png">
+    <link rel="preload" as="image" href="../../assets/images/headshots/TinaArmstrong headshot.jpg">
+    <link rel="preload" as="image" href="../../assets/images/headshots/Dr.MonicaPhoto (1) (1).jpg">
+    <link rel="preload" as="image" href="../../assets/images/headshots/KBHeadshot.png">
+    <link rel="preload" as="image" href="../../assets/images/headshots/George Woods_7280-Crop.jpeg">
+    <link rel="preload" as="image" href="../../assets/images/headshots/Photo-Shacunda Rodgers PhD.jpeg">
+
+    <link rel="stylesheet" href="../../assets/styles/registration-flyer.tailwind.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../assets/styles/main.css">
+    
+    <style>
+        @page { size: A4; margin: 0; }
+        html:not(.assets-ready) body {
+            visibility: hidden;
+        }
+        html.assets-ready body {
+            visibility: visible;
+        }
+        html, body {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            forced-color-adjust: none !important;
+        }
+        @media print {
+            html, body { margin: 0; padding: 0; background: none; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .flyer-page { box-shadow: none !important; margin: 0 !important; }
+            [class*="backdrop-blur"] {
+                -webkit-backdrop-filter: none !important;
+                backdrop-filter: none !important;
+            }
+            .print-glass {
+                background-color: rgba(255, 255, 255, 0.14) !important;
+            }
+            .print-glass-strong {
+                background-color: rgba(255, 255, 255, 0.18) !important;
+            }
+            .hero-panel {
+                isolation: isolate;
+            }
+            .hero-image,
+            .speaker-image,
+            .brand-image,
+            .cta-image {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                image-rendering: -webkit-optimize-contrast;
+                print-color-adjust: exact !important;
+            }
+            .hero-overlay {
+                z-index: 1 !important;
+            }
+            .hero-content {
+                position: relative;
+                z-index: 2 !important;
+            }
+            .pdf-safe-svg {
+                display: block;
+                overflow: visible;
+            }
+        }
+        .flyer-page {
+            width: 210mm;
+            min-width: 210mm;
+            max-width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 100px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .export-toolbar {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+        }
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 9px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+        .export-btn:hover {
+            background: #f0f0f0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+        .export-btn.loading,
+        .export-btn:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+        body.is-exporting .flyer-page {
+            box-shadow: none !important;
+        }
+        @media print {
+            .export-toolbar {
+                display: none !important;
+            }
+        }
+        .hero-panel {
+            isolation: isolate;
+        }
+        .speaker-image {
+            width: 3.5rem !important;
+            min-width: 3.5rem !important;
+            max-width: 3.5rem !important;
+            height: 3.5rem !important;
+            min-height: 3.5rem !important;
+            max-height: 3.5rem !important;
+            flex: 0 0 3.5rem !important;
+        }
+        img {
+            display: block;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const imagePromises = Array.from(document.images).map((img) => {
+                if (img.complete && img.naturalWidth > 0) {
+                    return Promise.resolve();
+                }
+
+                return new Promise((resolve) => {
+                    img.addEventListener('load', resolve, { once: true });
+                    img.addEventListener('error', resolve, { once: true });
+                });
+            });
+
+            if (document.fonts?.ready) {
+                try {
+                    await document.fonts.ready;
+                } catch (_) {
+                    // Keep rendering even if the browser cannot fully resolve font readiness.
+                }
+            }
+
+            await Promise.all(imagePromises);
+            document.documentElement.classList.add('assets-ready');
+        });
+    </script>
+</head>
+<body class="font-sans text-charcoal bg-gray-200" style="margin:0;padding:0;">
+
+    <div class="export-toolbar">
+        <button class="export-btn" id="export-btn" onclick="exportGraphic('registration-flyer', 'export-btn', 'cbhn-registration-flyer.png')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export PNG
+        </button>
+    </div>
+    
+    <!-- Registration Flyer - Single Page -->
+    <div class="flyer-page relative overflow-hidden" id="registration-flyer">
+        
+        <!-- ============================================== -->
+        <!-- LAYERED BACKGROUND (Same as Cover) -->
+        <!-- ============================================== -->
+        <div class="absolute inset-0" style="background: linear-gradient(120deg, rgba(0,54,135,1) 0%, rgba(241,73,22,0.10) 100%);"></div>
+        <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(241,73,22,0.10) 0%, transparent 70%);"></div>
+        <div class="absolute top-1/3 -left-32 w-[300px] h-[300px] rounded-full" style="background: radial-gradient(circle, rgba(54,150,98,0.10) 0%, transparent 75%);"></div>
+        
+        <!-- Diagonal Pattern -->
+        <div class="absolute inset-0 opacity-[0.015]">
+            <svg class="pdf-safe-svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="diagonals" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="40" stroke="white" stroke-width="1"></line>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#diagonals)"></rect>
+            </svg>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-16 right-16 w-32 h-32 rounded-full border border-white/15"></div>
+        <div class="absolute bottom-32 left-12 w-20 h-20 border border-shamrock/30 rounded-2xl rotate-12"></div>
+        <div class="absolute top-24 right-24 w-4 h-4 bg-molten-orange/60 rounded-full"></div>
+        <div class="absolute left-0 top-1/4 w-1 h-32" style="background: linear-gradient(to bottom, transparent, #ff5a1f 60%, transparent);"></div>
+        <div class="absolute inset-6 border border-gold/20 rounded-3xl pointer-events-none"></div>
+        
+        <!-- ============================================== -->
+        <!-- MAIN CONTENT -->
+        <!-- ============================================== -->
+        <div class="relative z-10 h-full flex flex-col">
+            
+            <!-- Hero Section with Background Image -->
+            <div class="hero-panel mx-6 mt-3 rounded-2xl overflow-hidden relative p-5 pt-3" style="height: 450px;">
+                <!-- Background Image -->
+                <img src="../../assets/images/cbhn-image-background.png" alt="Black community members" class="hero-image absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high">
+                <!-- Dark Overlay -->
+                <div class="hero-overlay absolute inset-0" style="
+    background: linear-gradient(60deg, rgba(0,54,135,0.9) 30%, rgba(0,54,135,0.7) 50%, rgba(0,0,0,0) 80%);
+"></div>
+                
+                <div class="hero-content flex justify-between items-center">
+                    <div class="relative bg-gradient-to-br from-white/60 to-white/30 rounded-lg p-3 border border-white/25">
+                        <a href="https://yourcbhn.org/" target="_blank" rel="noopener">
+                            <img src="../../assets/images/cbhn-logo.png" alt="CBHN Logo" class="brand-image h-8 w-auto" fetchpriority="high">
+                        </a>
+                    </div>
+                    <span class="print-glass-strong px-2.5 py-1 bg-gradient-to-r from-shamrock to-molten-orange backdrop-blur-sm text-white text-[12px] font-bold rounded-full border border-white/20">
+                        5 CEUs available for LCSWs, LMFTs, LPCCs, and LEPs
+                    </span>
+                    
+                </div><!-- Two-Column Content: Title Left, Description Right -->
+                <div class="hero-content relative z-10 flex gap-4">
+                    
+                    <!-- LEFT: Title & Event Details -->
+                    <div class="flex-1 flex flex-col justify-center mt-5">
+                        <!-- Main Title -->
+                        <div class="relative mb-1.5">
+                            <h1 class="font-display text-6xl font-bold text-white leading-none tracking-tight drop-shadow-lg">
+                                Hidden Crises
+                            </h1>
+                            <div class="absolute -bottom-0.5 left-0 w-24 h-0.5 bg-gradient-to-r from-molten-orange via-gold to-transparent rounded-full"></div>
+                        </div>
+                        
+                        <!-- Subtitle -->
+                        <div class="relative pl-3 mb-10">
+                            <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-molten-orange via-molten-orange/60 to-transparent rounded-full"></div>
+                            <h2 class="text-xl text-white font-bold leading-snug">
+                                Stress, Mental Health &amp; Brain Health
+                            </h2>
+                            <p class="text-xl text-gold font-display font-bold">
+                                in the Black Community
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-col justify-center mb-10" style="
+    width: 470px;
+">
+                        <div class="print-glass backdrop-blur-[2px] rounded-xl">
+                            <p class="text-white/95 text-[12px] leading-relaxed" style="text-align: justify;">
+                                Toxic stress, rising suicide rates among Black men and boys, and increasing cases of Alzheimer's and dementia are pressing but often ignored issues. This conference will uncover the connections between <strong class="text-gold">stress, mental health, and cognitive decline</strong> while exploring <strong class="text-molten-orange">culturally relevant solutions</strong> for healing and resilience.
+                            </p>
+                        </div>
+                    </div><!-- Event Details Cards -->
+                        <div class="print-glass-strong flex items-center justify-between bg-white/15 backdrop-blur-sm rounded-lg px-2 py-1 border border-white/25">
+                            <div class="-2 py-1 min-w-[160px]">
+                                <div class="flex items-center gap-1.5 ml-10">
+                                    
+                                    <div>
+                                        <p class="text-white text-[10px] font-bold uppercase tracking-wider">Registration Fees</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center mt-[-7px]">
+                                        <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 16v-4m8-4h-4m-8 0H4"></path>
+                                        </svg>
+                                    </div><!-- Early Bird Column -->
+                                    <div class="flex-1" style="width:100px">
+                                        <div class="font-semibold text-gold text-[9px]">Early Bird <span class="text-white/90 text-[8px] mb-1">(thru Mar 31)</span></div>
+                                        <div class="text-white text-[9px] leading-tight">
+                                            <div>Members: <span class="font-bold">$40</span></div>
+                                            <div>Non-members: <span class="font-bold">$60</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- Regular Rates Column -->
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gold text-[9px]">Regular Rates <span class="text-white/90 text-[8px] mb-1">(Apr 1+)</span></div>
+                                        <div class="text-white text-[9px] leading-tight">
+                                            <div>Members: <span class="font-bold">$50</span></div>
+                                            <div>Non-members: <span class="font-bold">$75</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-bold text-[10px] uppercase tracking-wider">Date</p>
+                                        <p class="text-white font-bold text-[10px]">May 13, 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-bold text-[10px] uppercase tracking-wider">Time</p>
+                                        <p class="text-white font-bold text-[10px]">8:00 AM – 1:00 PM PT</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-2 py-1">
+                                <div class="flex items-center gap-1.5">
+        <div class="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                            <img src="../../assets/images/zoom-fondo-blanco-vertical-logo-png_seeklogo-381383.png" alt="Zoom" class="brand-image w-full h-full object-contain">
+                        </div>                            
+                                    <div>
+                                        <p class="text-white font-bold text-[10px] uppercase tracking-wider">Format</p>
+                                        <p class="flex items-center gap-1 text-white font-bold text-[10px]">
+                                            <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                                            Live via Zoom
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        </div>                 
+                </div>
+            </div>
+
+            <div class="relative px-6 mt-2">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                    <span class="text-white text-[10px] font-bold uppercase tracking-wider">Who Should Attend</span>
+                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-1.5">
+                    <span class="print-glass-strong px-2.5 py-1 bg-white/15 backdrop-blur-sm text-white text-[8px] font-semibold rounded-full border border-white/20">Behavioral Health Professionals</span>
+                    <span class="print-glass-strong px-2.5 py-1 bg-white/15 backdrop-blur-sm text-white text-[9px] font-semibold rounded-full border border-white/20">Community-Based Organizations</span>
+                    <span class="print-glass-strong px-2.5 py-1 bg-white/15 backdrop-blur-sm text-white text-[9px] font-semibold rounded-full border border-white/20">Public Health Officials</span>
+                    <span class="print-glass-strong px-2.5 py-1 bg-white/15 backdrop-blur-sm text-white text-[9px] font-semibold rounded-full border border-white/20">Researchers &amp; Data Analysts</span>
+                    <span class="print-glass-strong px-2.5 py-1 bg-white/15 backdrop-blur-sm text-white text-[9px] font-semibold rounded-full border border-white/20">State &amp; Local Policymakers</span>
+                </div>
+            </div>
+            
+            
+            <!-- Speakers Section -->
+            <div class="px-8 pt-3 flex-1">
+                
+                <!-- Keynote Speakers -->
+                <div class="mb-2">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-3 py-0.5 bg-gradient-to-r from-shamrock to-molten-orange text-white text-[8px] font-bold rounded-full uppercase tracking-wider">
+                            ★ Keynote Speakers
+                        </span>
+                        <div class="flex-1 h-px bg-gradient-to-r from-shamrock/30 to-transparent"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Keynote 1: Dr. Curley Bonds -->
+                        <div class="bg-gradient-to-br from-white to-gray-50 rounded-lg p-1 border border-gray-200">
+                            <div class="flex gap-3">
+                                <img src="../../assets/images/headshots/Curley Bonds.jpeg" alt="Curley L. Bonds, MD, DFAPA" class="speaker-image w-14 h-14 rounded-lg object-cover border border-shamrock/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1">
+                                    <h3 class="font-display font-bold text-[10px] text-charcoal mb-0.5">Dr. Curley L. Bonds, MD, DFAPA</h3>
+                                    <p class="text-shamrock text-[8px] font-medium mb-1">Board Certified in Adult Psychiatry</p>
+                                    <p class="text-charcoal text-[8px] leading-snug">Chief Medical Officer, Los Angeles County Department of Mental Health.</p>
+                                    <p class="text-charcoal text-[8px] leading-snug">Clinical Professor of Psychiatry at Charles R. Drew & UCLA School of Medicine.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Keynote 2: Dr. Le Ondra Clark Harvey -->
+                        <div class="bg-gradient-to-br from-white to-gray-50 rounded-lg p-1 border border-gray-200">
+                            <div class="flex gap-3">
+                                <img src="../../assets/images/headshots/LCHarvey.png" alt="Dr. Le Ondra Clark Harvey, PhD" class="speaker-image w-14 h-14 rounded-lg object-cover border border-molten-orange/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1">
+                                    <h3 class="font-display font-bold text-[10px] text-charcoal mb-0.5">Dr. Le Ondra Clark Harvey, PhD</h3>
+                                    <p class="text-molten-orange text-[8px] font-medium mb-1">CEO, California Behavioral Health Association</p>
+                                    <p class="text-charcoal text-[8px] leading-snug">Expert in behavioral health policy with legislative experience. Focus on equitable access.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Session Speakers -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-3 py-0.5 bg-gradient-to-r from-molten-orange to-gold text-white text-[8px] font-bold rounded-full uppercase tracking-wider">
+                            Session Speakers
+                        </span>
+                        <div class="flex-1 h-px bg-gradient-to-r from-molten-orange/40 to-transparent"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Speaker 1: Tina Armstrong -->
+                        <div class="bg-gradient-to-br from-white to-sky/5 rounded-lg p-1 border border-sky/20">
+                            <div class="flex gap-2">
+                                <img src="../../assets/images/headshots/TinaArmstrong headshot.jpg" alt="Tina Armstrong, PhD" class="speaker-image w-14 h-14 rounded-lg object-cover border border-sky/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-display font-bold text-[10px] text-charcoal">Tina Armstrong, PhD</h4>
+                                    <p class="text-regal-navy text-[8px] font-medium mb-0.5">CEO &amp; Psychologist, Living Connected Psychology</p>
+                                    <p class="text-charcoal text-[8px] leading-snug line-clamp-2">Licensed Clinical Psychologist providing therapy and psychological assessment. Collaborates with clients, families, and treatment teams.</p>
+                                </div>
+                            </div>
+                            <div class="mt-1.5 pt-1.5 border-t border-sky/20 flex items-center gap-1">
+                                <span class="px-1.5 py-0.5 bg-sky/10 text-regal-navy text-[8px] font-semibold rounded-full">Session 1</span>
+                                <span class="text-charcoal text-[8px]">Toxic Stress</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Speaker 2: Tia Delaney-Stewart -->
+                        <div class="bg-gradient-to-br from-white to-gold/5 rounded-lg p-1 border border-gold/20">
+                            <div class="flex gap-2">
+                                <img src="../../assets/images/headshots/tia-stewart.png" alt="Tia Delaney-Stewart" class="speaker-image w-14 h-14 rounded-lg object-cover border border-gold/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-display font-bold text-[10px] text-charcoal">Tia Delaney-Stewart</h4>
+                                    <p class="text-golden-earth text-[8px] font-medium mb-0.5">MSN-Ed, RN, PHN, CCM</p>
+                                    <p class="text-charcoal text-[8px] leading-snug line-clamp-3">Director of Diversity, Equity and Inclusion Alzheimer's Association California, Southland.</p>
+                                </div>
+                            </div>
+                            <div class="mt-1.5 border-t border-gold/20 flex items-center gap-1">
+                                <span class="px-1.5 py-0.5 bg-gold/10 text-golden-earth text-[8px] font-semibold rounded-full">Session 2</span>
+                                <span class="text-charcoal text-[8px]">Brain Health</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Speaker 3: Kris Bennett -->
+                        <div class="bg-gradient-to-br from-white to-magenta-bloom/5 rounded-lg p-1 border border-magenta-bloom/20">
+                            <div class="flex gap-2">
+                                <img src="../../assets/images/headshots/KBHeadshot.png" alt="Kris Bennett" class="speaker-image w-14 h-14 rounded-lg object-cover border border-magenta-bloom/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-display font-bold text-[10px] text-charcoal">Kris Bennett</h4>
+                                    <p class="text-magenta-bloom text-[8px] font-medium mb-0.5">Global Dir. Health Equity, Movember Foundation</p>
+                                    <p class="text-charcoal text-[8px] leading-snug line-clamp-2">Executive leader managing global health equity strategies and leading mental health &amp; suicide prevention initiatives for men and boys.</p>
+                                </div>
+                            </div>
+                            <div class="mt-1.5 pt-1.5 border-t border-magenta-bloom/20 flex items-center gap-1">
+                                <span class="px-1.5 py-0.5 bg-magenta-bloom/10 text-magenta-bloom text-[8px] font-semibold rounded-full">Session 3</span>
+                                <span class="text-charcoal text-[8px]">Suicide Prevention</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Speaker 4: George Woods -->
+                        <div class="bg-gradient-to-br from-white to-shamrock/5 rounded-lg p-1 border border-shamrock/20">
+                            <div class="flex gap-2">
+                                <img src="../../assets/images/headshots/George Woods_7280-Crop.jpeg" alt="George Woods, MD" class="speaker-image w-14 h-14 rounded-lg object-cover border border-shamrock/30 flex-shrink-0" style="aspect-ratio: 1/1;">
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-display font-bold text-[10px] text-charcoal">George Woods, MD</h4>
+                                    <p class="text-shamrock text-[8px] font-medium mb-0.5">Neuropsychiatrist, Felton Institute</p>
+                                    <p class="text-charcoal text-[8px] leading-snug line-clamp-2">Clinical &amp; forensic neuropsychiatrist. Expert on brain dysfunction from trauma, toxic stress. Consultant for athletes, veterans on TBI/CTE.</p>
+                                </div>
+                            </div>
+                            <div class="mt-1.5 pt-1.5 border-t border-shamrock/20 flex items-center gap-1">
+                                <span class="px-1.5 py-0.5 bg-shamrock/10 text-shamrock text-[8px] font-semibold rounded-full">Session 4</span>
+                                <span class="text-charcoal text-[8px]">Crisis to Policy (HR1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moderator Section -->
+                <div class="mt-2">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-3 py-0.5 bg-gradient-to-r from-shamrock to-molten-orange text-white text-[8px] font-bold rounded-full uppercase tracking-wider">
+                            Moderator
+                        </span>
+                        <div class="flex-1 h-px bg-gradient-to-r from-shamrock/40 to-transparent"></div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="bg-gradient-to-br from-white to-shamrock/5 rounded-lg p-1 border border-shamrock/20 shadow-shamrock/10 w-full">
+                            <div class="flex gap-4 items-center">
+                                <div class="relative flex-shrink-0">
+                                    <img src="../../assets/images/headshots/Photo-Shacunda Rodgers PhD.jpeg" alt="Shacunda Rodgers, Ph.D. headshot" class="speaker-image w-14 h-14 rounded-lg object-cover object-center border border-shamrock/30 shadow-shamrock/20">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-display font-bold text-charcoal text-[10px]">Shacunda Rodgers, Ph.D.</h4>
+                                    <p class="text-shamrock text-[8px] font-medium mb-0.5">Licensed Clinical Psychologist | Founder and Executive Director, Holding Space</p>
+                                    <p class="text-charcoal text-[8px] leading-relaxed">
+                                        Dr. Rodgers is a licensed clinical psychologist and founder of Holding Space, dedicated to culturally responsive mental health services and advocacy for Black women and families. She brings expertise in trauma-informed care and community engagement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registration CTA -->
+            <div class="px-8 pb-2 pt-2">
+                <div class="relative">
+                    <div>
+                        <div class="flex items-center gap-4">
+                            <!-- QR Code -->
+                            <a href="https://bit.ly/CBHN-VBMHC2026" target="_blank" rel="noopener" class="flex-shrink-0">
+                                <img src="../../assets/images/qr-code.png" alt="Scan to Register" class="cta-image" style="width:auto; height:auto; max-height:120px; display:block;">
+                            </a>
+                            
+                            <!-- Registration Info -->
+                            <div class="flex-1">
+                                <h3 class="font-display font-bold text-xl text-gold mb-1">Register Now!</h3>
+                                <p class="text-white text-xs mb-2 font-bold">Join us for this transformative half-day virtual conference on mental health in the Black community.</p>
+
+                                <a href="https://bit.ly/CBHN-VBMHC2026" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-gradient-to-r from-molten-orange to-gold text-white px-5 py-2 rounded-full text-xs font-bold border border-gold/40">
+                                    <span>REGISTER TODAY</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <!-- Contact -->
+                            <div class="flex-shrink-0 text-right">
+                                <p class="text-blood-red text-[9px] uppercase tracking-wider mb-1">Questions?</p>
+                                <p class="text-blood-red font-semibold text-xs">events@yourcbhn.org</p>
+                                <p class="text-blood-red text-[10px] mt-1">yourcbhn.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="flex items-center justify-center gap-4 mt-3">
+                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-molten-orange rounded-full"></div>
+                        <p class="text-white/80 text-[10px] font-semibold tracking-widest uppercase">California Black Health Network</p>
+                        <div class="w-1.5 h-1.5 bg-molten-orange rounded-full"></div>
+                    </div>
+                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <script>
+        function waitForNextPaint() {
+            return new Promise(function(resolve) {
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(resolve);
+                });
+            });
+        }
+
+        function waitForImage(image) {
+            if (!image) {
+                return Promise.resolve();
+            }
+
+            if (image.complete && image.naturalWidth > 0) {
+                if (typeof image.decode === 'function') {
+                    return image.decode().catch(function() {
+                        return undefined;
+                    });
+                }
+                return Promise.resolve();
+            }
+
+            return new Promise(function(resolve) {
+                function done() {
+                    image.removeEventListener('load', handleLoad);
+                    image.removeEventListener('error', handleError);
+                    resolve();
+                }
+
+                function handleLoad() {
+                    if (typeof image.decode === 'function') {
+                        image.decode().catch(function() {
+                            return undefined;
+                        }).finally(done);
+                        return;
+                    }
+                    done();
+                }
+
+                function handleError() {
+                    done();
+                }
+
+                image.addEventListener('load', handleLoad, { once: true });
+                image.addEventListener('error', handleError, { once: true });
+            });
+        }
+
+        async function waitForCardAssets(card) {
+            if (document.fonts && document.fonts.ready) {
+                try {
+                    await document.fonts.ready;
+                } catch (fontError) {
+                    console.warn('Font readiness check failed:', fontError);
+                }
+            }
+
+            var images = Array.prototype.slice.call(card.querySelectorAll('img'));
+            await Promise.all(images.map(waitForImage));
+            await waitForNextPaint();
+        }
+
+        function sanitizePngFilename(rawTitle) {
+            var cleaned = String(rawTitle || '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .replace(/[\\/?%*:|"<>]/g, '-')
+                .replace(/\.+$/g, '')
+                .trim();
+
+            if (!cleaned) {
+                cleaned = 'export';
+            }
+
+            return cleaned + '.png';
+        }
+
+        function buildExportFilename(card, button, filenameHint) {
+            var titleFromPage = document.title ? document.title.trim() : '';
+            var headerRow = button.closest('.header-row');
+            var label = headerRow ? headerRow.querySelector('.graphic-label') : null;
+            var titleFromLabel = label && label.textContent ? label.textContent.trim() : '';
+            var titleFromCard = card.getAttribute('data-export-title') || '';
+            var cleanedHint = String(filenameHint || '')
+                .replace(/\.png$/i, '')
+                .replace(/[-_]+/g, ' ')
+                .trim();
+
+            var chosenTitle = titleFromLabel || titleFromPage || titleFromCard || cleanedHint || 'export';
+            return sanitizePngFilename(chosenTitle);
+        }
+
+        function downloadBlob(blob, filename) {
+            var url = URL.createObjectURL(blob);
+            var anchor = document.createElement('a');
+
+            anchor.href = url;
+            anchor.download = filename;
+            document.body.appendChild(anchor);
+            anchor.click();
+            anchor.remove();
+
+            URL.revokeObjectURL(url);
+        }
+
+        function getExportScale(width, height) {
+            var preferredScale = 3;
+            var maxPixelCount = 25000000;
+            var area = width * height;
+            var safeMaxScale = Math.sqrt(maxPixelCount / area);
+
+            if (!Number.isFinite(safeMaxScale) || safeMaxScale <= 0) {
+                return 2;
+            }
+
+            return Math.max(1, Math.min(preferredScale, safeMaxScale));
+        }
+
+        function isLikelyBlankCanvas(canvas) {
+            var context = canvas.getContext('2d', { willReadFrequently: true });
+            if (!context) {
+                return false;
+            }
+
+            var sampleCols = 12;
+            var sampleRows = 12;
+            var nonBlankPixels = 0;
+
+            for (var row = 0; row < sampleRows; row += 1) {
+                var y = Math.min(canvas.height - 1, Math.round((row / (sampleRows - 1)) * (canvas.height - 1)));
+
+                for (var col = 0; col < sampleCols; col += 1) {
+                    var x = Math.min(canvas.width - 1, Math.round((col / (sampleCols - 1)) * (canvas.width - 1)));
+                    var pixel = context.getImageData(x, y, 1, 1).data;
+                    var isTransparent = pixel[3] === 0;
+                    var isNearWhite = pixel[0] > 248 && pixel[1] > 248 && pixel[2] > 248 && pixel[3] > 248;
+
+                    if (!isTransparent && !isNearWhite) {
+                        nonBlankPixels += 1;
+                        if (nonBlankPixels > 2) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function getNumericStyleValue(element, propertyName) {
+            var computed = window.getComputedStyle(element);
+            var value = parseFloat(computed.getPropertyValue(propertyName));
+
+            if (Number.isFinite(value) && value > 0) {
+                return Math.round(value);
+            }
+
+            return 0;
+        }
+
+        function getExportDimensions(card) {
+            var width = card.offsetWidth || card.clientWidth || getNumericStyleValue(card, 'width') || 1080;
+            var height = card.offsetHeight || card.clientHeight || getNumericStyleValue(card, 'height') || 1350;
+
+            return {
+                width: Math.max(1, Math.round(width)),
+                height: Math.max(1, Math.round(height))
+            };
+        }
+
+        async function exportGraphic(cardId, buttonId, filenameHint) {
+            var card = document.getElementById(cardId);
+            var btn = document.getElementById(buttonId);
+
+            if (!card || !btn) {
+                console.error('Export failed: card or button was not found.', { cardId: cardId, buttonId: buttonId });
+                return;
+            }
+
+            if (typeof html2canvas !== 'function') {
+                alert('Export failed: html2canvas is unavailable. Please reload the page.');
+                return;
+            }
+
+            var exportFilename = buildExportFilename(card, btn, filenameHint);
+            var originalMarkup = btn.innerHTML;
+            var dimensions = getExportDimensions(card);
+            var exportWidth = dimensions.width;
+            var exportHeight = dimensions.height;
+            var exportScale = getExportScale(exportWidth, exportHeight);
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+            btn.textContent = 'Exporting...';
+
+            try {
+                document.body.classList.add('is-exporting');
+                await waitForCardAssets(card);
+
+                var captureOptions = {
+                    scale: exportScale,
+                    useCORS: true,
+                    allowTaint: false,
+                    width: exportWidth,
+                    height: exportHeight,
+                    backgroundColor: null,
+                    logging: false,
+                    scrollX: -window.scrollX,
+                    scrollY: -window.scrollY,
+                    windowWidth: document.documentElement.clientWidth,
+                    windowHeight: document.documentElement.clientHeight
+                };
+
+                var canvas;
+
+                try {
+                    canvas = await html2canvas(card, Object.assign({}, captureOptions, {
+                        foreignObjectRendering: false
+                    }));
+
+                    if (isLikelyBlankCanvas(canvas)) {
+                        throw new Error('Standard renderer produced a blank canvas.');
+                    }
+                } catch (standardRendererError) {
+                    console.warn('Standard capture failed. Retrying with ForeignObject renderer.', standardRendererError);
+                    canvas = await html2canvas(card, Object.assign({}, captureOptions, {
+                        foreignObjectRendering: true
+                    }));
+
+                    if (isLikelyBlankCanvas(canvas)) {
+                        throw new Error('ForeignObject renderer produced a blank canvas.');
+                    }
+                }
+
+                var blob = await new Promise(function(resolve, reject) {
+                    canvas.toBlob(function(result) {
+                        if (!result) {
+                            reject(new Error('Canvas encoding failed (toBlob returned null).'));
+                            return;
+                        }
+
+                        resolve(result);
+                    }, 'image/png');
+                });
+
+                downloadBlob(blob, exportFilename);
+            } catch (err) {
+                console.error('Export failed:', err);
+                alert('Export failed. See console for details.');
+            } finally {
+                document.body.classList.remove('is-exporting');
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                btn.removeAttribute('aria-busy');
+                btn.innerHTML = originalMarkup;
+            }
+        }
+    </script>
+
+</body>
+</html>

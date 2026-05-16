@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080">
+    <title>CBHN May Conference - Sponsorship Social Graphic</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #afafaf;
+            font-family: "Open Sans", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 48px 24px;
+        }
+
+        .header-row {
+            width: 1080px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .graphic-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: #333;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 9px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+
+        .export-btn:hover {
+            background: #f0f0f0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .export-btn.loading {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        .export-btn:disabled {
+            cursor: wait;
+        }
+
+        .graphic {
+            width: 1080px;
+            min-width: 1080px;
+            max-width: 1080px;
+            height: 1350px;
+            min-height: 1350px;
+            max-height: 1350px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.22);
+            background: #002964;
+        }
+
+        body.is-exporting .graphic {
+            box-shadow: none !important;
+        }
+
+        #sponsorship-graphic-v4,
+        #sponsorship-graphic-v2 {
+            height: 1080px;
+            min-height: 1080px;
+            max-height: 1080px;
+        }
+
+        .graphic-34 {
+            height: 1440px;
+            min-height: 1440px;
+            max-height: 1440px;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 54, 135, 0.93) 0%, rgba(0, 26, 68, 0.96) 100%);
+        }
+
+        .stripe-top,
+        .stripe-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 14px;
+            z-index: 3;
+            background: linear-gradient(90deg, #369662 0%, #cc0000 25%, #f8d300 50%, #003687 75%, #f14916 100%);
+        }
+
+        .stripe-top { top: 0; }
+        .stripe-bottom { bottom: 0; }
+
+        .panel {
+            position: absolute;
+            inset: 34px;
+            z-index: 4;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #fffdf8 0%, #fff9f0 100%);
+            border: 2px solid rgba(255, 255, 255, 0.24);
+            padding: 40px 46px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            box-sizing: border-box;
+            width: calc(100% - 70px)
+        }
+        #sponsorship-graphic-v2 .panel{
+            gap: 10px;
+        }
+
+        .top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 54, 135, 0.18);
+        }
+
+        .logo {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .tag {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: linear-gradient(135deg, #003687, #001a44);
+            border-radius: 999px;
+            padding: 12px 18px;
+            white-space: nowrap;
+        }
+
+        .headline-block {
+            text-align: left;
+        }
+
+        .support-line {
+            font-size: 35px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #f14916;
+            max-width: 820px;
+        }
+
+        .main-cta {
+            margin-top: 6px;
+            font-size: 76px;
+            line-height: 1;
+            font-weight: 900;
+            color: #002964;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+        }
+
+        .event-card {
+            border-radius: 14px;
+            background: linear-gradient(130deg, #003687 0%, #001a44 100%);
+            padding: 24px 28px;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(0, 26, 68, 0.34);
+        }
+
+        .event-prefix {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .event-title {
+            font-size: 75px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #f8d300;
+        }
+
+        .event-sub {
+            font-size: 58px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #fdfdfd;
+            margin-bottom: 18px;
+        }
+
+        .event-meta {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            padding: 9px 16px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .main-grid {
+            position: relative;
+        }
+        .why-box {
+            background: #fff;
+            border: 1px solid rgba(0, 54, 135, 0.13);
+            border-radius: 14px;
+            padding: 24px 24px 22px;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 5;
+        }
+
+        .section-eyebrow {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #f14916;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 35px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #002964;
+            margin-bottom: 12px;
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #253247;
+            font-size: 22px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .check {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background: #369662;
+            margin-top: 2px;
+        }
+
+        .partner-note {
+            border-top: 1px solid rgba(0, 54, 135, 0.12);
+            margin-top: 13px;
+            padding-top: 13px;
+            color: #48566f;
+            font-size: 20px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .qr-box {
+            border-radius: 14px;
+            background: linear-gradient(180deg, #fff 0%, #f7f9ff 100%);
+            border: 1px solid rgba(0, 54, 135, 0.16);
+            padding: 20px 20px 18px;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .qr-title {
+            font-size: 15px;
+            line-height: 1.35;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #003687;
+    TEXT-ALIGN: CENTER;
+        }
+
+        .qr-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: #fff;
+            border: 1px solid rgba(0, 54, 135, 0.15);
+            padding: 12px;
+            margin-top: 12px;
+            text-decoration: none;
+        }
+
+        .qr-image {
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+            color: #fff;
+            width: 100%;
+            margin-top: 14px;
+            box-shadow: 0 5px 16px rgba(241, 73, 22, 0.33);
+        }
+
+        .learn-btn {
+            background: linear-gradient(135deg, #003687 0%, #001a44 100%);
+            color: #fff;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .url-note {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #708099;
+            line-height: 1.35;
+            word-break: break-all;
+    TEXT-ALIGN: CENTER;
+        }
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 18px 2px 0;
+            margin-top: auto;
+            border-top: 2px solid rgba(241, 73, 22, 0.22);
+        }
+
+        .contact-block {
+            color: #2a3850;
+        }
+
+        .contact-title {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f14916;
+            margin-bottom: 5px;
+        }
+
+        .contact-lines {
+            font-size: 18px;
+            line-height: 1.35;
+            font-weight: 700;
+        }
+
+        .contact-lines a {
+            color: #003687;
+            text-decoration: none;
+        }
+
+        .brand-line {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: #6f7e96;
+            text-align: right;
+        }
+
+        .v2-hero {
+            border-radius: 14px;
+            background: linear-gradient(135deg, #002d74 0%, #001a44 100%);
+            padding: 18px 20px;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(0, 22, 56, 0.35);
+        }
+
+        .v2-eyebrow {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .v2-main {
+            margin-top: 6px;
+            font-size: 54px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #f8d300;
+        }
+
+        .v2-offer {
+            margin-top: 6px;
+            font-size: 24px;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .v2-meta-row {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .v2-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 7px 11px;
+            font-size: 14px;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .v2-impact-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .v2-impact-card {
+            background: #fff;
+            border: 1px solid rgba(0, 54, 135, 0.14);
+            border-radius: 12px;
+            padding: 10px 12px;
+        }
+
+        .v2-impact-value {
+            font-size: 26px;
+            line-height: 1;
+            font-weight: 800;
+            color: #f14916;
+        }
+
+        .v2-impact-label {
+            margin-top: 5px;
+            font-size: 13px;
+            line-height: 1.3;
+            font-weight: 700;
+            color: #22334c;
+        }
+
+        .v2-grid {    
+            display: flex;
+    justify-content: center;
+        }
+
+        .v2-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .v2-section {
+            background: #fff;
+            border: 1px solid rgba(0, 54, 135, 0.14);
+            border-radius: 12px;
+            padding: 15px 15px 14px;
+        }
+
+        .v2-title {
+            margin-top: 4px;
+            font-size: 30px;
+            line-height: 1.1;
+            font-weight: 800;
+            color: #002964;
+        }
+
+        .v2-list {
+            margin-top: 8px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .v2-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 17px;
+            line-height: 1.25;
+            font-weight: 600;
+            color: #2b3a53;
+        }
+
+        .v2-note {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0, 54, 135, 0.12);
+            font-size: 15px;
+            line-height: 1.3;
+            font-weight: 600;
+            color: #4a5b76;
+        }
+
+        .v2-proof {
+            background: linear-gradient(135deg, #003687 0%, #001a44 100%);
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 14px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .v2-proof strong { color: #f8d300; }
+
+        .v2-right {
+            background: linear-gradient(180deg, #fff 0%, #f7f9ff 100%);
+            border: 1px solid rgba(0, 54, 135, 0.16);
+            border-radius: 12px;
+            padding: 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .v2-tier {
+            text-align: center;
+            border-radius: 999px;
+            background: #fff5e8;
+            border: 1px solid rgba(241, 73, 22, 0.25);
+            color: #b63d16;
+            padding: 7px 9px;
+            font-size: 12px;
+            line-height: 1.25;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .v2-qr { width: 200px; height: 200px; object-fit: contain; }
+
+        .v2-primary {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 14px 15px;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+            color: #fff;
+        }
+
+        .v2-secondary {
+            text-align: center;
+            text-decoration: none;
+            color: #003687;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .v2-urgency {
+            border-radius: 10px;
+            background: #fff0da;
+            border: 1px solid rgba(241, 73, 22, 0.27);
+            color: #a33a16;
+            padding: 8px 9px;
+            font-size: 12px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .v3-card {
+            background: linear-gradient(165deg, #001031 0%, #001a44 45%, #0a2f6e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .v3-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .v3-blob-a {
+            width: 620px;
+            height: 620px;
+            top: -260px;
+            right: -190px;
+            background: radial-gradient(circle, rgba(248, 211, 0, 0.36) 0%, rgba(248, 211, 0, 0) 72%);
+        }
+
+        .v3-blob-b {
+            width: 520px;
+            height: 520px;
+            bottom: -220px;
+            left: -150px;
+            background: radial-gradient(circle, rgba(241, 73, 22, 0.32) 0%, rgba(241, 73, 22, 0) 72%);
+        }
+
+        .v3-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.09;
+            background-image: repeating-linear-gradient(125deg, #ffffff, #ffffff 1px, transparent 1px, transparent 22px);
+            pointer-events: none;
+        }
+
+        .v3-logo-badge,
+        .v3-tag,
+        .v3-title,
+        .v3-sub,
+        .v3-event-band,
+        .v3-list,
+        .v3-impact-circle,
+        .v3-qr-bubble,
+        .v3-cta-row,
+        .v3-footer-note {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .v3-logo-badge {
+            top: 34px;
+            left: 34px;
+            padding: 8px 10px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .v3-logo-badge img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .v3-tag {
+            top: 44px;
+            right: 34px;
+            padding: 11px 16px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f14916 0%, #cc3300 100%);
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .v3-title {
+            top: 118px;
+            left: 34px;
+            margin: 0;
+            font-size: 154px;
+            line-height: 0.79;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: 800;
+            width: 800px;
+            text-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .v3-title span { color: #f8d300; }
+
+        .v3-sub {
+            top: 430px;
+            left: 38px;
+            width: 560px;
+            margin: 0;
+            font-size: 21px;
+            line-height: 1.28;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 700;
+        }
+
+        .v3-event-band {
+            top: 548px;
+            left: 30px;
+            right: 30px;
+            padding: 13px 24px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #f87000;
+            font-size: 24px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            transform: rotate(-1.7deg);
+            backdrop-filter: blur(1px);
+            text-align: center;
+        }
+
+        .v3-list {
+            top: 650px;
+            left: 40px;
+            width: 590px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .v3-list li {
+            font-size: 20px;
+            line-height: 1.25;
+            color: #ffffff;
+            font-weight: 700;
+            padding-left: 32px;
+            position: relative;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .v3-list li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #9bffc8;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .v3-impact-circle {
+            top: 658px;
+            right: 62px;
+            width: 304px;
+            height: 304px;
+            border-radius: 50%;
+            background: linear-gradient(160deg, #f14916 0%, #cc0000 100%);
+            border: 8px solid rgba(255, 255, 255, 0.26);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.34);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .v3-impact-circle strong {
+            font-size: 98px;
+            line-height: 0.82;
+            font-weight: 800;
+        }
+
+        .v3-impact-circle span {
+            margin-top: 8px;
+            font-size: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+            max-width: 210px;
+            letter-spacing: 0.01em;
+        }
+
+        .v3-qr-bubble {
+            right: 68px;
+            bottom: 154px;
+            width: 300px;
+            height: 276px;
+            border-radius: 38% 62% 56% 44% / 44% 48% 52% 56%;
+            background: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .v3-qr-bubble img {
+            width: 190px;
+            height: 190px;
+            object-fit: contain;
+        }
+
+        .v3-cta-row {
+            left: 40px;
+            bottom: 108px;
+            width: 620px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .v3-cta-row a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 14px 12px;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .v3-primary {
+            color: #ffffff;
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+        }
+
+        .v3-secondary {
+            color: #003687;
+            background: #eef4ff;
+            border: 1px solid rgba(0, 54, 135, 0.16);
+        }
+
+        .v3-footer-note {
+            left: 40px;
+            right: 340px;
+            bottom: 34px;
+            color: rgba(255, 255, 255, 0.96);
+            font-size: 13px;
+            line-height: 1.28;
+            font-weight: 700;
+        }
+
+        .v4-card {
+            position: relative;
+            overflow: hidden;
+            background: #08193f;
+        }
+
+        .v4-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: saturate(1.08) contrast(1.06);
+        }
+
+        .v4-tint {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, rgba(0, 16, 48, 0.78) 0%, rgba(0, 37, 92, 0.56) 46%, rgba(0, 0, 0, 0.5) 100%);
+        }
+
+        .v4-shape {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .v4-shape-a {
+            width: 520px;
+            height: 300px;
+            left: -90px;
+            top: 520px;
+            background: linear-gradient(120deg, rgba(241, 73, 22, 0.75) 0%, rgba(241, 73, 22, 0.35) 100%);
+            clip-path: polygon(0 20%, 100% 0, 85% 100%, 0 88%);
+        }
+
+        .v4-shape-b {
+            width: 420px;
+            height: 420px;
+            right: -100px;
+            top: 640px;
+            background: radial-gradient(circle, rgba(248, 211, 0, 0.66) 0%, rgba(248, 211, 0, 0.1) 72%);
+            border-radius: 50%;
+        }
+
+        .v4-shape-c {
+            width: 620px;
+            height: 260px;
+            right: -120px;
+            bottom: -70px;
+            background: linear-gradient(125deg, rgba(54, 150, 98, 0.78) 0%, rgba(54, 150, 98, 0.32) 100%);
+            clip-path: polygon(18% 0, 100% 14%, 100% 100%, 0 86%);
+        }
+
+        .v4-logo-badge,
+        .v4-tag,
+        .v4-headline,
+        .v4-sub,
+        .v4-date-pill,
+        .v4-deadline-stamp,
+        .v4-points-cloud,
+        .v4-qr-stack {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .v4-logo-badge {
+            top: 34px;
+            left: 34px;
+            padding: 8px 10px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .v4-logo-badge img {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        .v4-tag {
+            top: 44px;
+            right: 34px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #003687 0%, #001a44 100%);
+            color: #ffffff;
+            padding: 11px 16px;
+            font-size: 12px;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+        }
+
+        .v4-headline {    
+            top: 122px;
+            left: 34px;
+            width: 960px;
+            margin: 0;
+            color: #ff7500;
+            font-size: 60px;
+            line-height: 0.82;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 0 10px 26px rgb(0 0 0);
+        }
+
+        .v4-sub {
+            top: 520px;
+            left: 38px;
+            width: 680px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.96);
+            font-size: 23px;
+            line-height: 1.24;
+            font-weight: 700;
+            text-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        .v4-date-pill {
+    top: 400px;
+    left: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    color: #ffffff;
+    padding: 12px 18px;
+    font-size: 18px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+        }
+
+        .v4-deadline-stamp {
+            top: 644px;
+            right: 42px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+            color: #ffffff;
+            padding: 12px 16px;
+            font-size: 11px;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 800;
+        }
+
+        .v4-points-cloud {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 130px;
+            width: 90%;
+            height: 380px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.56);
+            padding: 30px 30px 28px;
+            color: #23354d;
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .v4-points-cloud h3 {
+            margin: 0 0 14px;
+            font-size: 40px;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #f14916;
+            font-weight: 800;
+        }
+        .v4-points-cloud h4 {
+            margin: 0 0 18px;
+            font-size: 23px;
+            line-height: 1.3;
+            color: #c5b100;
+            font-weight: 700;
+        }
+
+        .v4-points-cloud ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .v4-points-cloud li {
+            font-size: 23px;
+            line-height: 1.24;
+            font-weight: 700;
+            padding-left: 34px;
+            position: relative;
+        }
+
+        .v4-points-cloud li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #369662;
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .v4-qr-stack {
+            right: 40px;
+            bottom: 100px;
+            width: 322px;
+            border-radius: 44px 20px 44px 20px;
+            background: linear-gradient(165deg, rgba(0, 26, 68, 0.9) 0%, rgba(0, 54, 135, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .v4-qr-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 14px;
+            text-decoration: none;
+        }
+
+        .v4-qr {
+            width: 204px;
+            height: 204px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        .v4-tier {
+            border-radius: 999px;
+            color: #ffe97a;
+            padding: 9px 10px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .v4-btns {
+            display: grid;
+            gap: 8px;
+        }
+
+        .v4-primary,
+        .v4-secondary {
+            text-decoration: none;
+            text-align: center;
+            border-radius: 999px;
+            padding: 12px 10px;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .v4-primary {
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+            color: #ffffff;
+        }
+
+        .v4-secondary {
+            background: #f4f8ff;
+            color: #003687;
+            border: 1px solid rgba(0, 54, 135, 0.15);
+        }
+
+        .v4-contact {
+            margin-top: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.24);
+            padding-top: 9px;
+            font-size: 12px;
+            line-height: 1.3;
+            color: rgba(255, 255, 255, 0.92);
+            font-weight: 700;
+        }
+
+        .v5-card {
+            background: radial-gradient(circle at 30% 20%, #0a4ca5 0%, #032358 58%, #00122f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .v5-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background-image: radial-gradient(circle at center, #ffffff 1px, transparent 1px);
+            background-size: 15px 15px;
+            pointer-events: none;
+        }
+
+        .v5-logo-badge,
+        .v5-tag,
+        .v5-title,
+        .v5-sub,
+        .v5-orbit,
+        .v5-dock {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .v5-logo-badge {
+            top: 34px;
+            left: 34px;
+            padding: 8px 10px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .v5-logo-badge img {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        .v5-tag {
+            top: 44px;
+            right: 34px;
+            border-radius: 999px;
+            padding: 11px 15px;
+            background: linear-gradient(90deg, #f14916 0%, #f8d300 100%);
+            color: #001a44;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .v5-title {
+            top: 122px;
+            left: 34px;
+            margin: 0;
+            color: #ffffff;
+            font-size: 112px;
+            line-height: 0.83;
+            text-transform: uppercase;
+            font-weight: 800;
+            width: 740px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.34);
+        }
+
+        .v5-sub {
+            top: 320px;
+            left: 38px;
+            width: 700px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.94);
+            font-size: 21px;
+            line-height: 1.26;
+            font-weight: 700;
+        }
+
+        .v5-orbit {
+            left: 30px;
+            right: 30px;
+            top: 396px;
+            bottom: 238px;
+        }
+
+        .v5-ring {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+        }
+
+        .v5-ring-a { width: 760px; height: 760px; }
+        .v5-ring-b { width: 520px; height: 520px; }
+
+        .v5-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 256px;
+            height: 256px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.26);
+            background: linear-gradient(160deg, #f14916 0%, #cc0000 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.38);
+        }
+
+        .v5-core span {
+            font-size: 10px;
+            line-height: 1;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .v5-core strong {
+            margin-top: 8px;
+            font-size: 78px;
+            line-height: 0.82;
+            font-weight: 800;
+        }
+
+        .v5-core em {
+            margin-top: 8px;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 700;
+            max-width: 176px;
+        }
+
+        .v5-note {
+            position: absolute;
+            width: 178px;
+            padding: 11px 12px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #30425c;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 26px rgba(0, 16, 49, 0.3);
+            font-size: 12px;
+            line-height: 1.24;
+            font-weight: 700;
+        }
+
+        .v5-note strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #003687;
+            font-size: 11px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 800;
+        }
+
+        .v5-note-1 { left: 104px; top: 80px; border-radius: 34px 20px 34px 18px; }
+        .v5-note-2 { left: 400px; top: 8px; border-radius: 24px 36px 20px 30px; }
+        .v5-note-3 { right: 100px; top: 108px; border-radius: 26px 28px 20px 34px; }
+        .v5-note-4 { left: 10px; top: 304px; border-radius: 30px 18px 36px 22px; }
+        .v5-note-5 { right: 8px; top: 302px; border-radius: 20px 30px 22px 36px; }
+        .v5-note-6 { left: 88px; bottom: 180px; border-radius: 26px 34px 18px 30px; }
+        .v5-note-7 { left: 354px; bottom: 34px; border-radius: 30px 20px 32px 22px; }
+        .v5-note-8 { right: 104px; bottom: 136px; border-radius: 34px 22px 30px 18px; }
+
+        .v5-dock {
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            height: 188px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: linear-gradient(160deg, rgba(0, 20, 58, 0.82) 0%, rgba(0, 35, 90, 0.88) 100%);
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 172px 1fr;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .v5-qr-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .v5-qr {
+            width: 132px;
+            height: 132px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .v5-dock-main {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 8px;
+        }
+
+        .v5-dock-tier {
+            border-radius: 999px;
+            color: #ffe97a;
+            padding: 9px 10px;
+            text-align: left;
+            font-size: 10px;
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .v5-dock-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .v5-primary,
+        .v5-secondary {
+            text-decoration: none;
+            text-align: center;
+            border-radius: 999px;
+            padding: 11px 10px;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .v5-primary {
+            color: #ffffff;
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+        }
+
+        .v5-secondary {
+            color: #003687;
+            background: #f4f8ff;
+            border: 1px solid rgba(0, 54, 135, 0.15);
+        }
+
+        .v5-dock-note {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 12px;
+            line-height: 1.28;
+            font-weight: 700;
+        }
+        .panel,
+        .v6-card {
+            background: linear-gradient(180deg, #fff5e3 0%, #ffe8c9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before,
+        .v6-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: repeating-linear-gradient(120deg, #001a44, #001a44 1px, transparent 1px, transparent 18px);
+            pointer-events: none;
+        }
+
+        .v6-paper {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.88;
+        }
+
+        .v6-paper-a {
+            width: 640px;
+            height: 280px;
+            top: -84px;
+            right: -140px;
+            background: linear-gradient(135deg, #f14916 0%, #cc0000 100%);
+            clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 78%);
+        }
+
+        .v6-paper-b {
+            width: 540px;
+            height: 300px;
+            bottom: -120px;
+            left: -140px;
+            background: linear-gradient(135deg, #369662 0%, #0f6a3d 100%);
+            clip-path: polygon(0 0, 100% 24%, 82% 100%, 0 100%);
+        }
+
+        .v6-paper-c {
+            width: 360px;
+            height: 360px;
+            right: -80px;
+            top: 590px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(248, 211, 0, 0.76) 0%, rgba(248, 211, 0, 0.06) 70%);
+        }
+
+        .v6-topline,
+        .v6-vertical-word,
+        .v6-title,
+        .v6-sub,
+        .v6-note,
+        .v6-cta-panel {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .v6-topline {
+            top: 32px;
+            left: 34px;
+            right: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .v6-logo-badge {
+            padding: 8px 10px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .v6-logo-badge img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .v6-tag {
+            border-radius: 999px;
+            padding: 11px 16px;
+            background: linear-gradient(90deg, #003687 0%, #001a44 100%);
+            color: #ffffff;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .v6-vertical-word {
+            left: 30px;
+            top: 122px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 126px;
+            line-height: 0.82;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: rgba(0, 26, 68, 0.16);
+            letter-spacing: -0.02em;
+        }
+
+        .v6-title {
+            left: 188px;
+            top: 164px;
+            margin: 0;
+            color: #001a44;
+            font-size: 118px;
+            line-height: 0.78;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            width: 790px;
+        }
+
+        .v6-title span { color: #f14916; }
+
+        .v6-sub {
+            left: 194px;
+            top: 374px;
+            width: 720px;
+            margin: 0;
+            color: #23354d;
+            font-size: 22px;
+            line-height: 1.24;
+            font-weight: 700;
+        }
+
+        .v6-note {
+            padding: 30px 23px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 54, 135, 0.16);
+            color: #2f425d;
+            box-sizing: border-box;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+            clip-path: polygon(0 6%, 94% 0, 100% 94%, 8% 100%);
+        }
+
+        .v6-note h4 {
+            margin: 0 0 8px;
+            font-size: 10px;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #f14916;
+            font-weight: 800;
+        }
+
+        .v6-note p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.28;
+            font-weight: 700;
+        }
+
+        .v6-note ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .v6-note li {
+            font-size: 15px;
+            line-height: 1.24;
+            font-weight: 700;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .v6-note li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #369662;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .v6-note-a {
+            left: 194px;
+            top: 600px;
+            width: 374px;
+            height: 270px;
+            transform: rotate(-1.6deg);
+        }
+
+        .v6-note-b {
+            left: 588px;
+            top: 524px;
+            width: 248px;
+            height: 216px;
+            transform: rotate(1.8deg);
+        }
+
+        .v6-note-c {
+            left: 588px;
+            top: 886px;
+            width: 244px;
+            height: 166px;
+            transform: rotate(-2deg);
+        }
+
+        .v6-note-d {
+            left: 846px;
+            top: 714px;
+            width: 190px;
+            height: 180px;
+            transform: rotate(1.7deg);
+            background: linear-gradient(155deg, #001a44 0%, #003687 100%);
+            border-color: rgba(255, 255, 255, 0.22);
+            color: rgba(255, 255, 255, 0.94);
+        }
+
+        .v6-note-d h4 { color: #f8d300; }
+        .v6-note-d p { color: rgba(255, 255, 255, 0.95); }
+
+        .v6-cta-panel {
+            left: 34px;
+            right: 40px;
+            bottom: 36px;
+            height: 220px;
+            border-radius: 34px 18px 34px 18px;
+            border: 1px solid rgba(0, 54, 135, 0.2);
+            background: linear-gradient(165deg, #001a44 0%, #003687 100%);
+            padding: 14px;
+            display: grid;
+            grid-template-columns: 206px 1fr;
+            gap: 14px;
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+        }
+
+        .v6-qr-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .v6-qr {
+            width: 166px;
+            height: 166px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .v6-cta-main {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            align-content: start;
+        }
+
+        .v6-tier {
+            border-radius: 999px;
+            background: rgba(248, 211, 0, 0.2);
+            border: 1px solid rgba(248, 211, 0, 0.36);
+            color: #ffe97a;
+            padding: 10px 10px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .v6-btn-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .v6-primary,
+        .v6-secondary {
+            text-decoration: none;
+            text-align: center;
+            border-radius: 999px;
+            padding: 12px 10px;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .v6-primary {
+            background: linear-gradient(135deg, #f14916 0%, #cc3300 100%);
+            color: #ffffff;
+        }
+
+        .v6-secondary {
+            background: #f4f8ff;
+            color: #003687;
+            border: 1px solid rgba(0, 54, 135, 0.15);
+        }
+
+        .v6-footer {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 13px;
+            line-height: 1.3;
+            font-weight: 700;
+            border-top: 1px solid rgba(255, 255, 255, 0.24);
+            padding-top: 10px;
+        }
+
+        .v7-card {
+            position: relative;
+            overflow: hidden;
+            background: #ece9e7;
+            color: #1f1f25;
+        }
+
+        .v7-photo,
+        .v7-tint {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .v7-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .v7-tint {
+            background: linear-gradient(180deg, rgba(255, 251, 246, 0.24) 0%, rgba(242, 233, 224, 0.72) 100%);
+        }
+
+        .v7-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .v7-shape-green {
+            width: 316px;
+            height: 316px;
+            top: -124px;
+            right: -90px;
+            background: #369662;
+        }
+
+        .v7-shape-blue {
+            width: 170px;
+            height: 170px;
+            top: 398px;
+            left: -86px;
+            background: #0e4195;
+        }
+
+        .v7-shape-beige {
+            width: 640px;
+            height: 640px;
+            right: -256px;
+            bottom: -208px;
+            background: #ddd7d2;
+        }
+
+        .v7-shape-pink {
+            width: 62px;
+            height: 62px;
+            right: 96px;
+            top: 276px;
+            background: #e5007d;
+        }
+
+        .v7-dots {
+            position: absolute;
+            width: 88px;
+            height: 88px;
+            background-image: radial-gradient(circle, #1f1f25 4px, transparent 4px);
+            background-size: 29px 29px;
+            z-index: 1;
+        }
+
+        .v7-dots-right {
+            right: 38px;
+            top: 408px;
+        }
+
+        .v7-dots-left {
+            left: 24px;
+            top: 1016px;
+        }
+
+        .v7-logo,
+        .v7-headline,
+        .v7-sub,
+        .v7-urgency,
+        .v7-tier-grid,
+        .v7-cta,
+        .v7-qr-label,
+        .v7-qr-link,
+        .v7-actions,
+        .v7-footerbar {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .v7-logo {
+            top: 34px;
+            left: 40px;
+            width: 372px;
+        }
+
+        .v7-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .v7-headline {
+            top: 164px;
+            left: 84px;
+            margin: 0;
+            width: 960px;
+            font-size: 86px;
+            line-height: 0.88;
+            font-weight: 800;
+            color: #f39a00;
+            letter-spacing: -0.03em;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.26);
+        }
+
+        .v7-sub {
+            top: 346px;
+            left: 112px;
+            width: 856px;
+            margin: 0;
+            text-align: center;
+            font-size: 52px;
+            line-height: 1.05;
+            font-weight: 800;
+            color: #141924;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.52);
+        }
+
+        .v7-urgency {
+            top: 496px;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            font-size: 54px;
+            line-height: 1;
+            font-weight: 800;
+            color: #b20a17;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.54);
+        }
+
+        .v7-tier-grid {
+            left: 50px;
+            right: 50px;
+            top: 590px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .v7-tier {
+            min-height: 168px;
+            border-radius: 26px;
+            background: rgba(255, 251, 247, 0.92);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .v7-tier-orange {
+            border: 3px solid rgba(246, 161, 0, 0.88);
+        }
+
+        .v7-tier-blue {
+            border: 3px solid rgba(14, 65, 149, 0.82);
+        }
+
+        .v7-tier-icon {
+            width: 66px;
+            height: 66px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .v7-tier-orange .v7-tier-icon {
+            color: #f6a100;
+            background: rgba(246, 161, 0, 0.14);
+            border: 2px solid rgba(246, 161, 0, 0.22);
+        }
+
+        .v7-tier-blue .v7-tier-icon {
+            color: #0e4195;
+            background: rgba(14, 65, 149, 0.13);
+            border: 2px solid rgba(14, 65, 149, 0.22);
+        }
+
+        .v7-tier-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .v7-tier-copy span {
+            font-size: 22px;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.42);
+        }
+
+        .v7-tier-copy strong {
+            font-size: 66px;
+            line-height: 0.9;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-shadow: 0 2px 7px rgba(255, 255, 255, 0.35);
+        }
+
+        .v7-tier-orange .v7-tier-copy {
+            color: #f29600;
+        }
+
+        .v7-tier-blue .v7-tier-copy {
+            color: #0e4195;
+        }
+
+        .v7-cta {
+            top: 788px;
+            left: 84px;
+            right: 84px;
+            margin: 0;
+            text-align: center;
+            font-size: 90px;
+            line-height: 0.9;
+            font-weight: 800;
+            color: #2e8758;
+            letter-spacing: -0.03em;
+            text-shadow: 0 3px 10px rgba(255, 255, 255, 0.58), 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .v7-qr-label {
+            top: 1068px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 26px;
+            line-height: 1;
+            font-weight: 700;
+            color: #0e4195;
+            letter-spacing: -0.01em;
+        }
+
+        .v7-qr-link {
+            left: 390px;
+            top: 980px;
+            width: 270px;
+            height: 270px;
+            border-radius: 16px;
+            background: #e5007d;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .v7-qr-link img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            background: #ffffff;
+            object-fit: contain;
+        }
+
+        .v7-actions {
+            top: 1265px;
+            left: 236px;
+            right: 236px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .v7-primary,
+        .v7-secondary {
+            text-decoration: none;
+            text-align: center;
+            border-radius: 999px;
+            padding: 14px 10px;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .v7-primary {
+            background: #f6a100;
+            color: #ffffff;
+        }
+
+        .v7-secondary {
+            background: #0e4195;
+            color: #ffffff;
+        }
+
+        .v7-footerbar {
+            left: 22px;
+            right: 22px;
+            bottom: 18px;
+            min-height: 96px;
+            border-radius: 24px;
+            background: #656a73;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            padding: 14px 16px;
+            align-items: center;
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.26);
+        }
+
+        .v7-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+        }
+
+        .v7-meta-icon {
+            height: 56px;
+            width: 56px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            line-height: 1;
+            font-weight: 800;
+            padding: 10px;
+        }
+
+        .v7-meta strong {
+            display: block;
+            font-size: 17px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.34);
+        }
+
+        .v7-meta span {
+            display: block;
+            margin-top: 2px;
+            font-size: 13px;
+            line-height: 1.15;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.34);
+        }
+
+        .v7-meta-format {
+            justify-content: flex-end;
+        }
+
+        .v7-zoom {
+            width: 54px;
+            height: 54px;
+            border-radius: 10px;
+            background: #ffffff;
+            object-fit: contain;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-row">
+    <div class="graphic-label">May 2026 / Sponsorship Social Graphic (1080 x 1350)</div>
+    <button class="export-btn" id="export-btn-1" onclick="exportGraphic('sponsorship-graphic', 'export-btn-1', 'cbhn-may-conference-sponsorship-social.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic" id="sponsorship-graphic">
+    <img src="../../assets/images/cbhn-image-background.png" alt="CBHN community background" class="bg-image">
+    <div class="bg-overlay"></div>
+    <div class="stripe-top"></div>
+    <div class="stripe-bottom"></div>
+
+    <div class="panel">
+        <div class="top-row">
+            <div class="logo-wrap">
+                <img src="../../assets/images/cbhn-logo.png" alt="California Black Health Network" class="logo">
+            </div>
+            <div class="tag">Sponsorship Opportunities</div>
+        </div>
+
+        <div class="headline-block">
+            <div class="main-cta">Become a Sponsor</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-prefix">CBHN Virtual Mental and Behavioral Health Conference</div>
+            <div class="event-title">Stress, Mental Health &amp; Brain Health</div>
+            <div class="event-sub">in the Black Community</div>
+            <div class="event-meta">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom)</div>
+        </div>
+
+        <div class="main-grid">
+            <div class="why-box">
+                <div class="section-eyebrow">Why Sponsor This Conference</div>
+                <div class="section-title">Advance Health Equity with CBHN</div>
+                <ul class="why-list">
+                    <li><span class="check">&#10003;</span><span>Demonstrate commitment to health equity and racial justice</span></li>
+                    <li><span class="check">&#10003;</span><span>Gain visibility with statewide leaders and decision-makers</span></li>
+                    <li><span class="check">&#10003;</span><span>Support community-centered mental health solutions</span></li>
+                    <li><span class="check">&#10003;</span><span>Align your brand with trusted Black-led leadership</span></li>
+                </ul>
+                <p class="partner-note">
+                    Your partnership helps expand equitable access to mental healthcare for Black communities disproportionately impacted by systemic inequities.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-row">
+            <div class="contact-block">
+                <div class="contact-title">Questions or Sponsorship Inquiries</div>
+                <div class="contact-lines">
+                    <a href="mailto:events@yourcbhn.org">events@yourcbhn.org</a>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <a class="btn learn-btn" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+                <div class="brand-line">California Black Health Network<br>yourcbhn.org</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">May 2026 / Sponsorship Social Graphic V2 (1080 x 1080)</div>
+    <button class="export-btn" id="export-btn-2" onclick="exportGraphic('sponsorship-graphic-v2', 'export-btn-2', 'cbhn-may-conference-sponsorship-social-v2.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic" id="sponsorship-graphic-v2">
+    <img src="../../assets/images/cbhn-image-background.png" alt="CBHN community background" class="bg-image">
+    <div class="bg-overlay"></div>
+    <div class="stripe-top"></div>
+    <div class="stripe-bottom"></div>
+
+    <div class="panel">
+        <div class="top-row">
+            <div class="logo-wrap">
+                <img src="../../assets/images/cbhn-logo.png" alt="California Black Health Network" class="logo">
+            </div>
+            <div class="tag">Decision-Maker Sponsor Variant</div>
+        </div>
+
+        <div class="v2-hero">
+            <div class="v2-eyebrow">CBHN Virtual Mental and Behavioral Health Conference</div>
+            <div class="v2-main">Become a Sponsor</div>
+            <div class="v2-meta-row">
+                <span class="v2-pill">May 13, 2026</span>
+                <span class="v2-pill">8:00 AM - 1:00 PM PT</span>
+                <span class="v2-pill">Virtual (Zoom)</span>
+            </div>
+        </div>
+
+        <div class="v2-impact-row">
+            <div class="v2-impact-card">
+                <div class="v2-impact-value">40+</div>
+                <div class="v2-impact-label">years of Black-led health equity impact in California</div>
+            </div>
+            <div class="v2-impact-card">
+                <div class="v2-impact-value">Statewide</div>
+                <div class="v2-impact-label">visibility with leaders, policymakers, and trusted community partners</div>
+            </div>
+            <div class="v2-impact-card">
+                <div class="v2-impact-value">High-Trust</div>
+                <div class="v2-impact-label">association with credible, culturally responsive leadership</div>
+            </div>
+        </div>
+
+        <div class="v2-grid">
+            <div class="v2-right">
+                <div class="qr-title">Scan to Open Sponsorship Package</div>
+                <div class="v2-tier">Sponsorship Tiers: $500 to $10,000</div>
+                <a class="qr-link" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">
+                    <img src="../../assets/images/sponsor-package-qr.png" alt="QR code to sponsorship package" class="v2-qr">
+                </a>
+                <a class="v2-primary" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">Open Sponsorship Package</a>
+                <a class="v2-secondary" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn more about the event</a>
+                <div class="v2-urgency">Priority logo placement deadline: April 30, 2026. Confirm early to maximize visibility.</div>
+                <div class="url-note">bit.ly/cbhn-sponsor</div>
+            </div>
+        </div>
+
+        <div class="footer-row">
+            <div class="contact-block">
+                <div class="contact-title">Questions or Sponsorship Inquiries</div>
+                <div class="contact-lines">
+                    CONTACT <a href="mailto:events@yourcbhn.org">EVENTS@YOURCBHN.ORG</a> OR VISIT <a href="http://yourcbhn.org/" target="_blank" rel="noopener">YOURCBHN.ORG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">Variation 3 / Rhythm Split (1080 x 1440, 3:4)</div>
+    <button class="export-btn" id="export-btn-3" onclick="exportGraphic('sponsorship-graphic-v3', 'export-btn-3', 'cbhn-may-conference-sponsorship-social-v3.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic graphic-34 v3-card" id="sponsorship-graphic-v3">
+    <div class="v3-blob v3-blob-a"></div>
+    <div class="v3-blob v3-blob-b"></div>
+
+    <div class="v3-logo-badge"><img src="../../assets/images/cbhn-logo.png" alt="CBHN logo"></div>
+    <div class="v3-tag">Sponsorship Opportunities</div>
+
+    <h2 class="v3-title">Sponsor<br><span>The Shift</span></h2>
+    <p class="v3-sub">Invest in Black-led leadership advancing stress, mental health, and brain health solutions across California.</p>
+
+    <div class="v3-event-band">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom)</div>
+
+    <ul class="v3-list">
+        <li>Back the convening where policy, practice, and community voice meet.</li>
+        <li>Reach clinicians, public health agencies, researchers, and community leaders.</li>
+        <li>Demonstrate real commitment to health equity and racial justice.</li>
+        <li>Align your organization with trusted Black-led statewide leadership.</li>
+    </ul>
+
+    <div class="v3-impact-circle">
+        <strong>40+</strong>
+        <span>Years of trusted Black health equity leadership in California</span>
+    </div>
+
+    <a class="v3-qr-bubble" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">
+        <img src="../../assets/images/sponsor-package-qr.png" alt="QR code to sponsorship package">
+    </a>
+
+    <div class="v3-cta-row">
+        <a class="v3-primary" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">Open Sponsorship Package</a>
+        <a class="v3-secondary" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+    </div>
+
+    <div class="v3-footer-note">Sponsorship tiers: $500 to $10,000. Priority logo placement deadline: April 30, 2026. <br>Questions: events@yourcbhn.org</div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">Variation 4 / Photo Narrative (1080 x 1080)</div>
+    <button class="export-btn" id="export-btn-4" onclick="exportGraphic('sponsorship-graphic-v4', 'export-btn-4', 'cbhn-may-conference-sponsorship-social-v4.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic graphic-34 v4-card" id="sponsorship-graphic-v4">
+    <img src="../../assets/images/cbhn-image-background.png" alt="CBHN community background" class="v4-photo">
+    <div class="v4-tint"></div>
+    <div class="v4-shape v4-shape-a"></div>
+    <div class="v4-shape v4-shape-b"></div>
+    <div class="v4-shape v4-shape-c"></div>
+
+    <div class="v4-logo-badge"><img src="../../assets/images/cbhn-logo.png" alt="CBHN logo"></div>
+    <div class="v4-tag">Sponsorship Opportunities</div>
+
+    <h2 class="v4-headline">Sponsor a Black-led statewide conference focused on stress, mental health, and brain health in the Black community.</h2>
+
+    <div class="v4-date-pill">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom)</div>
+
+    <div class="v4-points-cloud">
+        <h3>Why This Conference Matters</h3>
+        <ul>
+            <li>Statewide visibility with behavioral health leaders and policymakers.</li>
+            <li>Direct alignment with community-centered, culturally responsive solutions.</li>
+            <li>Meaningful brand association with trusted Black-led expertise.</li>
+            <li>Platform for organizations committed to measurable equity outcomes.</li>
+        </ul>
+        <h4>For sponsorship inquiries reach out to events@yourcbhn.org</h4>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">Variation 5 / Orbit Infographic (1080 x 1440, 3:4)</div>
+    <button class="export-btn" id="export-btn-5" onclick="exportGraphic('sponsorship-graphic-v5', 'export-btn-5', 'cbhn-may-conference-sponsorship-social-v5.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic graphic-34 v5-card" id="sponsorship-graphic-v5">
+    <div class="v5-logo-badge"><img src="../../assets/images/cbhn-logo.png" alt="CBHN logo"></div>
+    <div class="v5-tag">Sponsorship Opportunities</div>
+
+    <h2 class="v5-title">Map<br>the Impact</h2>
+    <p class="v5-sub">Sponsor the statewide convening where policy, practice, and community voice align around Black mental health equity.</p>
+
+    <div class="v5-orbit">
+        <div class="v5-ring v5-ring-a"></div>
+        <div class="v5-ring v5-ring-b"></div>
+
+        <div class="v5-core">
+            <span>CBHN Impact</span>
+            <strong>40+</strong>
+            <em>Years of Black-led health equity leadership</em>
+        </div>
+
+        <div class="v5-note v5-note-1"><strong>Statewide Visibility</strong>Reach decision-makers across health systems and public agencies.</div>
+        <div class="v5-note v5-note-2"><strong>Community Credibility</strong>Align with trusted Black-led leadership and expertise.</div>
+        <div class="v5-note v5-note-3"><strong>Behavioral Health Action</strong>Support culturally responsive solutions for urgent needs.</div>
+        <div class="v5-note v5-note-4"><strong>Policy Relevance</strong>Connect strategy to practical implementation and impact.</div>
+        <div class="v5-note v5-note-5"><strong>Network Access</strong>Engage clinicians, researchers, advocates, and community partners.</div>
+        <div class="v5-note v5-note-6"><strong>Black-Led Leadership</strong>Invest directly in trusted organizations rooted in community.</div>
+        <div class="v5-note v5-note-7"><strong>Cross-Sector Reach</strong>Unite nonprofit, public, and private sector voices around outcomes.</div>
+        <div class="v5-note v5-note-8"><strong>Measured Equity Impact</strong>Back practical change with long-term relevance.</div>
+    </div>
+
+    <div class="v5-dock">
+        <a class="v5-qr-link" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">
+            <img src="../../assets/images/sponsor-package-qr.png" alt="QR code to sponsorship package" class="v5-qr">
+        </a>
+
+        <div class="v5-dock-main">
+            <div class="v5-dock-tier">Sponsorship tiers: $500 to $10,000</div>
+            <div class="v5-dock-row">
+                <a class="v5-primary" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">Open Sponsorship Package</a>
+                <a class="v5-secondary" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+            </div>
+            <div class="v5-dock-note">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom). Priority logo placement deadline: April 30, 2026. Questions: events@yourcbhn.org</div>
+        </div>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">Variation 6 / Poster Collage (1080 x 1440, 3:4)</div>
+    <button class="export-btn" id="export-btn-6" onclick="exportGraphic('sponsorship-graphic-v6', 'export-btn-6', 'cbhn-may-conference-sponsorship-social-v6.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic graphic-34 v6-card" id="sponsorship-graphic-v6">
+    <div class="v6-paper v6-paper-a"></div>
+    <div class="v6-paper v6-paper-b"></div>
+    <div class="v6-paper v6-paper-c"></div>
+
+    <div class="v6-topline">
+        <div class="v6-logo-badge"><img src="../../assets/images/cbhn-logo.png" alt="CBHN logo"></div>
+        <div class="v6-tag">Sponsorship Opportunities</div>
+    </div>
+
+    <div class="v6-vertical-word">Sponsor</div>
+
+    <h2 class="v6-title">The Shift<br><span>Starts Here</span></h2>
+    <p class="v6-sub">Build healthier futures for Black communities through culturally responsive mental and behavioral health action.</p>
+
+    <article class="v6-note v6-note-a">
+        <h4>Why Sponsor</h4>
+        <ul>
+            <li>Show leadership in health equity and racial justice.</li>
+            <li>Connect with statewide decision-makers and community leaders.</li>
+            <li>Support urgent, community-centered behavioral health solutions.</li>
+            <li>Align your brand with trusted Black-led expertise.</li>
+        </ul>
+    </article>
+
+    <article class="v6-note v6-note-b">
+        <h4>Audience</h4>
+        <p>Behavioral health professionals, policymakers, public health teams, researchers, and community-based organizations.</p>
+    </article>
+
+    <article class="v6-note v6-note-c">
+        <h4>Event Date</h4>
+        <p>May 13, 2026<br>8:00 AM - 1:00 PM PT<br>Virtual (Zoom)</p>
+    </article>
+
+    <article class="v6-note v6-note-d">
+        <h4>40+ Years</h4>
+        <p>CBHN has advanced Black health equity in California for over four decades.</p>
+    </article>
+
+    <div class="v6-cta-panel">
+        <a class="v6-qr-link" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">
+            <img src="../../assets/images/sponsor-package-qr.png" alt="QR code to sponsorship package" class="v6-qr">
+        </a>
+
+        <div class="v6-cta-main">
+            <div class="v6-tier">Sponsorship tiers: $500 to $10,000</div>
+            <div class="v6-btn-row">
+                <a class="v6-primary" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">Open Sponsorship Package</a>
+                <a class="v6-secondary" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+            </div>
+            <div class="v6-footer">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom). Priority logo placement deadline: April 30, 2026. Questions: events@yourcbhn.org</div>
+        </div>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">Variation 7 / Clean Promo (1080 x 1440, 3:4)</div>
+    <button class="export-btn" id="export-btn-7" onclick="exportGraphic('sponsorship-graphic-v7', 'export-btn-7', 'cbhn-may-conference-sponsorship-social-v7.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic graphic-34 v7-card" id="sponsorship-graphic-v7">
+    <img src="../../assets/images/cbhn-image-background.png" alt="CBHN community background" class="v7-photo">
+    <div class="v7-tint"></div>
+    <div class="v7-shape v7-shape-green"></div>
+    <div class="v7-shape v7-shape-blue"></div>
+    <div class="v7-shape v7-shape-beige"></div>
+    <div class="v7-shape v7-shape-pink"></div>
+    <div class="v7-dots v7-dots-right"></div>
+    <div class="v7-dots v7-dots-left"></div>
+
+    <div class="v7-logo"><img src="../../assets/images/cbhn-logo.png" alt="California Black Health Network"></div>
+
+    <h2 class="v7-headline">Sponsorship Window<br>Closing Soon!</h2>
+    <p class="v7-sub">Behavioral and Mental Health Virtual Conference.</p>
+    <p class="v7-urgency">&#8594; Priority deadline April 30, 2026</p>
+
+    <div class="v7-tier-grid">
+        <article class="v7-tier v7-tier-orange">
+            <div class="v7-tier-icon">$</div>
+            <div class="v7-tier-copy">
+                <span>Starting tier</span>
+                <strong>$500</strong>
+            </div>
+        </article>
+        <article class="v7-tier v7-tier-blue">
+            <div class="v7-tier-icon">$</div>
+            <div class="v7-tier-copy">
+                <span>Top tier</span>
+                <strong>$10K</strong>
+            </div>
+        </article>
+    </div>
+
+    <p class="v7-cta">Sponsor today<br>and lead impact!</p>
+
+    <a class="v7-qr-link" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">
+        <img src="../../assets/images/sponsor-package-qr.png" alt="QR code to sponsorship package">
+    </a>
+
+    <div class="v7-actions">
+        <a class="v7-primary" href="https://bit.ly/cbhn-sponsor" target="_blank" rel="noopener">Open Package</a>
+        <a class="v7-secondary" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+    </div>
+
+    <div class="v7-footerbar">
+        <div class="v7-meta">
+            <svg class="v7-meta-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div>
+                <strong>Date</strong>
+                <span>May 13, 2026</span>
+            </div>
+        </div>
+        <div class="v7-meta">
+            <svg class="v7-meta-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+                <strong>Time</strong>
+                <span>8:00 AM - 1:00 PM PT</span>
+            </div>
+        </div>
+        <div class="v7-meta v7-meta-format">
+            <img src="../../assets/images/zoom-fondo-blanco-vertical-logo-png_seeklogo-381383.png" alt="Zoom logo" class="v7-zoom">
+            <div>
+                <strong>Format</strong>
+                <span>Live via Zoom</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-row">
+    <div class="graphic-label">May 2026 / Why Attend Graphic (1080 x 1350)</div>
+    <button class="export-btn" id="export-btn-why-attend" onclick="exportGraphic('why-attend-graphic', 'export-btn-why-attend', 'cbhn-may-conference-why-attend.png')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+
+<div class="graphic" id="why-attend-graphic">
+    <img src="../../assets/images/cbhn-image-background.png" alt="CBHN community background" class="bg-image">
+    <div class="bg-overlay"></div>
+    <div class="stripe-top"></div>
+    <div class="stripe-bottom"></div>
+
+    <div class="panel">
+        <div class="top-row">
+            <div class="logo-wrap">
+                <img src="../../assets/images/cbhn-logo.png" alt="California Black Health Network" class="logo">
+            </div>
+            <div class="tag">Why Attend</div>
+        </div>
+
+        <div class="headline-block">
+            <div class="main-cta">Why Attend</div>
+            <div class="sub-cta">Hidden Crises: Stress, Mental Health &amp; Brain Health</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-prefix">CBHN Virtual Mental and Behavioral Health Conference</div>
+            <div class="event-title">Stress, Mental Health &amp; Brain Health</div>
+            <div class="event-sub">in the Black Community</div>
+            <div class="event-meta">May 13, 2026 | 8:00 AM - 1:00 PM PT | Virtual (Zoom)</div>
+        </div>
+
+        <div class="main-grid">
+            <div class="why-box">
+                <div class="section-eyebrow">Why Attend</div>
+                <div class="section-title">Clinical Learning You Can Use Right Away</div>
+                <ul class="why-list">
+                    <li><span class="check">&#10003;</span><span>Earn up to five (5) continuing education credits</span></li>
+                    <li><span class="check">&#10003;</span><span>Gain practical, evidence-based clinical strategies</span></li>
+                    <li><span class="check">&#10003;</span><span>Learn from experienced behavioral health professionals</span></li>
+                    <li><span class="check">&#10003;</span><span>Apply tools immediately to your practice</span></li>
+                </ul>
+
+                <div style="margin-top: 18px; padding: 14px 16px; border-radius: 12px; background-color: rgba(255, 123, 0, 0.08); border: 1px solid rgba(255, 255, 255, 0.12);">
+                    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">
+                        CEUs Available For
+                    </div>
+                    <div style="margin-top: 8px; font-size: 18px; font-weight: 800;">
+                        LCSWs &#8226; LMFTs &#8226; LPCCs &#8226; LEPs
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-row">
+            <div class="contact-block">
+                <div class="contact-title">Register / Learn More</div>
+                <div class="contact-lines">
+                    <a href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">yourcbhn.org/hidden-crises</a>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <a class="btn learn-btn" href="https://yourcbhn.org/hidden-crises/" target="_blank" rel="noopener">Learn More</a>
+                <div class="brand-line">California Black Health Network<br>yourcbhn.org</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function waitForNextPaint() {
+    return new Promise(function(resolve) {
+        requestAnimationFrame(function() {
+            requestAnimationFrame(resolve);
+        });
+    });
+}
+
+function waitForImage(image) {
+    if (!image) {
+        return Promise.resolve();
+    }
+
+    if (image.complete && image.naturalWidth > 0) {
+        if (typeof image.decode === 'function') {
+            return image.decode().catch(function() {
+                return undefined;
+            });
+        }
+        return Promise.resolve();
+    }
+
+    return new Promise(function(resolve) {
+        function done() {
+            image.removeEventListener('load', handleLoad);
+            image.removeEventListener('error', handleError);
+            resolve();
+        }
+
+        function handleLoad() {
+            if (typeof image.decode === 'function') {
+                image.decode().catch(function() {
+                    return undefined;
+                }).finally(done);
+                return;
+            }
+            done();
+        }
+
+        function handleError() {
+            done();
+        }
+
+        image.addEventListener('load', handleLoad, { once: true });
+        image.addEventListener('error', handleError, { once: true });
+    });
+}
+
+async function waitForCardAssets(card) {
+    if (document.fonts && document.fonts.ready) {
+        try {
+            await document.fonts.ready;
+        } catch (fontError) {
+            console.warn('Font readiness check failed:', fontError);
+        }
+    }
+
+    var images = Array.prototype.slice.call(card.querySelectorAll('img'));
+    await Promise.all(images.map(waitForImage));
+    await waitForNextPaint();
+}
+
+function downloadBlob(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var anchor = document.createElement('a');
+
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+
+    URL.revokeObjectURL(url);
+}
+
+function sanitizePngFilename(rawTitle) {
+    var cleaned = String(rawTitle || '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/[\\/?%*:|"<>]/g, '-')
+        .replace(/\.+$/g, '')
+        .trim();
+
+    if (!cleaned) {
+        cleaned = 'export';
+    }
+
+    return cleaned + '.png';
+}
+
+function buildExportFilename(card, button, filenameHint) {
+    var titleFromPage = document.title ? document.title.trim() : '';
+    var headerRow = button.closest('.header-row');
+    var label = headerRow ? headerRow.querySelector('.graphic-label') : null;
+    var titleFromLabel = label && label.textContent ? label.textContent.trim() : '';
+    var titleFromCard = card.getAttribute('data-export-title') || '';
+    var cleanedHint = String(filenameHint || '')
+        .replace(/\.png$/i, '')
+        .replace(/[-_]+/g, ' ')
+        .trim();
+
+    var chosenTitle = titleFromLabel || titleFromPage || titleFromCard || cleanedHint || 'export';
+    return sanitizePngFilename(chosenTitle);
+}
+
+function isLikelyBlankCanvas(canvas) {
+    var context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) {
+        return false;
+    }
+
+    var sampleCols = 12;
+    var sampleRows = 12;
+    var nonBlankPixels = 0;
+
+    for (var row = 0; row < sampleRows; row += 1) {
+        var y = Math.min(canvas.height - 1, Math.round((row / (sampleRows - 1)) * (canvas.height - 1)));
+
+        for (var col = 0; col < sampleCols; col += 1) {
+            var x = Math.min(canvas.width - 1, Math.round((col / (sampleCols - 1)) * (canvas.width - 1)));
+            var pixel = context.getImageData(x, y, 1, 1).data;
+            var isTransparent = pixel[3] === 0;
+            var isNearWhite = pixel[0] > 248 && pixel[1] > 248 && pixel[2] > 248 && pixel[3] > 248;
+
+            if (!isTransparent && !isNearWhite) {
+                nonBlankPixels += 1;
+                if (nonBlankPixels > 2) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+function getNumericStyleValue(element, propertyName) {
+    var computed = window.getComputedStyle(element);
+    var value = parseFloat(computed.getPropertyValue(propertyName));
+
+    if (Number.isFinite(value) && value > 0) {
+        return Math.round(value);
+    }
+
+    return 0;
+}
+
+function getExportDimensions(card) {
+    var width = card.offsetWidth || card.clientWidth || getNumericStyleValue(card, 'width') || 1080;
+    var height = card.offsetHeight || card.clientHeight || getNumericStyleValue(card, 'height') || 1350;
+
+    return {
+        width: Math.max(1, Math.round(width)),
+        height: Math.max(1, Math.round(height))
+    };
+}
+
+function getExportScale(width, height) {
+    var preferredScale = 3;
+    var maxPixelCount = 25000000;
+    var area = width * height;
+    var safeMaxScale = Math.sqrt(maxPixelCount / area);
+
+    if (!Number.isFinite(safeMaxScale) || safeMaxScale <= 0) {
+        return 2;
+    }
+
+    return Math.max(1, Math.min(preferredScale, safeMaxScale));
+}
+
+async function exportGraphic(cardId, buttonId, filenameHint) {
+    var card = document.getElementById(cardId);
+    var btn = document.getElementById(buttonId);
+
+    if (!card || !btn) {
+        console.error('Export failed: card or button was not found.', { cardId: cardId, buttonId: buttonId });
+        return;
+    }
+
+    if (typeof html2canvas !== 'function') {
+        alert('Export failed: html2canvas is unavailable. Please reload the page.');
+        return;
+    }
+
+    var exportFilename = buildExportFilename(card, btn, filenameHint);
+    var originalMarkup = btn.innerHTML;
+    var dimensions = getExportDimensions(card);
+    var exportWidth = dimensions.width;
+    var exportHeight = dimensions.height;
+    var exportScale = getExportScale(exportWidth, exportHeight);
+
+    btn.classList.add('loading');
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Exporting...';
+
+    try {
+        document.body.classList.add('is-exporting');
+        await waitForCardAssets(card);
+
+        var captureOptions = {
+            scale: exportScale,
+            useCORS: true,
+            allowTaint: false,
+            width: exportWidth,
+            height: exportHeight,
+            backgroundColor: null,
+            logging: false,
+            scrollX: -window.scrollX,
+            scrollY: -window.scrollY,
+            windowWidth: document.documentElement.clientWidth,
+            windowHeight: document.documentElement.clientHeight
+        };
+
+        var canvas;
+
+        try {
+            canvas = await html2canvas(card, Object.assign({}, captureOptions, {
+                foreignObjectRendering: false
+            }));
+
+            if (isLikelyBlankCanvas(canvas)) {
+                throw new Error('Standard renderer produced a blank canvas.');
+            }
+        } catch (standardRendererError) {
+            console.warn('Standard capture failed. Retrying with ForeignObject renderer.', standardRendererError);
+            canvas = await html2canvas(card, Object.assign({}, captureOptions, {
+                foreignObjectRendering: true
+            }));
+
+            if (isLikelyBlankCanvas(canvas)) {
+                throw new Error('ForeignObject renderer produced a blank canvas.');
+            }
+        }
+
+        var blob = await new Promise(function(resolve, reject) {
+            canvas.toBlob(function(result) {
+                if (!result) {
+                    reject(new Error('Canvas encoding failed (toBlob returned null).'));
+                    return;
+                }
+
+                resolve(result);
+            }, 'image/png');
+        });
+
+        downloadBlob(blob, exportFilename);
+    } catch (err) {
+        console.error('Export failed:', err);
+        alert('Export failed. See console for details.');
+    } finally {
+        document.body.classList.remove('is-exporting');
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        btn.innerHTML = originalMarkup;
+    }
+}
+</script>
+
+</body>
+</html>

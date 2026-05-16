@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=794">
+    <title>CBHN Health Equity Forum – Navigating HR1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        @page { size: A4 portrait; margin: 0; }
+        @media print {
+            *, *::before, *::after {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            html, body { margin: 0 !important; padding: 0 !important; }
+            .flyer-page { box-shadow: none !important; }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #c8c8c8;
+            font-family: "Open Sans", sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        /* === A4 PAGE CONTAINER === */
+        .flyer-page {
+            width: 210mm;
+            min-width: 210mm;
+            max-width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            background:
+                linear-gradient(135deg,
+                    #369662 0%, #369662 14%,
+                    #cc0000 14%, #cc0000 28%,
+                    #f8d300 28%, #f8d300 42%,
+                    #003687 42%, #003687 56%,
+                    #f14916 56%, #f14916 70%,
+                    #369662 70%, #369662 84%,
+                    #cc0000 84%, #cc0000 100%
+                );
+        }
+
+        /* ==============================================
+           AFROCENTRIC BRUSH-STROKE FRAME
+           ============================================== */
+        .s { position: absolute; }
+        .ht1 { background: #369662; height: 12px; top: 0;    left: -2px; right: -2px; z-index: 2; }
+        .ht2 { background: #cc0000; height: 10px; top: 10px;  left: -2px; right: -2px; z-index: 3; }
+        .ht3 { background: #f8d300; height: 11px; top: 18px;  left: -2px; right: -2px; z-index: 4; }
+        .ht4 { background: #003687; height: 10px; top: 27px;  left: -2px; right: -2px; z-index: 5; }
+        .ht5 { background: #f14916; height: 9px;  top: 35px;  left: -2px; right: -2px; z-index: 6; }
+        .hb1 { background: #f14916; height: 12px; bottom: 0;   left: -2px; right: -2px; z-index: 2; }
+        .hb2 { background: #003687; height: 10px; bottom: 10px; left: -2px; right: -2px; z-index: 3; }
+        .hb3 { background: #f8d300; height: 11px; bottom: 18px; left: -2px; right: -2px; z-index: 4; }
+        .hb4 { background: #cc0000; height: 10px; bottom: 27px; left: -2px; right: -2px; z-index: 5; }
+        .hb5 { background: #369662; height: 9px;  bottom: 35px; left: -2px; right: -2px; z-index: 6; }
+        .vl1 { display: none; }
+        .vl2 { display: none; }
+        .vr1 { display: none; }
+        .vr2 { display: none; }
+
+        /* ==============================================
+           WHITE CONTENT PANEL
+           ============================================== */
+        .content {
+            position: absolute;
+            top: 44px; left: 0; right: 0; bottom: 44px;
+            z-index: 10;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            /* Warm off-white with subtle warm gradient */
+            background:
+                radial-gradient(ellipse 70% 40% at 80% 15%, rgba(241,73,22,0.04), transparent),
+                radial-gradient(ellipse 60% 50% at 15% 85%, rgba(0,54,135,0.04), transparent),
+                radial-gradient(ellipse 50% 40% at 50% 50%, rgba(54,150,98,0.025), transparent),
+                linear-gradient(180deg, #fefcfa 0%, #fffef9 30%, #fdfaf5 70%, #faf6f0 100%);
+        }
+        /* Very subtle diagonal crosshatch texture overlay */
+        .content::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.018;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent, transparent 18px,
+                    #8b6914 18px, #8b6914 19px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent, transparent 18px,
+                    #8b6914 18px, #8b6914 19px
+                );
+        }
+
+        /* === HEADER BAND === */
+        .header-band {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #003687 0%, #002050 100%);
+            padding: 16px 28px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        /* Decorative circles in header */
+        .header-band::before {
+            content: "";
+            position: absolute;
+            right: -25px; top: -25px;
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+        .header-band::after {
+            content: "";
+            position: absolute;
+            left: 160px; bottom: -30px;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.025);
+        }
+        .logo-img { height: 38px; width: auto; position: relative; z-index: 1; }
+        .header-center {
+            position: relative; z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-pip {
+            width: 4px; height: 4px; border-radius: 50%;
+            background: #f14916;
+        }
+        .header-forum-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+        .header-right {
+            position: relative; z-index: 1;
+            text-align: right;
+        }
+        .header-date {
+            font-size: 10px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .header-web {
+            font-size: 9px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            margin-top: 1px;
+        }
+        /* Multi-color accent line under header */
+        .header-accent {
+            width: 100%;
+            height: 4px;
+            flex-shrink: 0;
+            background: linear-gradient(90deg, #369662 0%, #cc0000 20%, #f8d300 40%, #003687 60%, #f14916 80%, #369662 100%);
+        }
+
+        /* === TITLE SECTION === */
+        .title-section {
+            width: 100%;
+            padding: 22px 36px 18px;
+            text-align: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(241,73,22,0.035) 0%, transparent 100%);
+        }
+        /* Decorative corner brackets */
+        .title-section::before {
+            content: "";
+            position: absolute;
+            top: 14px; left: 26px;
+            width: 28px; height: 28px;
+            border-top: 2.5px solid #f14916;
+            border-left: 2.5px solid #f14916;
+            opacity: 0.3;
+        }
+        .title-section::after {
+            content: "";
+            position: absolute;
+            top: 14px; right: 26px;
+            width: 28px; height: 28px;
+            border-top: 2.5px solid #f14916;
+            border-right: 2.5px solid #f14916;
+            opacity: 0.3;
+        }
+        .eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: #003687;
+        }
+        .main-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #f14916;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            margin-top: 2px;
+            text-shadow: 0 2px 8px rgba(241,73,22,0.08);
+        }
+        .subtitle-pills {
+            display: flex;
+            flex-direction: row;
+            gap: 7px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .sub-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 7px 16px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+        }
+        .sub-pill::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+        }
+        .sub-pill-1 { background: #003687; color: #fff; }
+        .sub-pill-2 { background: #f14916; color: #fff; }
+        .sub-pill-3 { background: #369662; color: #fff; }
+        .sub-pill svg { flex-shrink: 0; position: relative; z-index: 1; }
+        .sub-pill span { position: relative; z-index: 1; }
+
+        /* === DIVIDERS === */
+        .divider-full {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #f14916 15%, #f14916 85%, transparent 100%);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === SPEAKER SECTION === */
+        .speaker-section {
+            width: 100%;
+            padding: 16px 24px;
+            display: flex;
+            gap: 20px;
+            align-items: stretch;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        /* Speaker left card, photo + tags in a styled box */
+        .speaker-photo-card {
+            flex-shrink: 0;
+            width: 158px;
+            background: linear-gradient(170deg, #003687 0%, #001a44 100%);
+            border-radius: 10px;
+            padding: 16px 14px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .speaker-photo-card::before {
+            content: "";
+            position: absolute;
+            top: -20px; right: -20px;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+        .speaker-photo-ring {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #f14916 0%, #f8d300 50%, #369662 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 1;
+        }
+        .speaker-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            border: 3px solid #ffffff;
+        }
+        .spk-cred-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .spk-tag {
+            font-size: 7.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 3px 7px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+        .tag-orange { background: rgba(241,73,22,0.15); color: #ff9a76; }
+        .tag-navy   { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+        .tag-green  { background: rgba(54,150,98,0.2); color: #6edba0; }
+
+        .speaker-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .spk-eyebrow {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #f14916;
+            margin-bottom: 4px;
+        }
+        .spk-name {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.1;
+        }
+        .spk-role {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #003687;
+            line-height: 1.35;
+            margin-top: 3px;
+        }
+        .spk-rule {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #f14916, #f8d300);
+            margin: 8px 0;
+            border-radius: 1px;
+        }
+        .spk-bio {
+            font-size: 11px;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.62;
+        }
+        .spk-bio em { color: #369662; font-style: italic; }
+
+        /* === INFO GRID === */
+        .info-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            background: #faf7f2;
+        }
+        .info-cell {
+            text-align: center;
+            padding: 14px 8px 12px;
+            position: relative;
+        }
+        .info-cell + .info-cell {
+            border-left: 1px solid #ebe6dd;
+        }
+        /* Colored top accents */
+        .info-cell::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .info-cell:nth-child(1)::before { background: #f14916; }
+        .info-cell:nth-child(2)::before { background: #003687; }
+        .info-cell:nth-child(3)::before { background: #369662; }
+        .info-cell:nth-child(4)::before { background: #cc0000; }
+        .ic-icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            margin: 0 auto 6px;
+        }
+        .ic-wrap-orange { background: #fff0eb; }
+        .ic-wrap-navy   { background: #eaeffa; }
+        .ic-wrap-green  { background: #e8f5ee; }
+        .ic-wrap-red    { background: #ffebeb; }
+        .ic-label {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 2px;
+        }
+        .ic-value {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+        .ic-sub {
+            font-size: 9px;
+            color: #aaa;
+            margin-top: 1px;
+        }
+
+        /* === TOPICS === */
+        .topics-section {
+            width: 100%;
+            padding: 14px 24px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .topics-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .topics-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #f14916;
+            white-space: nowrap;
+        }
+        .topics-rule {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, #f1491644, transparent);
+        }
+        .topics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 14px;
+        }
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 10px;
+            background: #ffffff;
+            border-radius: 7px;
+            border: 1px solid #f0ece5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            border-left: 3px solid;
+        }
+        .topic-item:nth-child(1) { border-left-color: #f14916; }
+        .topic-item:nth-child(2) { border-left-color: #003687; }
+        .topic-item:nth-child(3) { border-left-color: #369662; }
+        .topic-item:nth-child(4) { border-left-color: #cc0000; }
+        .topic-item:nth-child(5) { border-left-color: #f8d300; }
+        .topic-item:nth-child(6) { border-left-color: #f14916; }
+        .topic-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .topic-item:nth-child(1) .topic-dot { background: #f14916; }
+        .topic-item:nth-child(2) .topic-dot { background: #003687; }
+        .topic-item:nth-child(3) .topic-dot { background: #369662; }
+        .topic-item:nth-child(4) .topic-dot { background: #cc0000; }
+        .topic-item:nth-child(5) .topic-dot { background: #f8d300; }
+        .topic-item:nth-child(6) .topic-dot { background: #f14916; }
+        .topic-text {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        /* === DESCRIPTION === */
+        .desc-section {
+            width: 100%;
+            padding: 14px 32px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .desc-box {
+            background: #ffffff;
+            border: 1px solid #ebe6dd;
+            border-radius: 8px;
+            padding: 14px 20px;
+            position: relative;
+        }
+        /* Accent bar on left */
+        .desc-box::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 8px; bottom: 8px;
+            width: 3px;
+            border-radius: 0 3px 3px 0;
+            background: linear-gradient(180deg, #f14916, #003687);
+        }
+        .desc {
+            font-size: 11.5px;
+            color: #555;
+            line-height: 1.68;
+            text-align: left;
+            padding-left: 8px;
+        }
+        .desc strong { color: #003687; font-weight: 700; }
+        .desc em { color: #369662; font-style: italic; }
+
+        /* === CTA BAND === */
+        .cta-band {
+            width: 100%;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #003687 0%, #002050 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: "";
+            position: absolute;
+            right: -30px; top: -30px;
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+        .cta-band::after {
+            content: "";
+            position: absolute;
+            left: -20px; bottom: -20px;
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+        }
+        .cta-text-col {
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-headline {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        .cta-sub {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 2px;
+        }
+        .cta-btn-col {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f14916 0%, #e03a08 100%);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 12px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            box-shadow: 0 3px 14px rgba(241,73,22,0.4);
+        }
+        .cta-free {
+            font-size: 9px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .cta-partner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-left: 20px;
+            border-left: 1px solid rgba(255,255,255,0.15);
+        }
+        .cta-partner-label {
+            font-size: 8px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2px;
+        }
+        .cta-partner-name {
+            font-size: 12px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            width: 100%;
+            padding: 10px 28px;
+            text-align: center;
+            flex-shrink: 0;
+            border-top: 2px solid #f14916;
+            background: linear-gradient(180deg, #faf7f2 0%, #f5f0e8 100%);
+        }
+        .footer-slogan {
+            font-size: 12px;
+            font-weight: 600;
+            font-style: italic;
+            color: #003687;
+        }
+        .footer-dot {
+            display: inline-block;
+            margin: 0 7px;
+            color: #369662;
+            font-style: normal;
+            font-weight: 800;
+        }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 3px;
+        }
+        .footer-web {
+            font-size: 12px;
+            font-weight: 800;
+            color: #369662;
+        }
+        .footer-copy {
+            font-size: 8.5px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+<div class="flyer-page">
+
+    <!-- AFROCENTRIC BRUSH-STROKE FRAME -->
+    <div class="s ht1"></div><div class="s ht2"></div><div class="s ht3"></div><div class="s ht4"></div><div class="s ht5"></div>
+    <div class="s hb1"></div><div class="s hb2"></div><div class="s hb3"></div><div class="s hb4"></div><div class="s hb5"></div>
+    <div class="s vl1"></div><div class="s vl2"></div>
+    <div class="s vr1"></div><div class="s vr2"></div>
+
+    <!-- WHITE CONTENT PANEL -->
+    <div class="content">
+
+        <!-- HEADER -->
+        <div class="header-band">
+            <img src="../../assets/images/cbhn-logo.png" alt="California Black Health Network" class="logo-img" style="filter: brightness(0) invert(1);">
+            <div class="header-center">
+                <span class="header-pip"></span>
+                <span class="header-forum-label">Health Equity Forum</span>
+                <span class="header-pip"></span>
+            </div>
+            <div class="header-right">
+                <div class="header-date">March 26, 2026</div>
+                <div class="header-web">yourcbhn.org</div>
+            </div>
+        </div>
+        <div class="header-accent"></div>
+
+        <!-- TITLE -->
+        <div class="title-section">
+            <div class="eyebrow">CBHN Health Equity Forum</div>
+            <h1 class="main-title">Navigating HR1</h1>
+            <div class="subtitle-pills">
+                <div class="sub-pill sub-pill-1">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span>What&rsquo;s Changing</span>
+                </div>
+                <div class="sub-pill sub-pill-2">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span>What&rsquo;s Next</span>
+                </div>
+                <div class="sub-pill sub-pill-3">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span>How to Stay Covered</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-full"></div>
+
+        <!-- SPEAKER -->
+        <div class="speaker-section">
+            <div class="speaker-photo-card">
+                <div class="speaker-photo-ring">
+                    <img src="../../assets/images/headshots/monica-soni.png" alt="Dr. Monica Soni" class="speaker-photo">
+                </div>
+                <div class="spk-cred-tags">
+                    <span class="spk-tag tag-orange">Harvard Med</span>
+                    <span class="spk-tag tag-navy">UCLA Faculty</span>
+                    <span class="spk-tag tag-green">Health Equity</span>
+                </div>
+            </div>
+            <div class="speaker-details">
+                <div class="spk-eyebrow">Featured Speaker</div>
+                <div class="spk-name">Dr. Monica Soni</div>
+                <div class="spk-role">Chief Medical Officer, Covered California</div>
+                <div class="spk-rule"></div>
+                <p class="spk-bio">
+                    A Harvard-trained internist and <em>&ldquo;agitator for change,&rdquo;</em> Dr.&nbsp;Soni has spent two decades at the crossroads of medicine, social justice, and health policy. Before becoming CMO at Covered California, she led specialty care across LA&nbsp;County&rsquo;s public health system, the second-largest in the nation. She is also an Associate Professor at UCLA and Charles&nbsp;R.&nbsp;Drew University.
+                </p>
+            </div>
+        </div>
+
+        <div class="divider-full"></div>
+
+        <!-- INFO GRID -->
+        <div class="info-grid">
+            <div class="info-cell">
+                <div class="ic-icon-wrap ic-wrap-orange">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f14916" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="ic-label">Date</div>
+                <div class="ic-value">March 26, 2026</div>
+            </div>
+            <div class="info-cell">
+                <div class="ic-icon-wrap ic-wrap-navy">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003687" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                </div>
+                <div class="ic-label">Time</div>
+                <div class="ic-value">12 &ndash; 1 PM PT</div>
+            </div>
+            <div class="info-cell">
+                <div class="ic-icon-wrap ic-wrap-green">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#369662" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="ic-label">Format</div>
+                <div class="ic-value">Virtual Webinar</div>
+            </div>
+            <div class="info-cell">
+                <div class="ic-icon-wrap ic-wrap-red">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+                </div>
+                <div class="ic-label">Cost</div>
+                <div class="ic-value">FREE</div>
+            </div>
+        </div>
+
+        <div class="divider-full"></div>
+
+        <!-- TOPICS -->
+        <div class="topics-section">
+            <div class="topics-header">
+                <div class="topics-label">What We&rsquo;ll Discuss</div>
+                <div class="topics-rule"></div>
+            </div>
+            <div class="topics-grid">
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">Rising Healthcare Costs</span></div>
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">Shifts in Coverage &amp; Eligibility</span></div>
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">What to Expect in 2026&ndash;27</span></div>
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">Medicaid &amp; Medi-Cal Impacts</span></div>
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">Impact on Black Californians</span></div>
+                <div class="topic-item"><span class="topic-dot"></span><span class="topic-text">Protecting Your Coverage</span></div>
+            </div>
+        </div>
+
+        <div class="divider-full"></div>
+
+        <!-- DESCRIPTION -->
+        <div class="desc-section">
+            <div class="desc-box">
+                <p class="desc">
+                    Join the California Black Health Network for an interactive discussion on the impact of <strong>HR1 (One Big Beautiful Bill Act)</strong> on healthcare access, availability, and affordability &mdash; and anticipated changes affecting <strong>Black Californians</strong> and other vulnerable communities. <em>Don&rsquo;t miss this opportunity to get informed, prepare for changes, and advocate for your health.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- SPACER -->
+        <div style="flex: 1;"></div>
+
+        <!-- CTA BAND -->
+        <div class="cta-band">
+            <div class="cta-text-col">
+                <div class="cta-headline">Save Your Seat</div>
+                <div class="cta-sub">Space is limited &mdash; register today</div>
+            </div>
+            <div class="cta-btn-col">
+                <a href="https://us06web.zoom.us/webinar/register/WN_Zh6EMM_TRfqyPZIKiPHO6g" class="cta-btn">
+                    Register Now &rarr;
+                </a>
+                <span class="cta-free">Free to Attend</span>
+            </div>
+            <div class="cta-partner">
+                <div class="cta-partner-label">In Partnership With</div>
+                <div class="cta-partner-name">Covered California</div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-slogan">
+                Get Informed <span class="footer-dot">&bull;</span> Prepare for Changes <span class="footer-dot">&bull;</span> Advocate for Your Health
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-web">yourcbhn.org</span>
+                <span class="footer-copy">&copy; 2026 California Black Health Network &middot; All rights reserved</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>CBHN Conference - Zoom Landing Page</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../assets/styles/main.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shamrock': '#36c98a',
+                        'molten-orange': '#ff5a1f',
+                        'gold': '#ffd600',
+                        'sky': '#00c3f3',
+                        'deep-blue': '#003687',
+                        'magenta-bloom': '#fc0367',
+                        'cream': '#f9f6f2',
+                        'charcoal': '#23272a',
+                    },
+                    fontFamily: {
+                        'sans': ['Open Sans', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+        }
+
+        .header-row {
+            width: 1920px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 24px 0 24px;
+        }
+
+        .graphic-label {
+            font-size: 14px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 9px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+
+        .export-btn:hover {
+            background: #f0f0f0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.32);
+        }
+
+        .export-btn.loading,
+        .export-btn:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        body.is-exporting .zoom-graphic,
+        body.is-exporting .zoom-graphic-square,
+        body.is-exporting .zoom-graphic-300x250 {
+            box-shadow: none !important;
+        }
+        
+        .zoom-graphic {
+            width: 1920px;
+            min-width: 1920px;
+            max-width: 1920px;
+            height: 1080px;
+            min-height: 1080px;
+            max-height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: #003687;
+            flex-shrink: 0;
+        }
+
+        .zoom-graphic-square {
+            width: 1080px;
+            min-width: 1080px;
+            max-width: 1080px;
+            height: 1080px;
+            min-height: 1080px;
+            max-height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: #003687;
+            flex-shrink: 0;
+            margin-top: 60px;
+        }
+
+        .zoom-graphic-300x250 {
+            width: 300px;
+            min-width: 300px;
+            max-width: 300px;
+            height: 250px;
+            min-height: 250px;
+            max-height: 250px;
+            position: relative;
+            overflow: hidden;
+            background: #003687;
+            flex-shrink: 0;
+            margin-top: 36px;
+            margin-left: 24px;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    
+    <!-- Zoom Landing Page Graphic - 1920x1080 -->
+    <div class="header-row">
+        <div class="graphic-label">Zoom Landing Page (1920 x 1080)</div>
+        <button class="export-btn" id="export-btn-1" onclick="exportGraphic('zoom-graphic-1920', 'export-btn-1', 'cbhn-zoom-landing-1920x1080.png')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export PNG
+        </button>
+    </div>
+    <div class="zoom-graphic" id="zoom-graphic-1920">
+        
+        <!-- Background Image -->
+        <img src="../../assets/images/cbhn-image-background.png" alt="Black community members" class="absolute inset-0 w-full h-full object-cover object-center">
+        
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,54,135,0.85) 0%, rgba(0,54,135,0.6) 40%, rgba(0,0,0,0.4) 100%);"></div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] rounded-full -translate-y-1/3 translate-x-1/4" style="background: radial-gradient(circle, rgba(255,90,31,0.15) 0%, transparent 70%);"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full translate-y-1/2 -translate-x-1/4" style="background: radial-gradient(circle, rgba(54,201,138,0.12) 0%, transparent 70%);"></div>
+        
+        <!-- Subtle Frame Border -->
+        <div class="absolute inset-8 border border-white/15 rounded-3xl pointer-events-none"></div>
+        
+        <!-- Corner Accents -->
+        <div class="absolute top-16 left-16 w-24 h-24 border-l-4 border-t-4 border-molten-orange/60 rounded-tl-3xl"></div>
+        <div class="absolute bottom-16 right-16 w-24 h-24 border-r-4 border-b-4 border-shamrock/60 rounded-br-3xl"></div>
+        
+        <!-- Floating Decorative Shapes -->
+        <div class="absolute top-32 right-32 w-20 h-20 rounded-full border border-white/20"></div>
+        <div class="absolute top-48 right-48 w-6 h-6 bg-gold/70 rounded-full"></div>
+        <div class="absolute bottom-40 left-40 w-16 h-16 border border-shamrock/30 rounded-2xl rotate-12"></div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10 h-full flex items-center px-24">
+            
+            <div class="flex-1">
+                
+                <!-- CBHN Logo -->
+                <div class="mb-12">
+                    <div class="inline-block bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <img src="../../assets/images/cbhn-white.png" alt="CBHN Logo" class="h-28 w-auto">
+                    </div>
+                </div>
+                
+                <!-- Main Title -->
+                <div class="relative mb-8">
+                    <h1 class="font-display text-[180px] font-bold text-white leading-none tracking-tight drop-shadow-2xl">
+                        Hidden Crises
+                    </h1>
+                    <div class="absolute -bottom-3 left-0 w-96 h-3 bg-gradient-to-r from-molten-orange via-gold to-transparent rounded-full"></div>
+                </div>
+                
+                <!-- Subtitle -->
+                <div class="relative pl-12 mb-14">
+                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-molten-orange via-molten-orange/60 to-transparent rounded-full"></div>
+                    <h2 class="text-7xl text-white/90 font-light leading-tight">
+                        Stress, Mental Health &amp; Brain Health
+                    </h2>
+                    <p class="text-8xl text-gold font-display font-bold mt-4">
+                        in the Black Community
+                    </p>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Accent Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-shamrock via-molten-orange to-gold"></div>
+        
+        <!-- Organization Name Footer -->
+        <div class="absolute bottom-8 right-12 flex items-center gap-3">
+            <div class="w-2 h-2 bg-molten-orange rounded-full"></div>
+            <p class="text-white/70 text-3xl font-semibold tracking-widest uppercase">California Black Health Network</p>
+            <div class="w-2 h-2 bg-molten-orange rounded-full"></div>
+        </div>
+
+        <!-- CEU Callout -->
+        <div class="absolute bottom-24 right-12">
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-4">
+                <div class="w-3 h-3 bg-gold rounded-full"></div>
+                <p class="text-white text-3xl font-bold tracking-wide">5 CEUs available</p>
+                <p class="text-white/80 text-2xl font-semibold">for LCSWs, LMFTs, LPCCs, and LEPs</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- ========================================== -->
+    <!-- Squared Version - 1080x1080 -->
+    <!-- ========================================== -->
+    <div class="header-row" style="width: 1080px;">
+        <div class="graphic-label">Zoom Landing Page (1080 x 1080)</div>
+        <button class="export-btn" id="export-btn-2" onclick="exportGraphic('zoom-graphic-1080', 'export-btn-2', 'cbhn-zoom-landing-1080x1080.png')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export PNG
+        </button>
+    </div>
+    <div class="zoom-graphic-square" id="zoom-graphic-1080">
+        
+        <!-- Background Image -->
+        <img src="../../assets/images/cbhn-image-background.png" alt="Black community members" class="absolute inset-0 w-full h-full object-cover object-center">
+        
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,54,135,0.88) 0%, rgba(0,54,135,0.65) 40%, rgba(0,0,0,0.45) 100%);"></div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full -translate-y-1/3 translate-x-1/4" style="background: radial-gradient(circle, rgba(255,90,31,0.15) 0%, transparent 70%);"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full translate-y-1/2 -translate-x-1/4" style="background: radial-gradient(circle, rgba(54,201,138,0.12) 0%, transparent 70%);"></div>
+        
+        <!-- Subtle Frame Border -->
+        <div class="absolute inset-6 border border-white/15 rounded-2xl pointer-events-none"></div>
+        
+        <!-- Corner Accents -->
+        <div class="absolute top-12 left-12 w-16 h-16 border-l-4 border-t-4 border-molten-orange/60 rounded-tl-2xl"></div>
+        <div class="absolute bottom-12 right-12 w-16 h-16 border-r-4 border-b-4 border-shamrock/60 rounded-br-2xl"></div>
+        
+        <!-- Floating Decorative Shapes -->
+        <div class="absolute top-24 right-24 w-14 h-14 rounded-full border border-white/20"></div>
+        <div class="absolute top-36 right-36 w-4 h-4 bg-gold/70 rounded-full"></div>
+        <div class="absolute bottom-32 left-28 w-12 h-12 border border-shamrock/30 rounded-xl rotate-12"></div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10 h-full flex flex-col justify-center px-14">
+            
+            <!-- CBHN Logo -->
+            <div class="mb-10">
+                <div class="inline-block bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <img src="../../assets/images/cbhn-white.png" alt="CBHN Logo" class="h-24 w-auto">
+                </div>
+            </div>
+            
+            <!-- Main Title -->
+            <div class="relative mb-7">
+                <h1 class="font-display text-[120px] font-bold text-white leading-none tracking-tight drop-shadow-2xl">
+                    Hidden Crises
+                </h1>
+                <div class="absolute -bottom-2 left-0 w-72 h-2 bg-gradient-to-r from-molten-orange via-gold to-transparent rounded-full"></div>
+            </div>
+            
+            <!-- Subtitle -->
+            <div class="relative pl-10 mb-10">
+                <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-molten-orange via-molten-orange/60 to-transparent rounded-full"></div>
+                <h2 class="text-[46px] text-white/90 font-light leading-tight">
+                    Stress, Mental Health &amp; Brain Health
+                </h2>
+                <p class="text-[56px] text-gold font-display font-bold mt-3">
+                    in the Black Community
+                </p>
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Accent Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-shamrock via-molten-orange to-gold"></div>
+        
+        <!-- Organization Name Footer -->
+        <div class="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-2">
+            <div class="w-1.5 h-1.5 bg-molten-orange rounded-full"></div>
+            <p class="text-white/70 text-lg font-semibold tracking-widest uppercase">California Black Health Network</p>
+            <div class="w-1.5 h-1.5 bg-molten-orange rounded-full"></div>
+        </div>
+
+        <!-- CEU Callout -->
+        <div class="absolute bottom-16 left-0 right-0 flex justify-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2">
+                <div class="w-2 h-2 bg-gold rounded-full"></div>
+                <p class="text-white text-lg font-bold tracking-wide">5 CEUs available</p>
+                <p class="text-white/80 text-sm font-semibold">LCSWs, LMFTs, LPCCs, LEPs</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- ========================================== -->
+    <!-- Small Ad Card - 300x250 -->
+    <!-- ========================================== -->
+    <div class="header-row" style="width: 300px; padding-left: 24px; padding-right: 24px;">
+        <div class="graphic-label" style="font-size: 11px;">Zoom Ad (300 x 250)</div>
+        <button class="export-btn" id="export-btn-3" onclick="exportGraphic('zoom-graphic-300x250', 'export-btn-3', 'cbhn-zoom-landing-300x250.png')" style="padding: 7px 10px; font-size: 11px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PNG
+        </button>
+    </div>
+    <div class="zoom-graphic-300x250" id="zoom-graphic-300x250">
+        <!-- Background Image -->
+        <img src="../../assets/images/cbhn-image-background.png" alt="Black community members" class="absolute inset-0 w-full h-full object-cover object-center">
+        
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,54,135,0.9) 0%, rgba(0,54,135,0.65) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+        <!-- Subtle Frame Border -->
+        <div class="absolute inset-3 border border-white/15 pointer-events-none"></div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 h-full flex items-center px-4">
+            <div class="flex-1">
+                <!-- CBHN Logo -->
+                <div class="mb-2">
+                    <div class="inline-block bg-white/10 backdrop-blur-sm p-2 border border-white/20">
+                        <img src="../../assets/images/cbhn-white.png" alt="CBHN Logo" class="h-8 w-auto">
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <div class="mb-1">
+                    <h1 class="font-display text-[28px] font-bold text-white leading-tight tracking-tight">Hidden Crises</h1>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="mb-1">
+                    <h2 class="text-[11px] text-white/85 font-light">Stress, Mental Health &amp; Brain Health</h2>
+                    <p class="text-[12px] text-gold font-display font-bold mt-1">in the Black Community</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Accent Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-shamrock via-molten-orange to-gold"></div>
+
+        <!-- CEU Callout -->
+        <div class="absolute bottom-3 left-3 right-3">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1">
+                <p class="text-white text-[10px] font-bold leading-tight">5 CEUs available</p>
+                <p class="text-white/80 text-[8px] font-semibold leading-tight">LCSWs, LMFTs, LPCCs, LEPs</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function waitForNextPaint() {
+            return new Promise(function(resolve) {
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(resolve);
+                });
+            });
+        }
+
+        function waitForImage(image) {
+            if (!image) {
+                return Promise.resolve();
+            }
+
+            if (image.complete && image.naturalWidth > 0) {
+                if (typeof image.decode === 'function') {
+                    return image.decode().catch(function() {
+                        return undefined;
+                    });
+                }
+                return Promise.resolve();
+            }
+
+            return new Promise(function(resolve) {
+                function done() {
+                    resolve();
+                }
+
+                image.addEventListener('load', done, { once: true });
+                image.addEventListener('error', done, { once: true });
+            });
+        }
+
+        function waitForCardAssets(card) {
+            var images = Array.from(card.querySelectorAll('img'));
+            return Promise.all(images.map(waitForImage)).then(function() {
+                return waitForNextPaint();
+            });
+        }
+
+        function downloadBlob(blob, filename) {
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+        }
+
+        function getNumericStyleValue(element, propertyName) {
+            var computed = window.getComputedStyle(element);
+            var value = parseFloat(computed.getPropertyValue(propertyName));
+            if (Number.isFinite(value) && value > 0) {
+                return Math.round(value);
+            }
+            return 0;
+        }
+
+        function getExportDimensions(card) {
+            var width = card.offsetWidth || card.clientWidth || getNumericStyleValue(card, 'width') || 1920;
+            var height = card.offsetHeight || card.clientHeight || getNumericStyleValue(card, 'height') || 1080;
+
+            return {
+                width: Math.max(1, Math.round(width)),
+                height: Math.max(1, Math.round(height))
+            };
+        }
+
+        function getExportScale(width, height) {
+            var pixels = width * height;
+            if (pixels <= 1920 * 1080) {
+                return 2;
+            }
+            return 1.5;
+        }
+
+        function isLikelyBlankCanvas(canvas) {
+            try {
+                var ctx = canvas.getContext('2d');
+                var w = canvas.width;
+                var h = canvas.height;
+                if (!ctx || !w || !h) {
+                    return true;
+                }
+                var sample = ctx.getImageData(Math.floor(w / 2), Math.floor(h / 2), 1, 1).data;
+                return sample[3] === 0;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        async function exportGraphic(cardId, buttonId, filenameHint) {
+            var card = document.getElementById(cardId);
+            var btn = document.getElementById(buttonId);
+
+            if (!card || !btn) {
+                console.error('Export failed: card or button was not found.', { cardId: cardId, buttonId: buttonId });
+                return;
+            }
+
+            if (typeof html2canvas !== 'function') {
+                alert('Export failed: html2canvas is unavailable. Please reload the page.');
+                return;
+            }
+
+            var originalMarkup = btn.innerHTML;
+            var dimensions = getExportDimensions(card);
+            var exportScale = getExportScale(dimensions.width, dimensions.height);
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+            btn.textContent = 'Exporting...';
+
+            try {
+                document.body.classList.add('is-exporting');
+                await waitForCardAssets(card);
+
+                var captureOptions = {
+                    scale: exportScale,
+                    useCORS: true,
+                    allowTaint: false,
+                    width: dimensions.width,
+                    height: dimensions.height,
+                    backgroundColor: null,
+                    logging: false,
+                    scrollX: -window.scrollX,
+                    scrollY: -window.scrollY,
+                    windowWidth: document.documentElement.clientWidth,
+                    windowHeight: document.documentElement.clientHeight
+                };
+
+                var canvas;
+                try {
+                    canvas = await html2canvas(card, Object.assign({}, captureOptions, { foreignObjectRendering: false }));
+                    if (isLikelyBlankCanvas(canvas)) {
+                        throw new Error('Standard renderer produced a blank canvas.');
+                    }
+                } catch (standardRendererError) {
+                    console.warn('Standard capture failed. Retrying with ForeignObject renderer.', standardRendererError);
+                    canvas = await html2canvas(card, Object.assign({}, captureOptions, { foreignObjectRendering: true }));
+                    if (isLikelyBlankCanvas(canvas)) {
+                        throw new Error('ForeignObject renderer produced a blank canvas.');
+                    }
+                }
+
+                var blob = await new Promise(function(resolve, reject) {
+                    canvas.toBlob(function(result) {
+                        if (!result) {
+                            reject(new Error('Canvas encoding failed (toBlob returned null).'));
+                            return;
+                        }
+                        resolve(result);
+                    }, 'image/png');
+                });
+
+                downloadBlob(blob, filenameHint || 'zoom-landing.png');
+            } catch (err) {
+                console.error('Export failed:', err);
+                alert('Export failed. See console for details.');
+            } finally {
+                document.body.classList.remove('is-exporting');
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                btn.removeAttribute('aria-busy');
+                btn.innerHTML = originalMarkup;
+            }
+        }
+    </script>
+</body>
+</html>

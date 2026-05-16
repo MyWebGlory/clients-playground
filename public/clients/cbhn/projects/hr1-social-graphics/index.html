@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080">
+    <title>HR1 Forum – Social Media Graphics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #b0b0b0;
+            font-family: "Open Sans", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 48px;
+            padding: 48px 24px;
+        }
+        .graphic-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: -32px;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1080px;
+            margin-bottom: -32px;
+        }
+        .card-header .graphic-label {
+            margin-bottom: 0;
+        }
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #333;
+            font-family: "Open Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 9px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+        .export-btn:hover {
+            background: #f0f0f0;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        }
+        .export-btn.loading {
+            opacity: 0.6;
+            cursor: wait;
+        }
+        .export-btn svg { flex-shrink: 0; }
+
+        /* === SHARED CARD SHELL === */
+        .card {
+            width: 1080px; min-width: 1080px; max-width: 1080px;
+            height: 1350px; min-height: 1350px; max-height: 1350px;
+            overflow: hidden; flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.2);
+        }
+
+        /* ======================================================
+           GRAPHIC 1, SPEAKER SPOTLIGHT
+           Deep navy field, warm spotlight glow behind photo,
+           credential tags, elegant horizontal layout.
+           ====================================================== */
+        .g1 {
+            background: linear-gradient(135deg, #001a44 0%, #003687 50%, #001a44 100%);
+            display: flex;
+            flex-direction: column;
+        }
+        /* Top decorative strip, horizontal Afrocentric accents */
+        .g1-stripe-col {
+            width: 100%;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        .g1-stripe-col div { flex: 1; }
+        .g1-stripe-col div:nth-child(1) { background: #369662; }
+        .g1-stripe-col div:nth-child(2) { background: #cc0000; }
+        .g1-stripe-col div:nth-child(3) { background: #f8d300; }
+        .g1-stripe-col div:nth-child(4) { background: #f14916; }
+        .g1-stripe-col div:nth-child(5) { background: #003687; }
+
+        /* Photo area */
+        .g1-photo-col {
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 60px 0 36px;
+        }
+        /* Warm radial glow behind photo */
+        .g1-photo-col::before {
+            content: "";
+            position: absolute;
+            width: 580px; height: 580px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(241,73,22,0.18) 0%, rgba(241,73,22,0) 70%);
+        }
+        .g1-photo-ring {
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #f14916 0%, #f8d300 50%, #369662 100%);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+        .g1-photo {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 5px solid #ffffff;
+            display: block;
+        }
+
+        /* Text area */
+        .g1-text-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 80px 70px;
+            position: relative;
+            z-index: 1;
+        }
+        .g1-eyebrow {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #f8d300;
+            margin-bottom: 14px;
+        }
+        .g1-name {
+            font-size: 74px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.05;
+        }
+        .g1-role {
+            font-size: 24px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+        .g1-rule {
+            width: 80px; height: 4px;
+            background: linear-gradient(90deg, #f14916, #f8d300);
+            border-radius: 2px;
+            margin: 22px 0;
+        }
+        .g1-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .g1-tag {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 8px 22px;
+            border-radius: 24px;
+        }
+        .g1-tag-o { background: rgba(241,73,22,0.2); color: #ff9a76; }
+        .g1-tag-g { background: rgba(54,150,98,0.2); color: #6edba0; }
+        .g1-tag-w { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); }
+
+        .g1-event-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255,255,255,0.09);
+            border: 1.5px solid rgba(255,255,255,0.18);
+            border-radius: 12px;
+            padding: 28px 44px;
+            max-width: 860px;
+            text-align: center;
+        }
+        .g1-event-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #f14916;
+            margin-bottom: 8px;
+        }
+        .g1-event-sub {
+            font-size: 28px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.4;
+        }
+        .g1-logo-area {
+            position: absolute;
+            bottom: 40px;
+            left: 0; right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .g1-logo { height: 52px; filter: brightness(0) invert(1); opacity: 0.6; }
+        .g1-date-badge {
+            font-size: 17px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+        }
+
+        /* Decorative circle patterns */
+        .g1-deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .g1-dc1 { width: 500px; height: 500px; top: -150px; right: -150px; }
+        .g1-dc2 { width: 300px; height: 300px; bottom: -100px; left: -100px; }
+
+
+        /* ======================================================
+           GRAPHIC 2, EVENT ANNOUNCEMENT
+           White/cream center panel, Afrocentric stripe frame
+           around edges, big bold headline, structured info.
+           ====================================================== */
+        .g2 {
+            background:
+                linear-gradient(135deg,
+                    #369662 0%, #369662 14%,
+                    #cc0000 14%, #cc0000 28%,
+                    #f8d300 28%, #f8d300 42%,
+                    #003687 42%, #003687 56%,
+                    #f14916 56%, #f14916 70%,
+                    #369662 70%, #369662 84%,
+                    #cc0000 84%, #cc0000 100%
+                );
+        }
+        /* Horizontal stripe frame */
+        .g2 .sf { position: absolute; }
+        .g2 .st1 { background: #369662; height: 16px; top: 0; left: 0; right: 0; z-index: 1; }
+        .g2 .st2 { background: #cc0000; height: 13px; top: 16px; left: 0; right: 0; z-index: 2; }
+        .g2 .st3 { background: #f8d300; height: 14px; top: 29px; left: 0; right: 0; z-index: 3; }
+        .g2 .st4 { background: #003687; height: 13px; top: 43px; left: 0; right: 0; z-index: 4; }
+        .g2 .sb1 { background: #f14916; height: 16px; bottom: 0; left: 0; right: 0; z-index: 1; }
+        .g2 .sb2 { background: #003687; height: 13px; bottom: 16px; left: 0; right: 0; z-index: 2; }
+        .g2 .sb3 { background: #f8d300; height: 14px; bottom: 29px; left: 0; right: 0; z-index: 3; }
+        .g2 .sb4 { background: #cc0000; height: 13px; bottom: 43px; left: 0; right: 0; z-index: 4; }
+        .g2 .sl1 { background: #f8d300; width: 16px; left: 0; top: 0; bottom: 0; z-index: 1; }
+        .g2 .sl2 { background: #003687; width: 13px; left: 16px; top: 0; bottom: 0; z-index: 1; }
+        .g2 .sl3 { background: #cc0000; width: 14px; left: 29px; top: 0; bottom: 0; z-index: 1; }
+        .g2 .sr1 { background: #cc0000; width: 16px; right: 0; top: 0; bottom: 0; z-index: 1; }
+        .g2 .sr2 { background: #369662; width: 13px; right: 16px; top: 0; bottom: 0; z-index: 1; }
+        .g2 .sr3 { background: #f8d300; width: 14px; right: 29px; top: 0; bottom: 0; z-index: 1; }
+
+        .g2-panel {
+            position: absolute;
+            top: 56px; left: 43px; right: 43px; bottom: 56px;
+            z-index: 10;
+            border-radius: 6px;
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(241,73,22,0.04), transparent),
+                radial-gradient(ellipse 50% 60% at 20% 80%, rgba(0,54,135,0.04), transparent),
+                linear-gradient(180deg, #fefcfa 0%, #fdfaf5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 70px;
+            overflow: hidden;
+        }
+        /* Subtle crosshatch */
+        .g2-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 22px, #8b6914 22px, #8b6914 23px),
+                repeating-linear-gradient(-45deg, transparent, transparent 22px, #8b6914 22px, #8b6914 23px);
+        }
+
+        .g2-top-row {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        .g2-logo { height: 68px; }
+        .g2-divider-v {
+            width: 3px; height: 42px;
+            background: #f14916;
+            opacity: 0.3;
+        }
+        .g2-forum-tag {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #003687;
+        }
+
+        .g2-headline {
+            font-size: 90px;
+            font-weight: 800;
+            color: #f14916;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+            white-space: nowrap;
+            text-shadow: 0 2px 10px rgba(241,73,22,0.08);
+        }
+        .g2-subtitle-pills {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 14px;
+            margin-top: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        .g2-pill {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 14px 32px;
+            border-radius: 5px;
+            color: #ffffff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        .g2-pill::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+        }
+        .g2-pill-navy   { background: #003687; }
+        .g2-pill-orange  { background: #f14916; }
+        .g2-pill-green   { background: #369662; }
+
+        .g2-orange-rule {
+            width: 200px; height: 3px;
+            background: linear-gradient(90deg, transparent, #f14916, transparent);
+            margin: 28px 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .g2-info-row {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background: #f4f7fb;
+            border: 1.5px solid rgba(0,54,135,0.12);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .g2-info-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px 20px 20px;
+            position: relative;
+        }
+        .g2-info-item::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+        }
+        .g2-info-item:nth-child(1)::before { background: #f14916; }
+        .g2-info-item:nth-child(3)::before { background: #003687; }
+        .g2-info-item:nth-child(5)::before { background: #369662; }
+        .g2-info-item:nth-child(7)::before { background: #cc0000; }
+        .g2-info-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 6px;
+        }
+        .g2-info-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .g2-info-dot {
+            width: 1px;
+            background: rgba(0,54,135,0.1);
+            align-self: stretch;
+            flex-shrink: 0;
+        }
+        .g2-cta {
+            margin-top: 36px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: linear-gradient(135deg, #003687, #001a44);
+            padding: 18px 64px;
+            border-radius: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .g2-web {
+            margin-top: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #aaa;
+            position: relative;
+            z-index: 1;
+        }
+
+
+        /* ======================================================
+           GRAPHIC 3, TEASER
+           Diagonal split: warm cream left / green right,
+           topic hooks, provocative question, modern angle.
+           ====================================================== */
+        .g3 {
+            background: #fefcfa;
+            overflow: hidden;
+        }
+        /* Bottom diagonal panel */
+        .g3-diag {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 52%;
+            background: linear-gradient(160deg, #369662 0%, #1e6b42 100%);
+            clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+            z-index: 1;
+        }
+        .g3-diag::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.09;
+            background-image:
+                repeating-linear-gradient(60deg, transparent, transparent 30px, #fff 30px, #fff 31px);
+        }
+        /* Accent stripe on diagonal edge */
+        .g3-edge-stripe {
+            display: none;
+        }
+        .g3-edge-inner {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 52%;
+            z-index: 2;
+            clip-path: polygon(0 16%, 100% 0, 100% 2%, 0 18%);
+            background: #f8d300;
+        }
+
+        /* Top content area */
+        .g3-left {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 58%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 80px 60px;
+        }
+        /* Multi-color top bar */
+        .g3-top-bar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            z-index: 5;
+            background: linear-gradient(90deg, #f14916 0%, #cc0000 25%, #f8d300 50%, #003687 75%, #369662 100%);
+        }
+        .g3-logo { height: 76px; width: auto; object-fit: contain; margin-bottom: 32px; }
+        .g3-eyebrow {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #f14916;
+            margin-bottom: 18px;
+        }
+        .g3-question {
+            font-size: 76px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.1;
+        }
+        .g3-question em {
+            color: #f14916;
+            font-style: normal;
+        }
+        .g3-rule {
+            width: 70px; height: 4px;
+            background: linear-gradient(90deg, #003687, #369662);
+            border-radius: 2px;
+            margin: 20px 0;
+        }
+        .g3-topics {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+        .g3-topic {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #444;
+        }
+        .g3-topic-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .g3-td-1 { background: #f14916; }
+        .g3-td-2 { background: #003687; }
+        .g3-td-3 { background: #369662; }
+        .g3-td-4 { background: #cc0000; }
+
+        /* Bottom content area (on green) */
+        .g3-right {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 42%;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 60px 60px;
+        }
+        .g3-date-big {
+            font-size: 96px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            text-align: center;
+        }
+        .g3-date-sub {
+            font-size: 20px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+        .g3-green-rule {
+            width: 70px; height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            margin: 22px 0;
+        }
+        .g3-time {
+            font-size: 38px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .g3-format {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 6px;
+        }
+        .g3-free-badge {
+            margin-top: 28px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #369662;
+            background: #ffffff;
+            padding: 16px 56px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+        /* Bottom bar */
+        .g3-bottom-bar {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 10px;
+            z-index: 5;
+            background: linear-gradient(90deg, #369662 0%, #003687 25%, #f8d300 50%, #cc0000 75%, #f14916 100%);
+        }
+
+
+        /* ======================================================
+           GRAPHIC 4, FINAL REMINDER
+           Orange-dominant urgency. Bold countdown feel.
+           Horizontal layout with left orange panel and
+           right cream info.
+           ====================================================== */
+        .g4 {
+            background: #fefcfa;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        /* Top orange panel */
+        .g4-left {
+            width: 100%;
+            height: 560px;
+            flex-shrink: 0;
+            background: linear-gradient(160deg, #f14916 0%, #cc3300 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .g4-left::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.09;
+            background-image:
+                repeating-linear-gradient(-30deg, transparent, transparent 24px, #fff 24px, #fff 25px);
+        }
+        /* Decorative circles */
+        .g4-deco1 {
+            position: absolute;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.08);
+            top: -60px; left: -60px;
+        }
+        .g4-deco2 {
+            position: absolute;
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.05);
+            bottom: -40px; right: -30px;
+        }
+        .g4-countdown-label {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            position: relative;
+            z-index: 1;
+        }
+        .g4-this-wed {
+            font-size: 74px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            text-align: center;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+        .g4-date-num {
+            font-size: 140px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 0.9;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .g4-date-month {
+            font-size: 28px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+        .g4-time-badge {
+            margin-top: 18px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 10px 30px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Horizontal accent stripe between panels */
+        .g4-accent-col {
+            width: 100%;
+            height: 12px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        .g4-accent-col div { flex: 1; }
+        .g4-accent-col div:nth-child(1) { background: #369662; }
+        .g4-accent-col div:nth-child(2) { background: #cc0000; }
+        .g4-accent-col div:nth-child(3) { background: #f8d300; }
+        .g4-accent-col div:nth-child(4) { background: #003687; }
+
+        /* Right info area */
+        .g4-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 70px;
+            position: relative;
+            background:
+                radial-gradient(ellipse 70% 50% at 80% 30%, rgba(241,73,22,0.035), transparent),
+                linear-gradient(180deg, #fefcfa, #faf6f0);
+        }
+        /* Subtle texture */
+        .g4-right::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.018;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 20px, #8b6914 20px, #8b6914 21px),
+                repeating-linear-gradient(-45deg, transparent, transparent 20px, #8b6914 20px, #8b6914 21px);
+        }
+        .g4-logo { height: 76px; width: auto; object-fit: contain; position: relative; z-index: 1; margin-bottom: 20px; }
+        .g4-eyebrow {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #003687;
+            position: relative;
+            z-index: 1;
+        }
+        .g4-title {
+            font-size: 84px;
+            font-weight: 800;
+            color: #f14916;
+            text-transform: uppercase;
+            line-height: 1.0;
+            position: relative;
+            z-index: 1;
+            margin-top: 6px;
+        }
+        .g4-desc {
+            font-size: 20px;
+            font-weight: 600;
+            color: #555;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            max-width: 800px;
+        }
+        .g4-desc strong { color: #003687; }
+        .g4-rule {
+            width: 70px; height: 4px;
+            background: linear-gradient(90deg, #f14916, #f8d300);
+            border-radius: 2px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .g4-cta-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .g4-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f14916, #cc3300);
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 800;
+            padding: 18px 56px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            box-shadow: 0 3px 14px rgba(241,73,22,0.35);
+        }
+        .g4-free {
+            font-size: 15px;
+            font-weight: 800;
+            color: #369662;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .g4-web {
+            margin-top: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #aaa;
+            position: relative;
+            z-index: 1;
+        }
+        /* Bottom accent bar */
+        .g4-bottom-bar {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 8px;
+            z-index: 5;
+            background: linear-gradient(90deg, #f14916 0%, #cc0000 25%, #f8d300 50%, #003687 75%, #369662 100%);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====================================================================
+     GRAPHIC 1, SPEAKER SPOTLIGHT
+     ==================================================================== -->
+<div class="card-header">
+    <div class="graphic-label">1 / Speaker Spotlight</div>
+    <button class="export-btn" onclick="exportCard('card-g1', 'cbhn-hr1-forum-speaker-spotlight')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+<div class="card g1" id="card-g1">
+    <!-- Decorative circles -->
+    <div class="g1-deco-circle g1-dc1"></div>
+    <div class="g1-deco-circle g1-dc2"></div>
+
+    <!-- Left Afrocentric stripe column -->
+    <div class="g1-stripe-col">
+        <div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <!-- Photo area -->
+    <div class="g1-photo-col">
+        <div class="g1-photo-ring">
+            <img src="../../assets/images/headshots/monica-soni.png" alt="Dr. Monica Soni" class="g1-photo">
+        </div>
+    </div>
+
+    <!-- Text area -->
+    <div class="g1-text-col">
+        <div class="g1-eyebrow">Featured Speaker</div>
+        <div class="g1-name">Dr. Monica Soni</div>
+        <div class="g1-role">Chief Medical Officer, Covered California</div>
+        <div class="g1-rule"></div>
+        <div class="g1-tags">
+            <span class="g1-tag g1-tag-o">Harvard Med</span>
+            <span class="g1-tag g1-tag-g">Health Equity</span>
+            <span class="g1-tag g1-tag-w">UCLA Faculty</span>
+        </div>
+        <div class="g1-event-box">
+            <div>
+                <div class="g1-event-title">CBHN Health Equity Forum</div>
+                <div class="g1-event-sub">Navigating HR1: What&rsquo;s Changing, What&rsquo;s Next &amp; How to Stay Covered</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom-right logo -->
+    <div class="g1-logo-area">
+        <span class="g1-date-badge">MARCH 26, 2026 &middot; 12&ndash;1 PM PT</span>
+        <img src="../../assets/images/cbhn-logo.png" alt="CBHN" class="g1-logo">
+    </div>
+</div>
+
+
+<!-- ====================================================================
+     GRAPHIC 2, EVENT ANNOUNCEMENT
+     ==================================================================== -->
+<div class="card-header">
+    <div class="graphic-label">2 / Event Announcement</div>
+    <button class="export-btn" onclick="exportCard('card-g2', 'cbhn-hr1-forum-event-announcement')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+<div class="card g2" id="card-g2">
+    <!-- Stripe frame -->
+    <div class="sf st1"></div><div class="sf st2"></div><div class="sf st3"></div><div class="sf st4"></div>
+    <div class="sf sb1"></div><div class="sf sb2"></div><div class="sf sb3"></div><div class="sf sb4"></div>
+    <div class="sf sl1"></div><div class="sf sl2"></div><div class="sf sl3"></div>
+    <div class="sf sr1"></div><div class="sf sr2"></div><div class="sf sr3"></div>
+
+    <!-- White panel -->
+    <div class="g2-panel">
+        <div class="g2-top-row">
+            <img src="../../assets/images/cbhn-logo.png" alt="CBHN" class="g2-logo">
+            <div class="g2-divider-v"></div>
+            <span class="g2-forum-tag">Health Equity Forum</span>
+        </div>
+
+        <div class="g2-headline">Navigating HR1</div>
+
+        <div class="g2-subtitle-pills">
+            <div class="g2-pill g2-pill-navy">What&rsquo;s Changing</div>
+            <div class="g2-pill g2-pill-orange">What&rsquo;s Next</div>
+            <div class="g2-pill g2-pill-green">How to Stay Covered</div>
+        </div>
+
+        <div class="g2-orange-rule"></div>
+
+        <div class="g2-info-row">
+            <div class="g2-info-item">
+                <div class="g2-info-label">Date</div>
+                <div class="g2-info-value">March 26, 2026</div>
+            </div>
+            <div class="g2-info-dot"></div>
+            <div class="g2-info-item">
+                <div class="g2-info-label">Time</div>
+                <div class="g2-info-value">12 &ndash; 1 PM PT</div>
+            </div>
+            <div class="g2-info-dot"></div>
+            <div class="g2-info-item">
+                <div class="g2-info-label">Format</div>
+                <div class="g2-info-value">Virtual Webinar</div>
+            </div>
+            <div class="g2-info-dot"></div>
+            <div class="g2-info-item">
+                <div class="g2-info-label">Cost</div>
+                <div class="g2-info-value">FREE</div>
+            </div>
+        </div>
+
+        <div class="g2-cta">Register Now &rarr;</div>
+        <div class="g2-web">yourcbhn.org</div>
+    </div>
+</div>
+
+
+<!-- ====================================================================
+     GRAPHIC 3, TEASER
+     ==================================================================== -->
+<div class="card-header">
+    <div class="graphic-label">3 / Teaser</div>
+    <button class="export-btn" onclick="exportCard('card-g3', 'cbhn-hr1-forum-teaser')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+<div class="card g3" id="card-g3">
+    <div class="g3-top-bar"></div>
+    <div class="g3-bottom-bar"></div>
+
+    <!-- Green diagonal panel -->
+    <div class="g3-diag"></div>
+    <div class="g3-edge-inner"></div>
+
+    <!-- Left content -->
+    <div class="g3-left">
+        <img src="../../assets/images/cbhn-logo.png" alt="CBHN" class="g3-logo">
+        <div class="g3-eyebrow">CBHN Health Equity Forum</div>
+        <div class="g3-question">
+            How Will <em>HR1</em>
+            Affect Your Healthcare?
+        </div>
+        <div class="g3-rule"></div>
+        <div class="g3-topics">
+            <div class="g3-topic"><span class="g3-topic-dot g3-td-1"></span>Rising Healthcare Costs</div>
+            <div class="g3-topic"><span class="g3-topic-dot g3-td-2"></span>Shifts in Coverage &amp; Eligibility</div>
+            <div class="g3-topic"><span class="g3-topic-dot g3-td-3"></span>Impact on Black Californians</div>
+            <div class="g3-topic"><span class="g3-topic-dot g3-td-4"></span>Protecting Your Coverage</div>
+        </div>
+    </div>
+
+    <!-- Right content (on green) -->
+    <div class="g3-right">
+        <div class="g3-date-big">MAR<br>26</div>
+        <div class="g3-date-sub">2026</div>
+        <div class="g3-green-rule"></div>
+        <div class="g3-time">12&ndash;1 PM PT</div>
+        <div class="g3-format">Virtual &middot; Free</div>
+        <div class="g3-free-badge">Register Now &rarr;</div>
+    </div>
+</div>
+
+
+<!-- ====================================================================
+     GRAPHIC 4, FINAL REMINDER
+     ==================================================================== -->
+<div class="card-header">
+    <div class="graphic-label">4 / Final Reminder</div>
+    <button class="export-btn" onclick="exportCard('card-g4', 'cbhn-hr1-forum-final-reminder')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+    </button>
+</div>
+<div class="card g4" id="card-g4">
+    <div class="g4-bottom-bar"></div>
+
+    <!-- Left orange urgency panel -->
+    <div class="g4-left">
+        <div class="g4-deco1"></div>
+        <div class="g4-deco2"></div>
+        <div class="g4-countdown-label">Happening This</div>
+        <div class="g4-this-wed">Thursday</div>
+        <div class="g4-date-num">26</div>
+        <div class="g4-date-month">March 2026</div>
+        <div class="g4-time-badge">12 &ndash; 1 PM PT</div>
+    </div>
+
+    <!-- Accent stripe column -->
+    <div class="g4-accent-col">
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <!-- Right info area -->
+    <div class="g4-right">
+        <img src="../../assets/images/cbhn-logo.png" alt="CBHN" class="g4-logo">
+        <div class="g4-eyebrow">Health Equity Forum</div>
+        <div class="g4-title">Navigating HR1</div>
+        <p class="g4-desc">
+            Join <strong>Dr.&nbsp;Monica Soni</strong>, Chief Medical Officer at Covered California, for an interactive discussion on how <strong>HR1 (One Big Beautiful Bill Act)</strong> will impact healthcare access for Black Californians and other vulnerable communities.
+        </p>
+        <div class="g4-rule"></div>
+        <div class="g4-cta-row">
+            <a href="https://us06web.zoom.us/webinar/register/WN_Zh6EMM_TRfqyPZIKiPHO6g" class="g4-btn">Register Now &rarr;</a>
+            <span class="g4-free">Free to Attend</span>
+        </div>
+        <div class="g4-web">yourcbhn.org</div>
+    </div>
+</div>
+
+</body>
+
+<script>
+async function exportCard(cardId, filename) {
+    const card = document.getElementById(cardId);
+    const btn = card.previousElementSibling.querySelector('.export-btn');
+
+    btn.classList.add('loading');
+    btn.textContent = 'Exporting…';
+
+    try {
+        const canvas = await html2canvas(card, {
+            scale: 1,
+            useCORS: true,
+            allowTaint: false,
+            width: 1080,
+            height: 1350,
+            scrollX: 0,
+            scrollY: 0,
+            backgroundColor: null,
+            logging: false
+        });
+
+        canvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename + '.png';
+            a.click();
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    } catch (err) {
+        console.error('Export failed:', err);
+        alert('Export failed. See console for details.');
+    } finally {
+        btn.classList.remove('loading');
+        btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export PNG`;
+    }
+}
+</script>
+
+</html>

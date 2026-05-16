@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RXVP 2026 Partnership Package</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @page { size: A4; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            /* A4 format */
+            width: 210mm;
+            height: 297mm;
+            background:
+                radial-gradient(ellipse 90% 70% at 0% 5%, rgba(139, 92, 246, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 85% 65% at 100% 95%, rgba(59, 130, 246, 0.1) 0%, transparent 55%),
+                linear-gradient(180deg, #fafbff 0%, #ffffff 40%, #f7f5ff 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: min(210mm, 100%);
+            max-width: 210mm;
+            height: auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .header-bar {
+            flex: 0 0 auto;
+            background: linear-gradient(90deg, #c9a961 0%, #e6c75e 50%, #c9a961 100%);
+            padding: 14px 20px;
+            text-align: center;
+            color: white;
+        }
+        .header-bar h1 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* HERO: image with ribbons overlaid on bottom */
+        .hero {
+            /* reduced by ~30% from 48% -> 34% */
+            flex: 0 0 30%;
+            min-height: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../assets/images/hero-image.jpg');
+            background-size: cover;
+            /* anchor image from the middle instead of bottom */
+            background-position: center center;
+        }
+        /* The ribbon SVG sits on top of the image, anchored to the bottom.
+           It paints two curving ribbons + a white area below them, so it
+           visually "cuts into" the bottom of the image. */
+        .ribbon-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 22%;
+            display: block;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            width: clamp(48px, 12vw, 90px);
+            height: auto;
+            z-index: 5;
+            max-width: 28%;
+        }
+
+        /* CONTENT SECTION */
+        .content-section {
+            display: flex;
+            padding: 14px 22px 18px;
+            min-height: 0;
+            background: transparent;
+            position: relative;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 12px;
+            align-content: start;
+    width: 65%;
+        }
+        .content-block {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.08);
+            border-left: 3px solid #c9a961;
+            border-radius: 4px;
+            padding: 7px 10px 8px;
+            backdrop-filter: blur(2px);
+        }
+        .content-block.full-width { grid-column: 1 / -1; }
+        .content-block h3 {
+            /* increased by ~40% from 11.5px -> 16px */
+            font-size: 16px;
+            font-weight: 700;
+            color: #2a1f5c;
+            margin-bottom: 3px;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .content-block h3 svg {
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+        }
+        .content-block ul { list-style: none; }
+        .content-block li {
+            /* increased by ~40% from 10px -> 14px */
+            font-size: 13px;
+            line-height: 1.4;
+            color: #444;
+            margin-bottom: 1px;
+            position: relative;
+            padding-left: 10px;
+        }
+        .content-block li:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            top: -1px;
+            color: #c9a961;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 14px 12px;
+            align-self: flex-start;
+            margin: 0;
+            background: #fff;
+            border: none;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            width: 33%;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .package-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #c9a961;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+        .partnership-title {
+            /* reduced a bit from 30px -> 24px */
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6d28d9 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .gold-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a961, transparent);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .description-text {
+            font-size: 12px;
+            line-height: 1.55;
+            color: #333;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .description-text strong {
+            color: #6d28d9;
+        }
+        .price-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px dashed rgba(139, 92, 246, 0.3);
+            border-radius: 6px;
+            padding: 10px 12px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .price-amount {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6d28d9, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        .price-caption {
+            font-size: 10px;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: 0.3px;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #c9a961 0%, #e6c75e 50%, #c9a961 100%);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 1.3;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.35);
+            position: relative;
+            z-index: 1;
+        }
+        .footer-info {
+            font-size: 10.5px;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
+            margin-top: 6px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(139, 92, 246, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .footer-info a {
+            color: #6d28d9;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .footer-info strong { color: #2563eb; }
+        /* Responsive adjustments */
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header-bar">
+            <h1>🔷 RXVP The FIRST &amp; ONLY Global Speakers Bureau for the Life Sciences</h1>
+        </div>
+
+        <div class="hero">
+            <div class="hero-image"></div>
+
+            <img src="../../assets/images/rxvp-logo.png" alt="RxVP" class="hero-logo">
+
+            <!-- RIBBON OVERLAY: two curving ribbons cutting across the bottom of the image,
+                 with a solid white area below them so the image is cropped by the wave. -->
+            <svg class="ribbon-overlay" viewBox="0 0 1000 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="leftRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#7a6230"/>
+                        <stop offset="100%" stop-color="#d9c179"/>
+                    </linearGradient>
+                    <linearGradient id="rightRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#d9c179"/>
+                        <stop offset="100%" stop-color="#7a6230"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- LEFT ribbon: thick body, top edge curves up, bottom edge curves lower -->
+                <path d="M 0,40
+                         C 200,10 380,90 520,160
+                         L 520,180
+                         C 380,135 200,90 0,110
+                         Z"
+                      fill="url(#leftRibbon)"/>
+
+                <!-- RIGHT ribbon: mirror -->
+                <path d="M 1000,55
+                         C 800,25 620,100 480,160
+                         L 480,180
+                         C 620,140 800,100 1000,125
+                         Z"
+                      fill="url(#rightRibbon)"/>
+
+                <!-- White fill below ribbons -->
+                <path d="M 0,110
+                         C 200,90 380,135 520,180
+                         L 480,180
+                         C 620,140 800,100 1000,125
+                         L 1000,200 L 0,200 Z"
+                      fill="white"/>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <div class="left-column">
+                <div class="content-block full-width">
+
+                    <h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#g0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="g0" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#8b5cf6"/>
+                                <stop offset="100%" stop-color="#c9a961"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Wi‑fi waves to indicate online/virtual -->
+                        <path d="M7 3a5 5 0 0 1 10 0" />
+                        <path d="M9 5a3 3 0 0 1 6 0" />
+                        <!-- Laptop / screen -->
+                        <rect x="3" y="6" width="18" height="12" rx="2" />
+                        <!-- Base / keyboard -->
+                        <path d="M8 20h8" />
+                        <!-- Play button for streaming (filled with gradient) -->
+                        <polygon points="10,11 15,13 10,15" fill="url(#g0)" stroke="none" />
+                    </svg>
+                        Events</h3>
+                    <ul>
+                        <li>Eight virtual panel events will be held during September, October and November 2026. Panels will be hosted in Asia, India, Europe, Africa and the Americas.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>Speaker Participation</h3>
+                    <ul>
+                        <li>Inclusion of two speakers or moderators from your organization (one per panel) as panelists in RXVP's 2026 global virtual panel series.</li>
+                        <li>Panel events will be hosted in Asia, India, Europe, Africa and the Americas.</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Event Access</h3>
+                    <ul>
+                        <li>Up to 50 attendees from your ERGs or other internal groups may participate in up to six (6) RXVP 2026 virtual panel events.</li>
+                        <li>Total-300 seats for the series.</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Customized Panel Event</h3>
+                    <ul>
+                        <li>One fully customized virtual panel event designed exclusively for your organization, featuring either internal or external panelists.</li>
+                        <li>Topic options include career development, leadership, or a relevant functional discipline.</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polygon points="10 9 14 12 10 15 10 9" fill="url(#g4)" stroke="none"/></svg>Watch Parties &amp; Facilitation Support</h3>
+                    <ul>
+                        <li>RXVP will provide facilitator coaching workshops to support internal watch parties and drive engagement across your teams.</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Speaker Development Support</h3>
+                    <ul>
+                        <li>Access to RXVP's public speaking coaches for both pre-event and post-event speaker assessments.</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>Visibility &amp; Promotion</h3>
+                    <ul>
+                        <li>Inclusion in RXVP's social media promotion before and after scheduled panel events.</li>
+                    </ul>
+                </div>
+                <div class="content-block full-width">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="url(#g7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="g7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#c9a961"/></linearGradient></defs><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>Preferred Pricing</h3>
+                    <ul>
+                        <li>10% discount available when bundled with 2027 International Women's Day (IWD) programming.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="package-eyebrow">Exclusive Membership</div>
+                <div class="partnership-title">RXVP 2026<br>Partnership<br>Package</div>
+                <div class="gold-divider"></div>
+                <div class="description-text">
+                    Become one of the select Life Sciences companies invited to participate in this webinar series. Memberships are limited to the first 10 companies, so that our virtual audiences will have robust Q&amp;A sessions.
+                </div>
+                <div class="price-card">
+                    <div class="price-amount">$2,500</div>
+                    <div class="price-caption">Annual Fee · Everything Included</div>
+                </div>
+                <div class="footer-info">
+                    For more information visit <a href="http://www.rxvp.org">www.rxvp.org</a><br>
+                    or contact Bonnie Lappin at <strong>bonnie@rxvp.org</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

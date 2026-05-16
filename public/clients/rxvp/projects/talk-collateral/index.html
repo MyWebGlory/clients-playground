@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RxVP Talk Program Collateral</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: Letter;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #24162c;
+      color: #241f27;
+      font-family: Montserrat, Arial, sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 16px 54px rgba(0, 0, 0, 0.28);
+      position: relative;
+    }
+
+    .hero {
+      height: 4.05in;
+      position: relative;
+      overflow: hidden;
+      background: #190b20;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-title {
+      position: absolute;
+      left: 0.52in;
+      bottom: 0.34in;
+      width: 2.95in;
+      color: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.1in;
+      color: #e6cf72;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 1.5pt;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 48pt;
+      line-height: 0.9;
+      letter-spacing: 0;
+    }
+
+    .hero-title p:last-child {
+      margin: 0.14in 0 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 14.5pt;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .page-one-body {
+      padding: 0.34in 0.5in 0.42in;
+    }
+
+    .intro-row {
+      display: flex;
+      gap: 0.3in;
+      align-items: flex-start;
+    }
+
+    .intro-main {
+      width: 4.35in;
+    }
+
+    .lead {
+      margin: 0;
+      color: #4a075c;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 17.5pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .body-text {
+      margin: 0.12in 0 0;
+      color: #5f5863;
+      font-size: 8.8pt;
+      line-height: 1.55;
+    }
+
+    .selling-card {
+      width: 2.65in;
+      border-left: 4px solid #c9a532;
+      padding: 0.04in 0 0.03in 0.17in;
+    }
+
+    .label {
+      margin: 0 0 0.08in;
+      color: #4a075c;
+      font-size: 9pt;
+      font-weight: 800;
+      letter-spacing: 1.1pt;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .selling-card p {
+      margin: 0;
+      color: #241f27;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 15pt;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .two-column {
+      display: flex;
+      gap: 0.28in;
+      margin-top: 0.28in;
+    }
+
+    .feature {
+      width: 50%;
+      border-top: 1px solid #ded2e2;
+      padding-top: 0.15in;
+    }
+
+    h2 {
+      margin: 0 0 0.08in;
+      color: #4a075c;
+      font-size: 11.1pt;
+      font-weight: 800;
+      line-height: 1.18;
+    }
+
+    .feature p,
+    .program p {
+      margin: 0;
+      color: #5f5863;
+      font-size: 8.45pt;
+      line-height: 1.5;
+    }
+
+    ul {
+      margin: 0.09in 0 0;
+      padding-left: 0.18in;
+    }
+
+    li {
+      margin: 0 0 0.045in;
+      color: #29232d;
+      font-size: 8.3pt;
+      line-height: 1.35;
+    }
+
+    li::marker {
+      color: #c9a532;
+    }
+
+    .bio-box {
+      margin-top: 0.26in;
+      padding: 0.2in;
+      border: 1px solid #d7c07a;
+      background: #fbf8ed;
+    }
+
+    .bio-row {
+      display: flex;
+      gap: 0.2in;
+    }
+
+    .bio {
+      width: 50%;
+    }
+
+    .bio-name {
+      margin: 0 0 0.05in;
+      color: #4a075c;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 13.5pt;
+      font-weight: 700;
+    }
+
+    .bio-placeholder {
+      min-height: 0.62in;
+      margin: 0;
+      padding-top: 0.08in;
+      border-top: 1px solid #dfd2e3;
+      color: #756d79;
+      font-size: 8.1pt;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .page-two {
+      padding: 0;
+    }
+
+    .page-two-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 1.16in;
+      padding: 0.27in 0.56in 0;
+      background: #3b0648;
+    }
+
+    .page-two-header img {
+      width: 1.08in;
+      height: auto;
+      display: block;
+    }
+
+    .page-two-header p {
+      margin: 0;
+      color: #e6cf72;
+      font-size: 8.4pt;
+      font-weight: 800;
+      letter-spacing: 1.3pt;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .detail-lead {
+      width: 6.7in;
+      margin: 0.3in 0.56in 0.24in;
+      color: #4a075c;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18pt;
+      font-weight: 600;
+      line-height: 1.18;
+    }
+
+    .program-row {
+      display: flex;
+      gap: 0.34in;
+      margin: 0.18in 0.56in 0;
+    }
+
+    .program {
+      width: 50%;
+    }
+
+    .program h3 {
+      margin: 0.13in 0 0.04in;
+      color: #4a075c;
+      font-size: 9.4pt;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .program h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .custom {
+      margin: 0.26in 0.56in 0;
+      padding: 0.18in 0.22in;
+      border-left: 4px solid #c9a532;
+      background: #f7f0f8;
+    }
+
+    .custom ul {
+      margin-top: 0.06in;
+      columns: 2;
+      column-gap: 0.35in;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0.56in;
+      right: 0.56in;
+      bottom: 0.3in;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ded2e2;
+      padding-top: 0.11in;
+      color: #756d79;
+      font-size: 7.3pt;
+      font-weight: 700;
+      letter-spacing: 0.6pt;
+      text-transform: uppercase;
+    }
+
+    .print-button {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: #4a075c;
+      font: 700 13px Montserrat, Arial, sans-serif;
+      padding: 12px 18px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    @media print {
+      html,
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
+
+  <main class="page">
+    <section class="hero" aria-label="RxVP Talk program">
+      <img src="assets/top-woman.png" alt="RxVP speaker presenting to an audience">
+      <div class="hero-title">
+        <p class="eyebrow">RxVP proudly presents</p>
+        <h1>TALK</h1>
+        <p>Executive presence and high-impact public speaking for life sciences leaders</p>
+      </div>
+    </section>
+
+    <section class="page-one-body">
+      <div class="intro-row">
+        <div class="intro-main">
+          <p class="lead">Elevating the next generation of enterprise leaders at (company name and location).</p>
+          <p class="body-text">As leaders step into broader enterprise influence, the ability to communicate with confidence, clarity, and authority becomes a defining advantage. TALK is a premium development experience designed to help emerging senior leaders strengthen public speaking and executive presence.</p>
+        </div>
+        <aside class="selling-card">
+          <p class="label">Core Advantage</p>
+          <p>Real speaking practice, backed by practitioner coaches who know the life sciences stage.</p>
+        </aside>
+      </div>
+
+      <div class="two-column">
+        <article class="feature">
+          <h2>Real-World Speaking Opportunities</h2>
+          <p>Each participant receives three high-value speaking opportunities over six months. Experiences may be virtual or in person and designed for internal or external audiences.</p>
+          <ul>
+            <li>RxVP panels and fireside chats</li>
+            <li>Strategic stakeholder engagements</li>
+            <li>Industry conferences and ERG collaborations</li>
+          </ul>
+        </article>
+
+        <article class="feature">
+          <h2>Practitioner-Led Coaching</h2>
+          <p>RxVP speaker coaches are accomplished, active voices in the life sciences industry who bring firsthand credibility, insight, and candid feedback to every session.</p>
+          <ul>
+            <li>Speaker delivery and concise storytelling</li>
+            <li>Audience engagement and executive presence</li>
+            <li>Panelist, moderator, and interviewer readiness</li>
+          </ul>
+        </article>
+      </div>
+
+      <section class="bio-box">
+        <p class="label">Our Practitioner Coaches for India</p>
+        <div class="bio-row">
+          <div class="bio">
+            <p class="bio-name">Deepa Desai</p>
+            <p class="bio-placeholder">Customized short bio to be added when provided by RxVP.</p>
+          </div>
+          <div class="bio">
+            <p class="bio-name">Bonnie Lappin</p>
+            <p class="bio-placeholder">Customized short bio to be added when provided by RxVP.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <section class="page page-two">
+    <header class="page-two-header">
+      <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
+      <p>Detailed Program Information</p>
+    </header>
+
+    <p class="detail-lead">Participants leave the program better prepared to communicate with executive-level confidence, represent the organization with thought leadership impact, and navigate high-visibility forums with agility.</p>
+
+    <div class="program-row">
+      <article class="program">
+        <p class="label">Program Objectives</p>
+        <ul>
+          <li>Communicate with executive-level confidence and credibility in internal meetings</li>
+          <li>Strengthen leadership presence in high-visibility forums</li>
+          <li>Deliver clear, concise, and compelling messages under pressure</li>
+          <li>Engage diverse audiences with authenticity and authority</li>
+          <li>Represent (company name and location) with thought leadership impact</li>
+          <li>Navigate panel discussions and live Q&amp;A with agility and confidence</li>
+        </ul>
+      </article>
+
+      <article class="program">
+        <p class="label">Signature Development Areas</p>
+        <h3>Executive Presence Mastery</h3>
+        <p>Participants strengthen the core qualities that help leaders command attention, build trust, and inspire confidence.</p>
+        <h3>Strategic Public Speaking Excellence</h3>
+        <p>Focused coaching helps participants turn ideas into compelling messages that resonate and move audiences to action.</p>
+        <h3>Panel and Fireside Chat Readiness</h3>
+        <p>Participants gain practical tools to show up with poise, insight, and agility in high-visibility speaking moments.</p>
+      </article>
+    </div>
+
+    <div class="program-row">
+      <article class="program">
+        <p class="label">Delivery Skills</p>
+        <ul>
+          <li>Speaker delivery</li>
+          <li>Concise storytelling</li>
+          <li>Audience engagement</li>
+          <li>Appropriate self-effacing humor</li>
+          <li>Engagement with panelists, moderators, and interviewers</li>
+          <li>Enhanced executive presence</li>
+        </ul>
+      </article>
+
+      <article class="program">
+        <p class="label">Speaking Formats</p>
+        <ul>
+          <li>RxVP panels</li>
+          <li>RxVP fireside chats</li>
+          <li>Strategic stakeholder engagements</li>
+          <li>Industry conferences</li>
+          <li>RxVP collaboration with ERG events</li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="custom">
+      <p class="label">Program design can be customized based on:</p>
+      <ul>
+        <li>Cohort size</li>
+        <li>Audience composition and geography</li>
+        <li>Strategic panel themes</li>
+        <li>Number and cadence of speaking opportunities</li>
+        <li>Defined success metrics and developmental outcomes</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <span>RxVP</span>
+      <span>Public speaking and executive presence coaching</span>
+    </footer>
+  </section>
+</body>
+</html>

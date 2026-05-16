@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <title>CBHN Hidden Crises - Zoom Background</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #b1b1b1;
+      font-family: "Open Sans", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 48px 24px;
+    }
+
+    .header-row {
+      width: 1920px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .graphic-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: #666;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .export-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #333;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 9px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+
+    .export-btn:hover {
+      background: #f0f0f0;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .export-btn.loading,
+    .export-btn:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .graphic {
+      width: 1920px;
+      min-width: 1920px;
+      max-width: 1920px;
+      height: 1080px;
+      min-height: 1080px;
+      max-height: 1080px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      background: #001a44;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    body.is-exporting .graphic { box-shadow: none !important; }
+
+    /* Background: keep the CENTER clean so speakers don't blend in. */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 45% 35%, rgba(0, 195, 243, 0.14), rgba(0, 0, 0, 0) 55%),
+                  radial-gradient(circle at 85% 75%, rgba(255, 90, 31, 0.18), rgba(0, 0, 0, 0) 58%),
+                  linear-gradient(135deg, rgba(0, 54, 135, 0.98) 0%, rgba(0, 26, 68, 0.98) 45%, rgba(0, 8, 24, 0.98) 100%);
+    }
+
+    /* Subtle texture */
+    .texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 45%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 78%);
+    }
+
+    /* Side accents (kept away from face area) */
+    .accent-left {
+      position: absolute;
+      left: -200px;
+      top: -140px;
+      width: 660px;
+      height: 660px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(54, 201, 138, 0.22) 0%, rgba(54, 201, 138, 0.06) 42%, rgba(0,0,0,0) 70%);
+      filter: blur(0.2px);
+    }
+
+    .accent-right {
+      position: absolute;
+      right: -240px;
+      bottom: -200px;
+      width: 760px;
+      height: 760px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 214, 0, 0.14) 0%, rgba(255, 90, 31, 0.04) 45%, rgba(0,0,0,0) 72%);
+    }
+
+    .frame {
+      position: absolute;
+      inset: 34px;
+      border-radius: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+    }
+
+    .conference {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: auto;
+      background: rgba(0, 0, 0, 0.24);
+      padding: 24px 32px;
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+      box-sizing: border-box;
+    }
+
+    .conference .eyebrow {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .conference h1 {
+      margin-top: 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 46px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      color: #ffffff;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .conference .sub {
+      margin-top: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255, 214, 0, 0.95);
+    }
+
+    .conference .line {
+      margin-top: 12px;
+      height: 4px;
+      width: 320px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,90,31,1) 0%, rgba(255,214,0,1) 45%, rgba(54,201,138,1) 100%);
+    }
+
+    .logo {
+      height: 35px;
+      width: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-row">
+    <div class="graphic-label">Hidden Crises / Branded Zoom Background (1920 x 1080)</div>
+    <button class="export-btn" id="export-btn" onclick="exportGraphic('zoom-bg', 'export-btn', 'cbhn-hidden-crises-zoom-background.png')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export PNG
+    </button>
+  </div>
+
+  <div class="graphic" id="zoom-bg">
+    <div class="bg"></div>
+    <div class="texture"></div>
+    <div class="accent-left"></div>
+    <div class="accent-right"></div>
+    <div class="frame" aria-hidden="true"></div>
+
+
+    <div class="conference">
+      <img class="logo" src="../../assets/images/cbhn-white.png" alt="CBHN logo" />
+      <h1>Hidden Crises</h1>
+      <div class="sub">Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <div class="line" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    function waitForNextPaint() {
+      return new Promise(function(resolve) {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(resolve);
+        });
+      });
+    }
+
+    function waitForImage(image) {
+      if (!image) return Promise.resolve();
+      if (image.complete && image.naturalWidth > 0) {
+        if (typeof image.decode === 'function') {
+          return image.decode().catch(function() { return undefined; });
+        }
+        return Promise.resolve();
+      }
+      return new Promise(function(resolve) {
+        function done() { resolve(); }
+        image.addEventListener('load', done, { once: true });
+        image.addEventListener('error', done, { once: true });
+      });
+    }
+
+    function waitForCardAssets(card) {
+      var images = Array.from(card.querySelectorAll('img'));
+      return Promise.all(images.map(waitForImage)).then(function() { return waitForNextPaint(); });
+    }
+
+    function downloadBlob(blob, filename) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+    }
+
+    function getNumericStyleValue(element, propertyName) {
+      var computed = window.getComputedStyle(element);
+      var value = parseFloat(computed.getPropertyValue(propertyName));
+      if (Number.isFinite(value) && value > 0) return Math.round(value);
+      return 0;
+    }
+
+    function getExportDimensions(card) {
+      var width = card.offsetWidth || card.clientWidth || getNumericStyleValue(card, 'width') || 1920;
+      var height = card.offsetHeight || card.clientHeight || getNumericStyleValue(card, 'height') || 1080;
+      return { width: Math.max(1, Math.round(width)), height: Math.max(1, Math.round(height)) };
+    }
+
+    function getExportScale(width, height) {
+      var pixels = width * height;
+      if (pixels <= 1920 * 1080) return 2;
+      return 1.5;
+    }
+
+    function isLikelyBlankCanvas(canvas) {
+      try {
+        var ctx = canvas.getContext('2d');
+        var w = canvas.width;
+        var h = canvas.height;
+        if (!ctx || !w || !h) return true;
+        var sample = ctx.getImageData(Math.floor(w / 2), Math.floor(h / 2), 1, 1).data;
+        return sample[3] === 0;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    async function exportGraphic(cardId, buttonId, filenameHint) {
+      var card = document.getElementById(cardId);
+      var btn = document.getElementById(buttonId);
+
+      if (!card || !btn) return;
+      if (typeof html2canvas !== 'function') {
+        alert('Export failed: html2canvas is unavailable. Please reload the page.');
+        return;
+      }
+
+      var originalMarkup = btn.innerHTML;
+      var dimensions = getExportDimensions(card);
+      var exportScale = getExportScale(dimensions.width, dimensions.height);
+
+      btn.classList.add('loading');
+      btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
+      btn.textContent = 'Exporting...';
+
+      try {
+        document.body.classList.add('is-exporting');
+        await waitForCardAssets(card);
+        await waitForNextPaint();
+
+        var captureOptions = {
+          scale: exportScale,
+          useCORS: true,
+          allowTaint: false,
+          width: dimensions.width,
+          height: dimensions.height,
+          backgroundColor: null,
+          logging: false,
+          scrollX: -window.scrollX,
+          scrollY: -window.scrollY,
+          windowWidth: document.documentElement.clientWidth,
+          windowHeight: document.documentElement.clientHeight
+        };
+
+        var canvas;
+        try {
+          canvas = await html2canvas(card, Object.assign({}, captureOptions, { foreignObjectRendering: false }));
+          if (isLikelyBlankCanvas(canvas)) throw new Error('Standard renderer produced a blank canvas.');
+        } catch (e) {
+          canvas = await html2canvas(card, Object.assign({}, captureOptions, { foreignObjectRendering: true }));
+          if (isLikelyBlankCanvas(canvas)) throw new Error('ForeignObject renderer produced a blank canvas.');
+        }
+
+        var blob = await new Promise(function(resolve, reject) {
+          canvas.toBlob(function(result) {
+            if (!result) return reject(new Error('Canvas encoding failed (toBlob returned null).'));
+            resolve(result);
+          }, 'image/png');
+        });
+
+        downloadBlob(blob, filenameHint || 'zoom-background.png');
+      } catch (err) {
+        console.error('Export failed:', err);
+        alert('Export failed. See console for details.');
+      } finally {
+        document.body.classList.remove('is-exporting');
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        btn.innerHTML = originalMarkup;
+      }
+    }
+  </script>
+</body>
+</html>

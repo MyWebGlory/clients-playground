@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // GitHub Pages SPA fix: preserve the original path and pass it to React Router via ?redirect
+      var path = window.location.pathname || '/';
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      window.location.replace('/?redirect=' + encodeURIComponent(path + search + hash));
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
