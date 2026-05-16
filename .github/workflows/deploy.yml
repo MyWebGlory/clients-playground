@@ -9,6 +9,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,10 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: npm
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Install Google Chrome
         run: |
@@ -32,6 +39,10 @@ jobs:
         env:
           PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
 
+      - name: Configure custom domain
+        if: vars.CUSTOM_DOMAIN != ''
+        run: printf '%s\n' "${{ vars.CUSTOM_DOMAIN }}" > dist/CNAME
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -39,6 +50,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
