@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RxVP Talk Program Collateral</title>
+  <title>RxVP Amplify Program Collateral</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
     }
 
     .hero {
-      height: 4.05in;
+      height: 250px;
       position: relative;
       overflow: hidden;
       background: #190b20;
@@ -57,10 +57,27 @@
     .hero-title {
       position: absolute;
       left: 0.52in;
-      bottom: 0.86in;
-      width: 3.3in;
+      top: 70px;
+      width: 2.85in;
       color: #fff;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
+      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.88), 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-tagline {
+      position: absolute;
+      top: 0.12in;
+      left: 2.05in;
+      right: 0.38in;
+      padding: 0.06in 0.1in;
+      background: #3b0648;
+      border-left: 3px solid #c9a532;
+      border-right: 3px solid #c9a532;
+      color: #f3dc78;
+      font-size: 10.5pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .eyebrow {
@@ -71,12 +88,13 @@
       letter-spacing: 1.5pt;
       line-height: 1.35;
       text-transform: uppercase;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.95), 0 1px 2px rgba(0, 0, 0, 0.9);
     }
 
     h1 {
       margin: 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 67pt;
+      font-size: 48pt;
       font-weight: 700;
       line-height: 0.82;
       letter-spacing: 0;
@@ -89,10 +107,11 @@
       font-size: 14.5pt;
       font-weight: 600;
       line-height: 1.15;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.95);
     }
 
     .page-one-body {
-      padding: 0.34in 0.5in 0.42in;
+      padding: 0.25in 0.5in 0.12in;
     }
 
     .intro-row {
@@ -117,14 +136,20 @@
     .body-text {
       margin: 0.12in 0 0;
       color: #5f5863;
-      font-size: 8.8pt;
-      line-height: 1.55;
+      font-size: 9.7pt;
+      font-weight: 700;
+      line-height: 1.5;
     }
 
     .selling-card {
       width: 2.65in;
       border-left: 4px solid #c9a532;
       padding: 0.04in 0 0.03in 0.17in;
+    }
+
+    .selling-card .label {
+      font-size: 10.8pt;
+      letter-spacing: 1.2pt;
     }
 
     .label {
@@ -137,19 +162,22 @@
       text-transform: uppercase;
     }
 
-    .selling-card p {
-      margin: 0;
-      color: #241f27;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 15pt;
-      font-weight: 600;
-      line-height: 1.15;
+    .selling-card ul {
+      margin-top: 0.06in;
+      padding-left: 0.18in;
+    }
+
+    .selling-card li {
+      font-size: 11.2pt;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 0.055in;
     }
 
     .two-column {
       display: flex;
       gap: 0.28in;
-      margin-top: 0.28in;
+      margin-top: 0.2in;
     }
 
     .feature {
@@ -170,8 +198,9 @@
     .program p {
       margin: 0;
       color: #5f5863;
-      font-size: 8.45pt;
-      line-height: 1.5;
+      font-size: 9.25pt;
+      font-weight: 700;
+      line-height: 1.42;
     }
 
     ul {
@@ -182,8 +211,9 @@
     li {
       margin: 0 0 0.045in;
       color: #29232d;
-      font-size: 8.3pt;
-      line-height: 1.35;
+      font-size: 9.1pt;
+      font-weight: 700;
+      line-height: 1.32;
     }
 
     li::marker {
@@ -191,8 +221,8 @@
     }
 
     .bio-box {
-      margin-top: 0.26in;
-      padding: 0.2in;
+      margin-top: 0.16in;
+      padding: 0.15in 0.16in 0.16in;
       border: 1px solid #d7c07a;
       background: #fbf8ed;
     }
@@ -215,14 +245,14 @@
     }
 
     .bio-placeholder {
-      min-height: 0.62in;
+      min-height: 0.92in;
       margin: 0;
-      padding-top: 0.08in;
+      padding-top: 0.07in;
       border-top: 1px solid #dfd2e3;
       color: #756d79;
-      font-size: 8.1pt;
-      font-style: italic;
-      line-height: 1.45;
+      font-size: 7.8pt;
+      font-weight: 600;
+      line-height: 1.26;
     }
 
     .page-two {
@@ -270,6 +300,49 @@
       margin: 0.18in 0.56in 0;
     }
 
+    .formats-band {
+      margin: 0 0.56in 0.22in;
+      padding: 0.16in 0.2in;
+      border-left: 4px solid #c9a532;
+      background: #fbf8ed;
+    }
+
+    .formats-list {
+      display: flex;
+      gap: 0.14in;
+      margin-top: 0.08in;
+    }
+
+    .format-item {
+      width: 20%;
+      color: #29232d;
+      font-size: 8.4pt;
+      font-weight: 700;
+      line-height: 1.28;
+      text-align: center;
+    }
+
+    .feature-formats {
+      margin: 0.02in 0 0.1in;
+      padding: 0.1in 0.12in;
+      border-left: 4px solid #c9a532;
+      background: #fbf8ed;
+    }
+
+    .feature-formats .formats-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.06in 0.1in;
+      margin: 0;
+    }
+
+    .feature-formats .format-item {
+      width: auto;
+      font-size: 7.9pt;
+      line-height: 1.18;
+      text-align: left;
+    }
+
     .program {
       width: 50%;
     }
@@ -291,6 +364,15 @@
       padding: 0.18in 0.22in;
       border-left: 4px solid #c9a532;
       background: #f7f0f8;
+    }
+
+    .program-row.single .program {
+      width: 100%;
+    }
+
+    .program-row.single ul {
+      columns: 2;
+      column-gap: 0.4in;
     }
 
     .custom ul {
@@ -358,11 +440,12 @@
   <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
 
   <main class="page">
-    <section class="hero" aria-label="RxVP Talk program">
+    <section class="hero" aria-label="RxVP AMPLIFY program">
       <img src="assets/top-woman.png" alt="RxVP speaker presenting to an audience">
+      <div class="hero-tagline">The first and only speaker's bureau in life sciences</div>
       <div class="hero-title">
-        <p class="eyebrow">RxVP proudly presents</p>
-        <h1>TALK</h1>
+        <p class="eyebrow">Proudly presents</p>
+        <h1>AMPLIFY</h1>
         <p>Executive presence and high-impact public speaking for life sciences leaders</p>
       </div>
     </section>
@@ -371,23 +454,30 @@
       <div class="intro-row">
         <div class="intro-main">
           <p class="lead">Elevating the next generation of enterprise leaders at (company name and location).</p>
-          <p class="body-text">As leaders step into broader enterprise influence, the ability to communicate with confidence, clarity, and authority becomes a defining advantage. TALK is a premium development experience designed to help emerging senior leaders strengthen public speaking and executive presence.</p>
+          <p class="body-text">As leaders step into broader enterprise influence, the ability to communicate with confidence, clarity, and authority becomes a defining advantage. AMPLIFY is a premium development experience designed to help emerging senior leaders strengthen public speaking and executive presence.</p>
         </div>
         <aside class="selling-card">
-          <p class="label">Core Advantage</p>
-          <p>Real speaking practice, backed by practitioner coaches who know the life sciences stage.</p>
+          <p class="label">Core advantages</p>
+          <ul>
+            <li>Speaking practice in 3 panels</li>
+            <li>Practitioner speaking coaches who know the life sciences stage</li>
+          </ul>
         </aside>
       </div>
 
       <div class="two-column">
         <article class="feature">
           <h2>Real-World Speaking Opportunities</h2>
+          <div class="feature-formats">
+            <div class="formats-list">
+              <div class="format-item">RxVP panels</div>
+              <div class="format-item">RxVP fireside chats</div>
+              <div class="format-item">Strategic stakeholder engagements</div>
+              <div class="format-item">Industry conferences</div>
+              <div class="format-item">RxVP/ERG collaborations</div>
+            </div>
+          </div>
           <p>Each participant receives three high-value speaking opportunities over six months. Experiences may be virtual or in person and designed for internal or external audiences.</p>
-          <ul>
-            <li>RxVP panels and fireside chats</li>
-            <li>Strategic stakeholder engagements</li>
-            <li>Industry conferences and ERG collaborations</li>
-          </ul>
         </article>
 
         <article class="feature">
@@ -410,7 +500,11 @@
           </div>
           <div class="bio">
             <p class="bio-name">Bonnie Lappin</p>
-            <p class="bio-placeholder">Customized short bio to be added when provided by RxVP.</p>
+            <p class="bio-placeholder">Bonnie Lappin co-founded the Ambassador Program for the Healthcare Businesswomen's Association in 2013. 
+              <br><br>Designed as a global leadership development program for HBA corporate partners, it grew under her leadership from 2013 to 2025 into a signature, often life-changing experience for more than 11,000 participants. 
+              <br><br>Over those 12 years, Bonnie spoke frequently at life sciences companies across Austria, Belgium, Canada, France, Germany, India, Ireland, Italy, Japan, Malaysia, Singapore, Spain, Switzerland, and the United Kingdom. 
+              <br>She also led panel development, launch and graduation events, and coached hundreds of panelists and moderators. 
+              <br><br>Today, Bonnie continues this work through RxVP, a global speakers bureau that curates panels for experienced and emerging speakers.</p>
           </div>
         </div>
       </section>
@@ -449,7 +543,7 @@
       </article>
     </div>
 
-    <div class="program-row">
+    <div class="program-row single">
       <article class="program">
         <p class="label">Delivery Skills</p>
         <ul>
@@ -459,17 +553,6 @@
           <li>Appropriate self-effacing humor</li>
           <li>Engagement with panelists, moderators, and interviewers</li>
           <li>Enhanced executive presence</li>
-        </ul>
-      </article>
-
-      <article class="program">
-        <p class="label">Speaking Formats</p>
-        <ul>
-          <li>RxVP panels</li>
-          <li>RxVP fireside chats</li>
-          <li>Strategic stakeholder engagements</li>
-          <li>Industry conferences</li>
-          <li>RxVP collaboration with ERG events</li>
         </ul>
       </article>
     </div>

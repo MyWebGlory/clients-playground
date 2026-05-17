@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RxVP Panel Series Partnership Package</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: Letter;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --plum: #35123f;
+      --aubergine: #4a075c;
+      --violet: #7b2c86;
+      --gold: #c9a532;
+      --gold-light: #efd985;
+      --ink: #241f27;
+      --muted: #67606a;
+      --paper: #fffdf8;
+      --rose: #c23b78;
+      --teal: #167a7f;
+      --blue: #285b9f;
+      --green: #4f7e3a;
+      --sand: #f8f3e6;
+      --lavender: #f4ebf7;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #25142e;
+      color: var(--ink);
+      font-family: Montserrat, Arial, sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      position: relative;
+      background: var(--paper);
+      box-shadow: 0 16px 54px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero {
+      height: 3.58in;
+      position: relative;
+      overflow: hidden;
+      background: var(--plum);
+    }
+
+    .hero img.hero-art {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .brand-bar {
+      position: absolute;
+      top: 0.12in;
+      left: 1.95in;
+      right: 0.38in;
+      z-index: 3;
+      padding: 0.06in 0.1in;
+      background: #3b0648;
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+    }
+
+    .brand-line {
+      margin: 0;
+      color: #f3dc78;
+      font-size: 10.5pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      position: absolute;
+      z-index: 3;
+      left: 0.55in;
+      bottom: 0.54in;
+      width: 4.55in;
+      color: #fff;
+      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.92);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.1in;
+      color: var(--gold-light);
+      font-size: 8.5pt;
+      font-weight: 800;
+      letter-spacing: 1.6pt;
+      line-height: 1.3;
+      text-transform: uppercase;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.96), 0 1px 2px rgba(0, 0, 0, 0.96);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 0.12in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 52pt;
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: 0;
+      text-shadow: 0 6px 22px rgba(0, 0, 0, 0.92), 0 2px 4px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-copy .subtitle {
+      width: 4.15in;
+      margin: 0;
+      font-size: 12pt;
+      font-weight: 600;
+      line-height: 1.35;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.96), 0 1px 3px rgba(0, 0, 0, 0.95);
+    }
+
+    .wave {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      width: 100%;
+      height: 0.48in;
+      display: block;
+    }
+
+    .content {
+      padding: 0.32in 0.5in 0.42in;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 0.36in;
+      align-items: start;
+    }
+
+    .lead {
+      margin-bottom: 0.13in;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18.6pt;
+      font-weight: 600;
+      line-height: 1.16;
+    }
+
+    .body-copy {
+      margin-bottom: 0.11in;
+      color: var(--muted);
+      font-size: 9.3pt;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.1in;
+      margin-top: 0.22in;
+    }
+
+    .stat {
+      border-top: 3px solid var(--gold);
+      background: #fff;
+      padding: 0.12in 0.1in 0.13in;
+      min-height: 0.72in;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24pt;
+      line-height: 0.92;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 0.04in;
+      color: var(--muted);
+      font-size: 7.6pt;
+      font-weight: 700;
+      letter-spacing: 0.3pt;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .package-panel {
+      padding: 0.2in 0.22in 0.22in;
+      background: var(--plum);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package-panel::before {
+      content: "";
+      position: absolute;
+      width: 1.8in;
+      height: 1.8in;
+      right: -0.7in;
+      top: -0.55in;
+      border: 1px solid rgba(239, 217, 133, 0.36);
+      transform: rotate(28deg);
+    }
+
+    .package-panel .label,
+    .series-card .label,
+    .market .label,
+    .celebration-tile .label {
+      position: relative;
+      margin-bottom: 0.1in;
+      color: var(--gold-light);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .package-panel h2 {
+      position: relative;
+      margin: 0 0 0.12in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24pt;
+      line-height: 1;
+    }
+
+    .package-panel li {
+      font-size: 10.25pt;
+      line-height: 1.35;
+    }
+
+    .price {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      gap: 0.08in;
+      margin: 0.14in 0 0.1in;
+      padding-top: 0.14in;
+      border-top: 1px solid rgba(239, 217, 133, 0.42);
+    }
+
+    .price strong {
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 31pt;
+      line-height: 1;
+    }
+
+    .price span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.5pt;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 0.19in;
+    }
+
+    li {
+      margin-bottom: 0.055in;
+      color: inherit;
+      font-size: 8.55pt;
+      line-height: 1.34;
+    }
+
+    li::marker {
+      color: var(--gold);
+    }
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.22in;
+      margin-top: 0.19in;
+    }
+
+    .series-card {
+      min-height: 1.5in;
+      padding: 0.19in 0.2in;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .series-card::after {
+      content: "";
+      position: absolute;
+      right: -0.2in;
+      bottom: -0.28in;
+      width: 1.4in;
+      height: 1.4in;
+      border: 0.1in solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+    }
+
+    .series-card h2 {
+      position: relative;
+      margin-bottom: 0.08in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24pt;
+      line-height: 1;
+    }
+
+    .series-card p {
+      position: relative;
+      margin: 0;
+      font-size: 8.6pt;
+      line-height: 1.45;
+    }
+
+    .celebration-card {
+      background: linear-gradient(135deg, #742268, #c23b78);
+    }
+
+    .market-card {
+      background: linear-gradient(135deg, #115e62, #285b9f);
+    }
+
+    .page-header {
+      height: 0.62in;
+      padding: 0.12in 0.52in 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: var(--plum);
+      color: #fff;
+    }
+
+    .page-header img {
+      width: 0.66in;
+      height: auto;
+      display: block;
+    }
+
+    .page-header p {
+      display: none;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.35in;
+      margin-bottom: 0.24in;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30pt;
+      line-height: 0.98;
+    }
+
+    .section-title p {
+      max-width: 3.36in;
+      margin: 0;
+      color: var(--muted);
+      font-size: 10.2pt;
+      font-weight: 600;
+      line-height: 1.34;
+    }
+
+    .celebration-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.12in;
+    }
+
+    .celebration-tile {
+      min-height: 1.08in;
+      padding: 0.15in 0.17in;
+      background: #fff;
+      border-top: 4px solid var(--rose);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .celebration-tile::before {
+      content: "";
+      position: absolute;
+      right: -0.26in;
+      top: -0.23in;
+      width: 0.82in;
+      height: 0.82in;
+      border-radius: 50%;
+      background: rgba(194, 59, 120, 0.13);
+    }
+
+    .celebration-tile.gold {
+      border-top-color: var(--gold);
+    }
+
+    .celebration-tile.gold::before {
+      background: rgba(201, 165, 50, 0.18);
+    }
+
+    .celebration-tile.teal {
+      border-top-color: var(--teal);
+    }
+
+    .celebration-tile.teal::before {
+      background: rgba(22, 122, 127, 0.13);
+    }
+
+    .celebration-tile .label {
+      color: var(--rose);
+      margin-bottom: 0.06in;
+    }
+
+    .celebration-tile.gold .label {
+      color: #967314;
+    }
+
+    .celebration-tile.teal .label {
+      color: var(--teal);
+    }
+
+    .celebration-tile h3 {
+      position: relative;
+      margin: 0;
+      color: var(--aubergine);
+      font-size: 12.2pt;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .celebration-tile p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      font-size: 8pt;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .engagement-band {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 0.25in;
+      margin-top: 0.22in;
+      padding: 0.22in 0.24in;
+      background: var(--lavender);
+      border-left: 5px solid var(--gold);
+    }
+
+    .engagement-band h3 {
+      margin: 0;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 19pt;
+      line-height: 1.05;
+    }
+
+    .engagement-band li {
+      color: var(--ink);
+      font-size: 9.45pt;
+      line-height: 1.32;
+    }
+
+    .market-lead {
+      display: grid;
+      grid-template-columns: 2.85in 1fr;
+      gap: 0.35in;
+      margin-bottom: 0.24in;
+      align-items: stretch;
+    }
+
+    .map-panel {
+      min-height: 2.25in;
+      padding: 0.22in;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(17, 94, 98, 0.95), rgba(40, 91, 159, 0.92)),
+        url("../../assets/images/rxvp-people-map.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-panel h2 {
+      position: relative;
+      margin: 0 0 0.1in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28pt;
+      line-height: 0.98;
+    }
+
+    .map-panel p {
+      position: relative;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 8.7pt;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .market-summary {
+      padding-top: 0.04in;
+    }
+
+    .market-summary .lead {
+      margin-bottom: 0.12in;
+      font-size: 18pt;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.1in;
+      margin-bottom: 0.28in;
+    }
+
+    .market {
+      min-height: 2.04in;
+      padding: 0.15in 0.12in 0.16in;
+      background: #fff;
+      border-top: 4px solid var(--teal);
+    }
+
+    .market:nth-child(2) {
+      border-top-color: var(--blue);
+    }
+
+    .market:nth-child(3) {
+      border-top-color: var(--gold);
+    }
+
+    .market:nth-child(4) {
+      border-top-color: var(--rose);
+    }
+
+    .market:nth-child(5) {
+      border-top-color: var(--green);
+    }
+
+    .market .label {
+      margin-bottom: 0.06in;
+      color: var(--teal);
+      font-size: 7pt;
+      letter-spacing: 0.8pt;
+    }
+
+    .market:nth-child(2) .label {
+      color: var(--blue);
+    }
+
+    .market:nth-child(3) .label {
+      color: #967314;
+    }
+
+    .market:nth-child(4) .label {
+      color: var(--rose);
+    }
+
+    .market:nth-child(5) .label {
+      color: var(--green);
+    }
+
+    .market h3 {
+      margin: 0 0 0.07in;
+      color: var(--aubergine);
+      font-size: 11pt;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .market p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 7.95pt;
+      font-weight: 700;
+      line-height: 1.34;
+    }
+
+    .includes {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 0.26in;
+      padding: 0.24in;
+      background: var(--sand);
+      border-top: 4px solid var(--gold);
+    }
+
+    .includes h2 {
+      margin: 0 0 0.11in;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 22pt;
+      line-height: 1;
+    }
+
+    .includes li {
+      color: var(--ink);
+      font-size: 8.9pt;
+      line-height: 1.28;
+    }
+
+    .closing-card {
+      padding: 0.2in 0.2in 0.22in;
+      background: #fff;
+      border-left: 5px solid var(--aubergine);
+    }
+
+    .closing-card .price {
+      display: block;
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+      color: var(--aubergine);
+    }
+
+    .closing-card .price strong {
+      display: block;
+      color: var(--aubergine);
+      font-size: 28pt;
+      white-space: nowrap;
+    }
+
+    .closing-card .price .currency-label {
+      font-size: 11pt;
+      vertical-align: 0.18em;
+    }
+
+    .closing-card .price .euro-price {
+      margin-top: 0.04in;
+      font-size: 20pt;
+    }
+
+    .closing-card .price span {
+      display: block;
+      margin-top: 0.04in;
+      color: var(--muted);
+    }
+
+    .closing-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 9.25pt;
+      line-height: 1.38;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0.52in;
+      right: 0.52in;
+      bottom: 0.28in;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ded2e2;
+      padding-top: 0.1in;
+      color: #746d77;
+      font-size: 7.1pt;
+      font-weight: 800;
+      letter-spacing: 0.6pt;
+      text-transform: uppercase;
+    }
+
+    .print-button {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 10;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--aubergine);
+      font: 700 13px Montserrat, Arial, sans-serif;
+      padding: 12px 18px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    @media print {
+      html,
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
+
+  <main class="page" data-export-title="RxVP Panel Series Package - Overview">
+    <section class="hero" aria-label="RxVP panel series package">
+      <img class="hero-art" src="../amplify-collateral/assets/top-woman.png" alt="RxVP speaker presenting to an audience">
+      <div class="brand-bar">
+        <p class="brand-line">The first &amp; only speaker's bureau in life sciences</p>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">September 2026 - June 2027</p>
+        <h1>Introducing RxVP Panels</h1>
+        <p class="subtitle">A bundled partnership package combining Celebration Days programming with Emerging Markets leadership insight.</p>
+      </div>
+      <svg class="wave" viewBox="0 0 1000 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 64 C180 34 326 76 492 58 C674 38 806 22 1000 70 L1000 130 L0 130 Z" fill="#fffdf8"/>
+        <path d="M0 42 C165 82 314 26 492 48 C690 72 820 104 1000 58 L1000 82 C820 126 666 92 492 68 C314 43 165 104 0 66 Z" fill="#c9a532" opacity="0.92"/>
+      </svg>
+    </section>
+
+    <section class="content">
+      <div class="intro-grid">
+        <div>
+          <p class="lead">Twelve virtual panels, each offered across multiple time zones, designed for employees who want firsthand access to senior life sciences leaders.</p>
+          <p class="body-copy">Each 60-minute event features vice president-level and above speakers who provide insight into leadership journeys, market trends, and potential career paths. Every session includes 30 minutes of live Q&amp;A to encourage audience engagement.</p>
+          <p class="body-copy">Based on 2025-2026 industry data, about 69% of pharmaceutical employees report being engaged and generally satisfied with their careers. Satisfaction with learning and development opportunities is less consistent, with some indicators suggesting that fewer than one-third of employees across sectors are satisfied with these offerings.</p>
+
+          <div class="stats-strip">
+            <div class="stat">
+              <strong>12</strong>
+              <span>Virtual panels</span>
+            </div>
+            <div class="stat">
+              <strong>60</strong>
+              <span>Minutes per event</span>
+            </div>
+            <div class="stat">
+              <strong>30</strong>
+              <span>Minutes of live Q&amp;A</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="package-panel">
+          <p class="label">Partnership package</p>
+          <h2>Choose six events from one combined package.</h2>
+          <ul>
+            <li>Celebration Days Series and Emerging Markets Series are sold together.</li>
+            <li>Events are offered across multiple time zones.</li>
+            <li>RxVP partners with ERGs to align senior-level speakers with goals and budgets.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="series-grid">
+        <article class="series-card celebration-card">
+          <p class="label">Series 01</p>
+          <h2>Celebration Days</h2>
+          <p>Featured observances from September 2026 through June 2027, built for ERG engagement, leadership visibility, and cross-functional employee learning.</p>
+        </article>
+
+        <article class="series-card market-card">
+          <p class="label">Series 02</p>
+          <h2>Emerging Markets</h2>
+          <p>Five market-focused panels from September 2026 through February 2027, spotlighting China, India, Japan, Brazil, and Saudi Arabia.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>RxVP Panel Series Package</span>
+      <span>September 2026 - June 2027</span>
+    </footer>
+  </main>
+
+  <section class="page" data-export-title="RxVP Panel Series Package - Celebration Days">
+    <header class="page-header">
+      <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
+      <p>Celebration Days Series</p>
+    </header>
+
+    <section class="content">
+      <div class="section-title">
+        <h2>Celebration Days Series</h2>
+        <p>Featured observances from September 2026 through June 2027, with senior speakers curated for employee resource groups and leadership audiences.</p>
+      </div>
+
+      <div class="celebration-grid">
+        <article class="celebration-tile gold">
+          <p class="label">February 2027</p>
+          <h3>Black History Month</h3>
+        </article>
+
+        <article class="celebration-tile teal">
+          <p class="label">February 11, 2027</p>
+          <h3>International Day of Women and Girls in Science</h3>
+        </article>
+
+        <article class="celebration-tile">
+          <p class="label">March 2027</p>
+          <h3>International Women's Day</h3>
+        </article>
+
+        <article class="celebration-tile gold">
+          <p class="label">May 2027</p>
+          <h3>Asian History Month</h3>
+        </article>
+
+        <article class="celebration-tile">
+          <p class="label">June 2027</p>
+          <h3>Pride Month</h3>
+        </article>
+
+        <article class="celebration-tile teal">
+          <p class="label">September 15 - October 15, 2026</p>
+          <h3>Hispanic Heritage Month</h3>
+        </article>
+
+        <article class="celebration-tile gold">
+          <p class="label">May 2027</p>
+          <h3>Mother's Day</h3>
+        </article>
+      </div>
+
+      <div class="engagement-band">
+        <h3>Built to help employees break down silos.</h3>
+        <ul>
+          <li>RxVP brings in high-caliber external speakers who can provide perspective beyond the organization.</li>
+          <li>Each event is designed for live audience engagement through a substantial Q&amp;A segment.</li>
+          <li>ERG partners can align the program with their goals, budgets, audience needs, and annual calendars.</li>
+          <li>Panels provide employees with firsthand insight into leadership journeys and possible career paths.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Celebration Days Series</span>
+      <span>Part of the combined RxVP panel package</span>
+    </footer>
+  </section>
+
+  <section class="page" data-export-title="RxVP Panel Series Package - Emerging Markets">
+    <header class="page-header">
+      <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
+      <p>Emerging Markets Series</p>
+    </header>
+
+    <section class="content">
+      <div class="market-lead">
+        <div class="map-panel">
+          <p class="eyebrow">September 2026 - February 2027</p>
+          <h2>Emerging Markets Series</h2>
+          <p>Panels featuring vice president-level and above speakers from key emerging markets.</p>
+        </div>
+
+        <div class="market-summary">
+          <p class="lead">Employees gain regional leadership perspective and a clearer view of the trends shaping growth markets.</p>
+          <p class="body-copy">These sessions are designed to surface industry priorities, market context, and leadership lessons from China, India, Japan, Brazil, and Saudi Arabia.</p>
+        </div>
+      </div>
+
+      <div class="market-grid">
+        <article class="market">
+          <p class="label">September 2026</p>
+          <h3>China</h3>
+          <p>The world's second-largest pharmaceutical market and third-largest medical device market, with strong demand for talent and continued production growth.</p>
+        </article>
+
+        <article class="market">
+          <p class="label">October 2026</p>
+          <h3>Japan</h3>
+          <p>The world's fourth-largest pharmaceutical market, with continued strategic importance in the global industry.</p>
+        </article>
+
+        <article class="market">
+          <p class="label">November 2026</p>
+          <h3>India</h3>
+          <p>Projected to grow by 200%-250% by 2030, reaching $130 billion, and expected to remain a leading market for pharmaceutical employment and production.</p>
+        </article>
+
+        <article class="market">
+          <p class="label">January 2027</p>
+          <h3>Brazil</h3>
+          <p>Growth is driven by expanded universal healthcare access through SUS, rising middle-class healthcare spending, and increased focus on rare diseases.</p>
+        </article>
+
+        <article class="market">
+          <p class="label">February 2027</p>
+          <h3>Saudi Arabia</h3>
+          <p>Growth is driven by the Vision 2030 initiative and major healthcare privatization efforts.</p>
+        </article>
+      </div>
+
+      <section class="includes">
+        <div>
+          <h2>Partnership Package Includes</h2>
+          <ul>
+            <li>Choose six events, each offered across multiple time zones.</li>
+            <li>Up to two speakers from your company may serve as moderators or panelists, subject to RxVP approval.</li>
+            <li>Receive pre- and post-event coaching for each speaker from RxVP Practitioner Coaches.</li>
+            <li>Work with a dedicated RxVP advisor to support your ERG leaders and drive engagement.</li>
+            <li>Receive 1,200 total seats, averaging 200 per event, with additional seats available for purchase.</li>
+            <li>Feature your company logo as an RxVP sponsor at all events and on the RxVP website.</li>
+          </ul>
+        </div>
+
+        <aside class="closing-card">
+          <p class="label">Annual package</p>
+          <div class="price">
+            <strong><span class="currency-label">US</span> $2,950</strong>
+            <strong class="euro-price"><span class="currency-label">EUR</span> 2,540.00</strong>
+            <span>Combined package</span>
+          </div>
+          <p>Cost may be divided between ERGs or functional areas. The Celebration Days Series and Emerging Markets Series are sold together as one RxVP package.</p>
+        </aside>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>Emerging Markets Series</span>
+      <span>www.rxvp.org</span>
+    </footer>
+  </section>
+</body>
+</html>

@@ -123,12 +123,20 @@ export const clients: Client[] = [
         color: 'from-fuchsia-800 to-amber-500',
       },
       {
-        slug: 'talk-collateral',
-        title: 'Talk Program Collateral',
+        slug: 'amplify-collateral',
+        title: 'Amplify Program Collateral',
         description:
           'Two-page PDF-ready collateral for the RxVP public speaking and executive presence coaching program.',
         category: 'Program collateral',
         color: 'from-purple-800 to-amber-500',
+      },
+      {
+        slug: 'panel-series-package',
+        title: 'Panel Series Partnership Package',
+        description:
+          'Three-page PDF-ready package for the Celebration Days and Emerging Markets virtual panel series.',
+        category: 'Partnership, 2026-2027',
+        color: 'from-fuchsia-800 to-teal-600',
       },
     ],
   },
