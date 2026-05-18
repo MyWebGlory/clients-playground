@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RxVP Amplify Program Collateral</title>
+  <title>RxVP Public Speaking | AMPLIFY Program</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +27,55 @@
 
     body {
       padding: 24px;
+    }
+
+    .template-controls {
+      width: 8.5in;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: end;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .template-controls label {
+      display: grid;
+      gap: 5px;
+      color: #eadc9a;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .template-controls input {
+      width: 230px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 6px;
+      background: #fff;
+      color: #241f27;
+      font: 700 13px Montserrat, Arial, sans-serif;
+      padding: 8px 10px;
+    }
+
+    .template-controls button,
+    .print-button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .template-controls button {
+      border-radius: 6px;
+      background: #c9a532;
+      color: #24162c;
+      font: 800 12px Montserrat, Arial, sans-serif;
+      padding: 9px 12px;
+      text-transform: uppercase;
     }
 
     .page {
@@ -286,18 +335,18 @@
 
     .detail-lead {
       width: 6.7in;
-      margin: 0.3in 0.56in 0.24in;
+      margin: 0.32in 0.56in 0.26in;
       color: #4a075c;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 18pt;
+      font-size: 19.2pt;
       font-weight: 600;
-      line-height: 1.18;
+      line-height: 1.2;
     }
 
     .program-row {
       display: flex;
       gap: 0.34in;
-      margin: 0.18in 0.56in 0;
+      margin: 0.22in 0.56in 0;
     }
 
     .formats-band {
@@ -348,9 +397,9 @@
     }
 
     .program h3 {
-      margin: 0.13in 0 0.04in;
+      margin: 0.16in 0 0.05in;
       color: #4a075c;
-      font-size: 9.4pt;
+      font-size: 10.4pt;
       font-weight: 800;
       line-height: 1.2;
     }
@@ -360,10 +409,26 @@
     }
 
     .custom {
-      margin: 0.26in 0.56in 0;
-      padding: 0.18in 0.22in;
+      margin: 0.34in 0.56in 0;
+      padding: 0.22in 0.24in;
       border-left: 4px solid #c9a532;
       background: #f7f0f8;
+    }
+
+    .page-two .label {
+      margin-bottom: 0.1in;
+      font-size: 9.8pt;
+    }
+
+    .page-two .program p {
+      font-size: 10.3pt;
+      line-height: 1.5;
+    }
+
+    .page-two li {
+      margin-bottom: 0.058in;
+      font-size: 10.15pt;
+      line-height: 1.42;
     }
 
     .program-row.single .program {
@@ -376,7 +441,7 @@
     }
 
     .custom ul {
-      margin-top: 0.06in;
+      margin-top: 0.08in;
       columns: 2;
       column-gap: 0.35in;
     }
@@ -401,14 +466,12 @@
       position: fixed;
       right: 24px;
       bottom: 24px;
-      border: 0;
       border-radius: 999px;
       background: #fff;
       color: #4a075c;
       font: 700 13px Montserrat, Arial, sans-serif;
       padding: 12px 18px;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
     }
 
     @media print {
@@ -433,10 +496,26 @@
       .print-button {
         display: none;
       }
+
+      .template-controls {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+  <section class="template-controls" aria-label="Template details">
+    <label>
+      Company
+      <input id="company-input" type="text" placeholder="your company">
+    </label>
+    <label>
+      Location
+      <input id="location-input" type="text" placeholder="company location">
+    </label>
+    <button id="reset-template" type="button">Reset</button>
+  </section>
+
   <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
 
   <main class="page">
@@ -453,7 +532,7 @@
     <section class="page-one-body">
       <div class="intro-row">
         <div class="intro-main">
-          <p class="lead">Elevating the next generation of enterprise leaders at (company name and location).</p>
+          <p class="lead">Elevating the next generation of enterprise leaders at <span data-company-location>your company</span>.</p>
           <p class="body-text">As leaders step into broader enterprise influence, the ability to communicate with confidence, clarity, and authority becomes a defining advantage. AMPLIFY is a premium development experience designed to help emerging senior leaders strengthen public speaking and executive presence.</p>
         </div>
         <aside class="selling-card">
@@ -492,7 +571,7 @@
       </div>
 
       <section class="bio-box">
-        <p class="label">Our Practitioner Coaches for India</p>
+        <p class="label">Our Practitioner Coaches</p>
         <div class="bio-row">
           <div class="bio">
             <p class="bio-name">Deepa Desai</p>
@@ -527,7 +606,7 @@
           <li>Strengthen leadership presence in high-visibility forums</li>
           <li>Deliver clear, concise, and compelling messages under pressure</li>
           <li>Engage diverse audiences with authenticity and authority</li>
-          <li>Represent (company name and location) with thought leadership impact</li>
+          <li>Represent <span data-company>your company</span> with thought leadership impact</li>
           <li>Navigate panel discussions and live Q&amp;A with agility and confidence</li>
         </ul>
       </article>
@@ -573,5 +652,46 @@
       <span>Public speaking and executive presence coaching</span>
     </footer>
   </section>
+  <script>
+    (() => {
+      const companyInput = document.getElementById('company-input');
+      const locationInput = document.getElementById('location-input');
+      const resetButton = document.getElementById('reset-template');
+      const params = new URLSearchParams(window.location.search);
+      const defaultCompany = 'your company';
+
+      companyInput.value = params.get('company') || '';
+      locationInput.value = params.get('location') || '';
+
+      function getCompany() {
+        return companyInput.value.trim() || defaultCompany;
+      }
+
+      function getCompanyLocation() {
+        const company = getCompany();
+        const location = locationInput.value.trim();
+        return location ? `${company} in ${location}` : company;
+      }
+
+      function applyTemplateText() {
+        document.querySelectorAll('[data-company]').forEach((node) => {
+          node.textContent = getCompany();
+        });
+        document.querySelectorAll('[data-company-location]').forEach((node) => {
+          node.textContent = getCompanyLocation();
+        });
+      }
+
+      companyInput.addEventListener('input', applyTemplateText);
+      locationInput.addEventListener('input', applyTemplateText);
+      resetButton.addEventListener('click', () => {
+        companyInput.value = '';
+        locationInput.value = '';
+        applyTemplateText();
+      });
+
+      applyTemplateText();
+    })();
+  </script>
 </body>
 </html>

@@ -127,7 +127,7 @@ export const clients: Client[] = [
         title: 'Amplify Program Collateral',
         description:
           'Two-page PDF-ready collateral for the RxVP public speaking and executive presence coaching program.',
-        category: 'Program collateral',
+        category: 'Public Speaking',
         color: 'from-purple-800 to-amber-500',
       },
       {
