@@ -111,6 +111,7 @@ async def wait_for_assets(page):
 
 async def detect_default_selector(page) -> Optional[str]:
     candidates = [
+        ".certificate",
         ".graphic",
         ".flyer-page",
         ".page",

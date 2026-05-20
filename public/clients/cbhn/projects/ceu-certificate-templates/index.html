@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=816">
+  <title>CBHN CEU Certificate Templates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #003687;
+      --blue-dark: #001f4f;
+      --green: #369662;
+      --orange: #f14916;
+      --gold: #f8d300;
+      --ink: #201815;
+      --muted: #5f6368;
+      --paper: #fffaf0;
+      --line: #d9c68b;
+    }
+
+    * { box-sizing: border-box; }
+
+    @page { size: letter portrait; margin: 0; }
+
+    body {
+      margin: 0;
+      padding: 32px 0 56px;
+      background: #d8d8d8;
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .toolbar {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 999px;
+      background: white;
+      color: #151515;
+      cursor: pointer;
+      font: 800 12px/1 Inter, sans-serif;
+      letter-spacing: 0.05em;
+      padding: 10px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .page-label {
+      width: 8.5in;
+      margin: 0 auto 10px;
+      color: #4d4d4d;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .certificate {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 28px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 9% 11%, rgba(54, 150, 98, 0.12), transparent 26%),
+        radial-gradient(circle at 92% 18%, rgba(241, 73, 22, 0.12), transparent 24%),
+        linear-gradient(180deg, #fffdf8 0%, #ffffff 42%, #fffaf1 100%);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .certificate::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(135deg, rgba(0, 54, 135, 0.045) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(0, 54, 135, 0.045) 25%, transparent 25%);
+      background-position: 0 0, 14px 14px;
+      background-size: 28px 28px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .frame {
+      position: absolute;
+      inset: 0.34in;
+      border: 6px solid var(--blue-dark);
+      outline: 1px solid rgba(248, 211, 0, 0.72);
+      outline-offset: -16px;
+    }
+
+    .brand-band {
+      position: absolute;
+      left: 0.34in;
+      right: 0.34in;
+      top: 0.34in;
+      height: 13px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.8fr 0.8fr 1fr 0.9fr;
+      border-left: 6px solid var(--blue-dark);
+      border-right: 6px solid var(--blue-dark);
+    }
+
+    .brand-band span:nth-child(1) { background: var(--green); }
+    .brand-band span:nth-child(2) { background: #cc0000; }
+    .brand-band span:nth-child(3) { background: var(--gold); }
+    .brand-band span:nth-child(4) { background: var(--blue); }
+    .brand-band span:nth-child(5) { background: var(--orange); }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 0.78in 0.78in 0.66in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 0.86in;
+      margin-bottom: 0.08in;
+    }
+
+    .logo-row.center { justify-content: center; }
+
+    .nasw-logo { width: 1.66in; height: auto; object-fit: contain; }
+    .cbhn-logo { width: 3.75in; height: auto; object-fit: contain; }
+    .attendance .cbhn-logo { width: 4.15in; }
+
+    .eyebrow {
+      margin-top: 0.1in;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.14in 0 0.2in;
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 39px;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .ceu h1 { font-size: 36px; }
+
+    .accent-rule {
+      width: 4.9in;
+      height: 7px;
+      margin: 0 0 0.22in;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--orange), var(--blue));
+    }
+
+    .certifies {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .recipient {
+      width: 6.1in;
+      margin: 0.2in 0 0.16in;
+      padding: 0.12in 0.18in;
+      border-top: 1px solid rgba(0, 54, 135, 0.24);
+      border-bottom: 1px solid rgba(0, 54, 135, 0.24);
+      background: rgba(0, 54, 135, 0.07);
+      color: #111111;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .body-copy {
+      max-width: 6.55in;
+      color: #1f1f1f;
+      font-size: 18px;
+      line-height: 1.36;
+      font-weight: 500;
+    }
+
+    .event-name {
+      margin-top: 0.12in;
+      color: var(--blue-dark);
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .event-subtitle {
+      color: #302421;
+      font-size: 18px;
+      line-height: 1.25;
+      font-style: italic;
+      font-weight: 650;
+    }
+
+    .session-list {
+      display: inline-block;
+      margin: 0.12in auto 0;
+      padding: 0;
+      text-align: left;
+      color: #171717;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.38;
+    }
+
+    .details-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 5.7in;
+      margin: 0.16in 0 0.14in;
+    }
+
+    .detail {
+      border: 1px solid rgba(0, 54, 135, 0.18);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.1in;
+    }
+
+    .detail span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .detail strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--blue-dark);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .ceu-total {
+      width: 4.55in;
+      margin: 0.02in 0 0.13in;
+      border-radius: 999px;
+      background: var(--blue-dark);
+      color: white;
+      font-size: 21px;
+      font-weight: 900;
+      padding: 0.1in 0.2in;
+    }
+
+    .compliance {
+      max-width: 6.55in;
+      color: #242424;
+      font-size: 15.5px;
+      line-height: 1.32;
+      font-weight: 600;
+    }
+
+    .attendance-text {
+      margin-top: 0.18in;
+      max-width: 6.4in;
+      color: #242424;
+      font-size: 18px;
+      line-height: 1.38;
+      font-weight: 550;
+    }
+
+    .attendance-text strong { color: var(--blue-dark); font-weight: 900; }
+
+    .push { flex: 1; }
+
+    .signature-block {
+      width: 4.15in;
+      margin-top: 0.08in;
+      text-align: center;
+    }
+
+    .signature-slot {
+      position: relative;
+      height: 0.52in;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border-bottom: 3px solid #111111;
+    }
+
+    .signature-slot img {
+      max-width: 2.3in;
+      max-height: 0.47in;
+      object-fit: contain;
+      transform: translateY(8px);
+    }
+
+    .signature-placeholder {
+      color: rgba(0, 0, 0, 0.35);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transform: translateY(-7px);
+    }
+
+    .signature-name {
+      margin-top: 0.13in;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .signature-title {
+      margin-top: 0.02in;
+      font-size: 14px;
+      font-weight: 650;
+      color: #333333;
+    }
+
+    .footer {
+      margin-top: 0.14in;
+      border-top: 1px solid rgba(0, 54, 135, 0.25);
+      padding-top: 0.1in;
+      color: #252525;
+      font-size: 12.5px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .footer strong { color: var(--blue-dark); }
+
+    @media print {
+      body { padding: 0; background: white; }
+      .toolbar, .page-label { display: none; }
+      .certificate { margin: 0; box-shadow: none; break-after: page; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="./CBHN-CEU-Certificate-Templates-Flattened.pdf" download>Download PDF</a>
+    <a href="./CBHN-CEU-Certificate-Templates.pptx" download>Download PPTX</a>
+    <button type="button" onclick="window.print()">Print / PDF</button>
+  </div>
+
+  <div class="page-label">Page 1 · CEU Certificate — Multiple Sessions</div>
+  <section class="certificate ceu" data-export-title="CEU Certificate - Multiple Sessions">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">[Participant Name], [Credentials]</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">CBHN Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: [CEUs]</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 2 · CEU Certificate — Single Session</div>
+  <section class="certificate ceu" data-export-title="CEU Certificate - Single Session">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">[First Name] [Last Name], [Credentials]</div>
+      <div class="body-copy">has successfully completed the educational session at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: [CEUs]</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><span class="signature-placeholder">Drop signature here</span></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 3 · Certificate of Attendance</div>
+  <section class="certificate attendance" data-export-title="Certificate of Attendance">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row center">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">Conference Documentation</div>
+      <h1>Certificate of Attendance</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">[Participant Name]</div>
+      <div class="attendance-text">has participated in the <strong>CBHN Virtual Behavioral and Mental Health Conference</strong>, held on <strong>Wednesday, May 13, 2026</strong>, and attended <strong>[X] hours</strong> of programming.</div>
+      <div class="attendance-text">This certificate is awarded as documentation of attendance. <strong>No Continuing Education Units (CEUs)</strong> are associated with this certificate.</div>
+      <div class="attendance-text">Participants may submit this certificate to their licensing board for independent review.</div>
+      <div class="push"></div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+      <div class="signature-block">
+        <div class="signature-slot"><span class="signature-placeholder">Drop signature here</span></div>
+        <div class="signature-title">Executive Director</div>
+        <div class="signature-title">Date: May 20, 2026</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

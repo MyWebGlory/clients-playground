@@ -78,6 +78,14 @@ export const clients: Client[] = [
         color: 'from-shamrock to-deep-blue',
       },
       {
+        slug: 'ceu-certificate-templates',
+        title: 'CEU Certificate Templates',
+        description:
+          'Editable certificate templates for CEU recipients and attendance-only participants, with HTML/PDF-ready source and PPTX handoff.',
+        category: 'Conference, May 2026',
+        color: 'from-deep-blue to-gold',
+      },
+      {
         slug: 'hr1-event-flyer',
         title: 'HR1 Forum, Event Flyer',
         description:
