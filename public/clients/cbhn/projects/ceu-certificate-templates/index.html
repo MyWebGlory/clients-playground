@@ -169,6 +169,7 @@
     .accent-rule {
       width: 4.9in;
       height: 7px;
+      min-height: 7px;
       margin: 0 0 0.22in;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--green), var(--gold), var(--orange), var(--blue));
@@ -215,10 +216,16 @@
       line-height: 1.25;
       font-style: italic;
       font-weight: 650;
+    width: 105%;
     }
 
     .session-list {
-      display: inline-block;
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      justify-content: center;
+      column-gap: 0.46in;
       margin: 0.12in auto 0;
       padding: 0;
       text-align: left;
@@ -226,6 +233,29 @@
       font-size: 17px;
       font-weight: 650;
       line-height: 1.38;
+    }
+
+    .session-list li {
+      margin-left: 0.22in;
+      break-inside: avoid;
+    }
+
+    .blank-inline {
+      display: inline-block;
+      min-width: 0.72in;
+      height: 0.9em;
+      border-bottom: 1px solid currentColor;
+      vertical-align: baseline;
+    }
+
+    .recipient .blank-inline {
+      width: 5.2in;
+      border-bottom-color: rgba(0, 54, 135, 0.38);
+    }
+
+    .ceu-total .blank-inline {
+      width: 0.78in;
+      border-bottom-color: rgba(255, 255, 255, 0.88);
     }
 
     .details-card {
@@ -375,7 +405,7 @@
       <h1>Certificate of Continuing Education</h1>
       <div class="accent-rule"></div>
       <p class="certifies">This certifies that</p>
-      <div class="recipient">[Participant Name], [Credentials]</div>
+      <div class="recipient"><span class="blank-inline"></span></div>
       <div class="body-copy">has successfully completed the following educational sessions at the:</div>
       <div class="event-name">CBHN Virtual Behavioral and Mental Health Conference</div>
       <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
@@ -388,7 +418,7 @@
         <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
         <div class="detail"><span>Location</span><strong>Zoom</strong></div>
       </div>
-      <div class="ceu-total">Number of CEUs Issued: [CEUs]</div>
+      <div class="ceu-total">Number of CEUs Issued: <span class="blank-inline"></span></div>
       <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
       <div class="push"></div>
       <div class="signature-block">
@@ -413,19 +443,19 @@
       <h1>Certificate of Continuing Education</h1>
       <div class="accent-rule"></div>
       <p class="certifies">This certifies that</p>
-      <div class="recipient">[First Name] [Last Name], [Credentials]</div>
+      <div class="recipient"><span class="blank-inline"></span></div>
       <div class="body-copy">has successfully completed the educational session at the:</div>
-      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-name" style="margin-bottom: 107px;">Virtual Behavioral and Mental Health Conference</div>
       <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
       <div class="details-card">
         <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
         <div class="detail"><span>Location</span><strong>Zoom</strong></div>
       </div>
-      <div class="ceu-total">Number of CEUs Issued: [CEUs]</div>
+      <div class="ceu-total">Number of CEUs Issued: <span class="blank-inline"></span></div>
       <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
       <div class="push"></div>
       <div class="signature-block">
-        <div class="signature-slot"><span class="signature-placeholder">Drop signature here</span></div>
+        <div class="signature-slot"></div>
         <div class="signature-name">Rhonda M. Smith</div>
         <div class="signature-title">Authorized Signature</div>
       </div>
@@ -445,18 +475,461 @@
       <h1>Certificate of Attendance</h1>
       <div class="accent-rule"></div>
       <p class="certifies">This certifies that</p>
-      <div class="recipient">[Participant Name]</div>
-      <div class="attendance-text">has participated in the <strong>CBHN Virtual Behavioral and Mental Health Conference</strong>, held on <strong>Wednesday, May 13, 2026</strong>, and attended <strong>[X] hours</strong> of programming.</div>
+      <div class="recipient"><span class="blank-inline"></span></div>
+      <div class="attendance-text">has participated in the <strong>CBHN Virtual Behavioral and Mental Health Conference</strong>, held on <strong>Wednesday, May 13, 2026</strong>, and attended <strong><span class="blank-inline"></span> hours</strong> of programming.</div>
       <div class="attendance-text">This certificate is awarded as documentation of attendance. <strong>No Continuing Education Units (CEUs)</strong> are associated with this certificate.</div>
       <div class="attendance-text">Participants may submit this certificate to their licensing board for independent review.</div>
       <div class="push"></div>
       <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
       <div class="signature-block">
-        <div class="signature-slot"><span class="signature-placeholder">Drop signature here</span></div>
+        <div class="signature-slot"></div>
         <div class="signature-title">Executive Director</div>
         <div class="signature-title">Date: May 20, 2026</div>
       </div>
     </div>
   </section>
+  <!-- Actual CE Certificates -->
+
+  <div class="page-label">Page 4 · Dr. Amanda Vann-Orellana, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Dr. Amanda Vann-Orellana, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Dr. Amanda Vann-Orellana, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 3</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 5 · Anita L. Barnes, LCSW, MSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Anita L. Barnes, LCSW, MSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Anita L. Barnes, LCSW, MSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 4</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 6 · Dolores Moorehead, MS, LPCC</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Dolores Moorehead, MS, LPCC">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Dolores Moorehead, MS, LPCC</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 7 · Emiliano Lopez-Mejia, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Emiliano Lopez-Mejia, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Emiliano Lopez-Mejia, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 8 · Erin Jackman, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Erin Jackman, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Erin Jackman, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 4.5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 9 · Jessica Benway, LMFT</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Jessica Benway, LMFT">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Jessica Benway, LMFT</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 3.5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 10 · Jessica Lopez, LMFT</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Jessica Lopez, LMFT">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Jessica Lopez, LMFT</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 11 · Maria Dalhamer, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Maria Dalhamer, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Maria Dalhamer, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 12 · Paco Retana, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Paco Retana, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Paco Retana, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 13 · Yolanda Whittington, LCSW</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Yolanda Whittington, LCSW">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Yolanda Whittington, LCSW</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Opening Keynote – 1 CEU</li>
+        <li>Toxic Stress – 1 CEU</li>
+        <li>Brain Health – 1 CEU</li>
+        <li>Suicide Prevention – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 5</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+
+  <div class="page-label">Page 14 · Adriana Maria Furuzawa, LMFT</div>
+  <section class="certificate ceu actual-certificate" data-export-title="Adriana Maria Furuzawa, LMFT">
+    <div class="frame"></div>
+    <div class="brand-band"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="content">
+      <div class="logo-row">
+        <img class="nasw-logo" src="./assets/nasw-ca-logo.jpg" alt="NASW California Chapter">
+        <img class="cbhn-logo" src="../../assets/images/cbhn-logo.png" alt="California Black Health Network">
+      </div>
+      <div class="eyebrow">NASW-CA Approved Continuing Education</div>
+      <h1>Certificate of Continuing Education</h1>
+      <div class="accent-rule"></div>
+      <p class="certifies">This certifies that</p>
+      <div class="recipient">Adriana Maria Furuzawa, LMFT</div>
+      <div class="body-copy">has successfully completed the following educational sessions at the:</div>
+      <div class="event-name">Virtual Behavioral and Mental Health Conference</div>
+      <div class="event-subtitle">Hidden Crises—Stress, Mental Health &amp; Brain Health in the Black Community</div>
+      <ul class="session-list actual-session-list">
+        <li>Brain Health – 1 CEU</li>
+        <li>Policy HR1 – 0.5 CEU</li>
+        <li>Closing Keynote – 0.5 CEU</li>
+      </ul>
+      <div class="details-card">
+        <div class="detail"><span>Date</span><strong>May 13, 2026</strong></div>
+        <div class="detail"><span>Location</span><strong>Zoom</strong></div>
+      </div>
+      <div class="ceu-total">Number of CEUs Issued: 2</div>
+      <p class="compliance">This course meets the qualifications for Continuing Education for LCSWs, LMFTs, LPCCs, and LEPs as required by the CA State Board of Behavioral Sciences, provided by NASW-CA.</p>
+      <div class="push"></div>
+      <div class="signature-block">
+        <div class="signature-slot"><img src="./assets/rhonda-smith-signature.png" alt="Rhonda M. Smith signature"></div>
+        <div class="signature-name">Rhonda M. Smith</div>
+        <div class="signature-title">Authorized Signature</div>
+      </div>
+      <div class="footer"><strong>California Black Health Network</strong><br>520 9th Street, Suite 100, Sacramento, CA 95814<br>Phone: (916) 333-0613</div>
+    </div>
+  </section>
+  <!-- /Actual CE Certificates -->
 </body>
 </html>

@@ -169,6 +169,7 @@
       font-size: 18.6pt;
       font-weight: 600;
       line-height: 1.16;
+      text-align: justify;
     }
 
     .body-copy {
@@ -177,6 +178,7 @@
       font-size: 9.3pt;
       font-weight: 700;
       line-height: 1.5;
+      text-align: justify;
     }
 
     .stats-strip {
@@ -249,13 +251,14 @@
       position: relative;
       margin: 0 0 0.12in;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 24pt;
+      font-size: 20pt;
       line-height: 1;
     }
 
     .package-panel li {
       font-size: 10.25pt;
       line-height: 1.35;
+      text-align: justify;
     }
 
     .price {
@@ -338,6 +341,7 @@
       margin: 0;
       font-size: 8.6pt;
       line-height: 1.45;
+      text-align: justify;
     }
 
     .celebration-card {
@@ -391,17 +395,89 @@
       font-size: 10.2pt;
       font-weight: 600;
       line-height: 1.34;
+      text-align: justify;
+    }
+
+    .celebration-lead {
+      display: grid;
+      grid-template-columns: 2.85in 1fr;
+      gap: 0.35in;
+      margin-bottom: 0.24in;
+      align-items: stretch;
+    }
+
+    .celebration-panel {
+      min-height: 2.25in;
+      padding: 0.22in;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(239, 217, 133, 0.32), transparent 0.82in),
+        linear-gradient(135deg, rgba(116, 34, 104, 0.96), rgba(194, 59, 120, 0.94)),
+        url("../../assets/images/hero-image.jpg");
+      background-size: auto, auto, cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .celebration-panel::after {
+      content: "";
+      position: absolute;
+      right: -0.42in;
+      bottom: -0.46in;
+      width: 1.56in;
+      height: 1.56in;
+      border: 0.12in solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+    }
+
+    .celebration-panel h2 {
+      position: relative;
+      margin: 0 0 0.1in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28pt;
+      line-height: 0.98;
+    }
+
+    .celebration-panel p {
+      position: relative;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 8.7pt;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .celebration-panel .eyebrow {
+      color: var(--gold-light);
+      font-size: 7.2pt;
+      letter-spacing: 1.2pt;
+      text-shadow: none;
+    }
+
+    .celebration-summary {
+      padding-top: 0.04in;
+    }
+
+    .celebration-summary h3 {
+      margin: 0;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18pt;
+      font-weight: 600;
+      line-height: 1.16;
+      text-align: justify;
     }
 
     .celebration-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.12in;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.1in;
     }
 
     .celebration-tile {
-      min-height: 1.08in;
-      padding: 0.15in 0.17in;
+      min-height: 1.22in;
+      padding: 0.15in 0.12in 0.16in;
       background: #fff;
       border-top: 4px solid var(--rose);
       position: relative;
@@ -450,44 +526,50 @@
 
     .celebration-tile h3 {
       position: relative;
-      margin: 0;
+      margin: 0 0 0.07in;
       color: var(--aubergine);
-      font-size: 12.2pt;
+      font-size: 10.6pt;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1;
     }
 
     .celebration-tile p {
       position: relative;
       margin: 0;
       color: var(--muted);
-      font-size: 8pt;
-      font-weight: 600;
-      line-height: 1.35;
+      font-size: 8.2pt;
+      font-weight: 700;
+      line-height: 1.34;
     }
 
     .engagement-band {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 0.25in;
-      margin-top: 0.22in;
-      padding: 0.22in 0.24in;
-      background: var(--lavender);
-      border-left: 5px solid var(--gold);
+      display: block;
+      margin-top: 0.28in;
+      padding: 0.24in;
+      background: #fbedf4;
+      border-top: 4px solid var(--rose);
+      border-left: 0;
     }
 
     .engagement-band h3 {
       margin: 0;
       color: var(--aubergine);
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 19pt;
-      line-height: 1.05;
+      font-size: 22pt;
+      line-height: 1;
+    }
+
+    .engagement-band ul {
+      columns: 1;
+      column-gap: 0.3in;
     }
 
     .engagement-band li {
       color: var(--ink);
-      font-size: 9.45pt;
+      font-size: 14px;
       line-height: 1.32;
+      text-align: justify;
+      break-inside: avoid;
     }
 
     .market-lead {
@@ -549,25 +631,55 @@
       padding: 0.15in 0.12in 0.16in;
       background: #fff;
       border-top: 4px solid var(--teal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .market::before {
+      content: "";
+      position: absolute;
+      right: -0.26in;
+      top: -0.23in;
+      width: 0.82in;
+      height: 0.82in;
+      border-radius: 50%;
+      background: rgba(22, 122, 127, 0.13);
     }
 
     .market:nth-child(2) {
       border-top-color: var(--blue);
     }
 
+    .market:nth-child(2)::before {
+      background: rgba(40, 91, 159, 0.13);
+    }
+
     .market:nth-child(3) {
       border-top-color: var(--gold);
+    }
+
+    .market:nth-child(3)::before {
+      background: rgba(201, 165, 50, 0.18);
     }
 
     .market:nth-child(4) {
       border-top-color: var(--rose);
     }
 
+    .market:nth-child(4)::before {
+      background: rgba(194, 59, 120, 0.13);
+    }
+
     .market:nth-child(5) {
       border-top-color: var(--green);
     }
 
+    .market:nth-child(5)::before {
+      background: rgba(79, 126, 58, 0.13);
+    }
+
     .market .label {
+      position: relative;
       margin-bottom: 0.06in;
       color: var(--teal);
       font-size: 7pt;
@@ -591,6 +703,7 @@
     }
 
     .market h3 {
+      position: relative;
       margin: 0 0 0.07in;
       color: var(--aubergine);
       font-size: 11pt;
@@ -599,11 +712,13 @@
     }
 
     .market p {
+      position: relative;
       margin: 0;
       color: var(--muted);
-      font-size: 7.95pt;
+      font-size: 11px;
       font-weight: 700;
       line-height: 1.34;
+      text-align: justify;
     }
 
     .includes {
@@ -625,8 +740,9 @@
 
     .includes li {
       color: var(--ink);
-      font-size: 8.9pt;
+      font-size: 14px;
       line-height: 1.28;
+      text-align: justify;
     }
 
     .closing-card {
@@ -669,8 +785,9 @@
     .closing-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 9.25pt;
+      font-size: 14px;
       line-height: 1.38;
+      text-align: justify;
     }
 
     .footer {
@@ -687,6 +804,20 @@
       font-weight: 800;
       letter-spacing: 0.6pt;
       text-transform: uppercase;
+    }
+
+    .footer.page-three-footer {
+      align-items: flex-end;
+      gap: 0.16in;
+    }
+
+    .footer-contact {
+      flex: 1;
+      text-align: center;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 8.2pt;
+      line-height: 1.25;
     }
 
     .print-button {
@@ -745,7 +876,7 @@
       </div>
       <svg class="wave" viewBox="0 0 1000 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 64 C180 34 326 76 492 58 C674 38 806 22 1000 70 L1000 130 L0 130 Z" fill="#fffdf8"/>
-        <path d="M0 42 C165 82 314 26 492 48 C690 72 820 104 1000 58 L1000 82 C820 126 666 92 492 68 C314 43 165 104 0 66 Z" fill="#c9a532" opacity="0.92"/>
+        <path d="M0 50 C180 20 326 62 492 44 C674 24 806 8 1000 56 L1000 76 C806 28 674 44 492 64 C326 82 180 40 0 70 Z" fill="#c9a532" opacity="0.92"/>
       </svg>
     </section>
 
@@ -811,9 +942,15 @@
     </header>
 
     <section class="content">
-      <div class="section-title">
-        <h2>Celebration Days Series</h2>
-        <p>Featured observances from September 2026 through June 2027, with senior speakers curated for employee resource groups and leadership audiences.</p>
+      <div class="celebration-lead">
+        <div class="celebration-panel">
+          <h2>Celebration Days Series</h2>
+          <p>Featured observances from September 2026 through June 2027, with senior speakers curated for employee resource groups and leadership audiences.</p>
+        </div>
+
+        <div class="celebration-summary">
+          <h3>Built to help employees break down silos.</h3>
+        </div>
       </div>
 
       <div class="celebration-grid">
@@ -854,7 +991,6 @@
       </div>
 
       <div class="engagement-band">
-        <h3>Built to help employees break down silos.</h3>
         <ul>
           <li>Employees gain firsthand exposure to leadership strategies and emerging market dynamics, supporting both individual growth and organizational success.</li>
           <li>Each event is designed for live audience engagement through a substantial Q&amp;A segment.</li>
@@ -946,8 +1082,9 @@
       </section>
     </section>
 
-    <footer class="footer">
+    <footer class="footer page-three-footer">
       <span>Emerging Markets Series</span>
+      <span class="footer-contact">For more information, please contact Bonnie Lappin at bonnie@rxvp.org</span>
       <span>www.rxvp.org</span>
     </footer>
   </section>
