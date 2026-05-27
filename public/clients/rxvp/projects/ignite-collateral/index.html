@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RxVP Public Speaking | AMPLIFY Program</title>
+  <title>RxVP Public Speaking | IGNITE Program</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     @page {
       size: Letter;
@@ -118,9 +118,6 @@
       left: 2.05in;
       right: 0.38in;
       padding: 0.06in 0.1in;
-      background: #3b0648;
-      border-left: 3px solid #c9a532;
-      border-right: 3px solid #c9a532;
       color: #f3dc78;
       font-size: 10.5pt;
       font-weight: 800;
@@ -142,7 +139,7 @@
 
     h1 {
       margin: 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
+      font-family: Montserrat, Arial, sans-serif;
       font-size: 48pt;
       font-weight: 700;
       line-height: 0.82;
@@ -152,7 +149,7 @@
 
     .hero-title p:last-child {
       margin: 0.18in 0 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
+      font-family: Montserrat, Arial, sans-serif;
       font-size: 14.5pt;
       font-weight: 600;
       line-height: 1.15;
@@ -176,7 +173,7 @@
     .lead {
       margin: 0;
       color: #4a075c;
-      font-family: "Cormorant Garamond", Georgia, serif;
+      font-family: Montserrat, Arial, sans-serif;
       font-size: 17.5pt;
       font-weight: 600;
       line-height: 1.2;
@@ -193,8 +190,7 @@
 
     .selling-card {
       width: 2.65in;
-      border-left: 4px solid #c9a532;
-      padding: 0.04in 0 0.03in 0.17in;
+      padding: 0.04in 0 0.03in;
     }
 
     .selling-card .label {
@@ -273,9 +269,7 @@
 
     .bio-box {
       margin-top: 0.16in;
-      padding: 0.15in 0.16in 0.16in;
-      border: 1px solid #d7c07a;
-      background: #fbf8ed;
+      padding: 0.15in 0 0.16in;
     }
 
     .bio-row {
@@ -291,19 +285,34 @@
     .bio-name {
       margin: 0 0 0.05in;
       color: #4a075c;
-      font-family: "Cormorant Garamond", Georgia, serif;
+      font-family: Montserrat, Arial, sans-serif;
       font-size: 13.5pt;
       font-weight: 700;
+    }
+
+    .bio-head {
+      display: flex;
+      gap: 0.14in;
+      align-items: center;
+      margin-bottom: 0.08in;
+    }
+
+    .bio-headshot {
+      width: 0.86in;
+      height: 0.86in;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    border-radius: 50%;
     }
 
     .bio-placeholder {
       min-height: 0.92in;
       margin: 0;
       padding-top: 0.07in;
-      border-top: 1px solid #dfd2e3;
       color: #756d79;
-      font-size: 8.6pt;
-      font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
       line-height: 1.26;
     }
 
@@ -317,7 +326,6 @@
       justify-content: space-between;
       height: 1.16in;
       padding: 0.27in 0.56in 0;
-      background: #3b0648;
     }
 
     .page-two-header img {
@@ -328,7 +336,7 @@
 
     .page-two-header p {
       margin: 0;
-      color: #e6cf72;
+      color: #4a075c;
       font-size: 8.4pt;
       font-weight: 800;
       letter-spacing: 1.3pt;
@@ -340,8 +348,8 @@
       width: auto;
       margin: 0.32in 0.56in 0.26in;
       color: #4a075c;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 19.2pt;
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 16px;
       font-weight: 600;
       line-height: 1.2;
     text-align: justify;
@@ -355,9 +363,7 @@
 
     .formats-band {
       margin: 0 0.56in 0.22in;
-      padding: 0.16in 0.2in;
-      border-left: 4px solid #c9a532;
-      background: #fbf8ed;
+      padding: 0.16in 0;
     }
 
     .formats-list {
@@ -377,9 +383,7 @@
 
     .feature-formats {
       margin: 0.02in 0 0.1in;
-      padding: 0.1in 0.12in;
-      border-left: 4px solid #c9a532;
-      background: #fbf8ed;
+      padding: 0.1in 0;
     }
 
     .feature-formats .formats-list {
@@ -414,9 +418,7 @@
 
     .custom {
       margin: 0 0.56in 0;
-      padding: 0.22in 0.24in;
-      border-left: 4px solid #c9a532;
-      background: #f7f0f8;
+      padding: 0.22in 0;
     }
 
     .page-two .label {
@@ -518,12 +520,12 @@
   <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
 
   <main class="page">
-    <section class="hero" aria-label="RxVP AMPLIFY program">
+    <section class="hero" aria-label="RxVP IGNITE program">
       <img src="assets/top-woman.png" alt="RxVP speaker presenting to an audience">
       <div class="hero-tagline">The first and only speaker's bureau in life sciences</div>
       <div class="hero-title">
         <p class="eyebrow">Proudly presents</p>
-        <h1>AMPLIFY</h1>
+        <h1>IGNITE</h1>
         <p>Training Life Sciences leaders for high impact public speaking</p>
       </div>
     </section>
@@ -531,8 +533,8 @@
     <section class="page-one-body">
       <div class="intro-row">
         <div class="intro-main">
-          <p class="lead">Elevating the next generation of enterprise leaders at <span data-company-location>your company</span>.</p>
-          <p class="body-text">AMPLIFY is a premium development experience designed to help emerging senior leaders strengthen public speaking and executive presence.</p>
+          <p class="lead">Igniting next-in-line talent to excel as enterprise leaders</p>
+          <p class="body-text">IGNITE is a premium, hands-on development experience. Led by seasoned life sciences industry leaders and coaching experts who speak from lived experience, this program moves far beyond theory: It utilizes immersive, gamified workshops, high-stakes live role-play, and challenging coaching to master public speaking and build a definitive professional leadership signature.</p>
         </div>
         <aside class="selling-card">
           <p class="label">Core advantages</p>
@@ -560,11 +562,12 @@
 
         <article class="feature">
           <h2>Practitioner-Led Coaching</h2>
-          <p>RxVP speaker coaches are accomplished, active voices in the life sciences industry who bring firsthand credibility, insight, and candid feedback to every session.</p>
+          <p>RxVP Speaker coaches are active public speakers.</p>
           <ul>
-            <li>Speaker delivery and concise storytelling</li>
-            <li>Audience engagement and executive presence</li>
-            <li>Panelist, moderator, and interviewer readiness</li>
+            <li>The Art of the Narrative: Crafting and telling your strategic story with impact</li>
+            <li>The Art of the Stage: How to engage both virtual and in-person audiences</li>
+            <li>The Art of the Pivot: Reading the panel flow and seamlessly adjusting</li>
+            <li>The Art of the Hot Seat: Navigating difficult live questions and delivering interesting answers on the spot.</li>
           </ul>
         </article>
       </div>
@@ -607,26 +610,6 @@
 
     <p class="detail-lead">Participants leave the program better prepared to communicate with executive-level confidence, represent the organization with thought leadership impact, and navigate high-visibility forums with agility.</p>
 
-
-    <div class="program-row single" style="margin-top: 0.22in;">
-      <article class="program">
-        <p class="label">Delivery Skills</p>
-        <div style="display: flex; flex-direction: row; gap: 0.35in;">
-          <ul style="width: 50%;">
-            <li>Speaker delivery</li>
-            <li>Concise storytelling</li>
-            <li>Audience engagement</li>
-            <li>Mastering Q&amp;A</li>
-          </ul>
-          <ul style="width: 50%;">
-            <li>Appropriate self-effacing humor</li>
-            <li>Engagement with panelists, moderators, and interviewers</li>
-            <li>Enhanced executive presence</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-
     <section class="custom">
       <p class="label">Program design can be customized based on:</p>
       <ul>
@@ -642,7 +625,10 @@
       <p class="label">Our Practitioner Coaches</p>
       <div class="bio-row">
         <div class="bio">
-          <p class="bio-name">Deepa Desai</p>
+          <div class="bio-head">
+            <img class="bio-headshot" src="assets/deepa-desai.png" alt="Dr Deepa Desai">
+            <p class="bio-name">Dr Deepa Desai</p>
+          </div>
           <p class="bio-placeholder">Dr. Deepa Desai is a globally recognized healthcare executive, public speaker, leadership strategist, and executive presence advisor with more than 20 years of experience leading transformation across the life sciences sector.
             <br><br>She serves as Founder and CEO of D Cube Consultancy, Head of Asia Pacific for RxVP, Global Board Director at the Healthcare Businesswomen's Association, and has held numerous VP roles in major corporations.
             <br><br>Through these leadership roles, she helps emerging leaders strengthen executive presence, elevate strategic communication, and speak with confidence, credibility, and influence.
@@ -650,7 +636,10 @@
           </p>
         </div>
         <div class="bio">
-          <p class="bio-name">Bonnie Lappin</p>
+          <div class="bio-head">
+            <img class="bio-headshot" src="assets/bonnie-lappin.png" alt="Bonnie Lappin">
+            <p class="bio-name">Bonnie Lappin</p>
+          </div>
           <p class="bio-placeholder">Bonnie Lappin co-founded the Ambassador Program for the Healthcare Businesswomen's Association in 2013.
             <br><br>Designed as a global leadership development program for HBA corporate partners, it grew under her leadership from 2013 to 2025 into a signature, often life-changing experience for more than 11,000 participants.
             <br><br>Over those 12 years, Bonnie spoke frequently at life sciences companies across Austria, Belgium, Canada, France, Germany, India, Ireland, Italy, Japan, Malaysia, Singapore, Spain, Switzerland, and the United Kingdom.

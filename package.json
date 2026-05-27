@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
-    "export:amplify-pptx": "node scripts/export_amplify_pptx.mjs"
+    "export:ignite-pptx": "node scripts/export_ignite_pptx.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

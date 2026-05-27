@@ -131,10 +131,10 @@ export const clients: Client[] = [
         color: 'from-fuchsia-800 to-amber-500',
       },
       {
-        slug: 'amplify-collateral',
-        title: 'Amplify Program Collateral',
+        slug: 'ignite-collateral',
+        title: 'IGNITE Program Collateral',
         description:
-          'Two-page PDF-ready collateral for the RxVP public speaking and executive presence coaching program.',
+          'Two-page PDF-ready collateral for the RxVP IGNITE public speaking and executive presence coaching program.',
         category: 'Public Speaking',
         color: 'from-purple-800 to-amber-500',
       },
