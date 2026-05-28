@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RxVP Pride Panel Invites - Europe &amp; India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: Letter;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --plum: #35123f;
+      --plum-deep: #1f0828;
+      --aubergine: #4a075c;
+      --aubergine-2: #5b1071;
+      --violet: #7b2c86;
+      --gold: #c9a532;
+      --gold-light: #efd985;
+      --gold-deep: #a47f1c;
+      --ink: #1d1822;
+      --muted: #67606a;
+      --paper: #fffdf8;
+      --paper-warm: #f8f3e6;
+      --rose: #c23b78;
+
+      --pride-red: #e40303;
+      --pride-orange: #ff8c00;
+      --pride-yellow: #ffed00;
+      --pride-green: #008026;
+      --pride-blue: #004dff;
+      --pride-purple: #750787;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #1a0c22;
+      color: var(--ink);
+      font-family: Montserrat, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    /* ---------- Template controls (browser-only) ---------- */
+    .template-controls {
+      width: 8.5in;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: end;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .template-controls label {
+      display: grid;
+      gap: 5px;
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .template-controls select {
+      min-width: 240px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--plum-deep);
+      font: 700 13px Montserrat, Arial, sans-serif;
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+
+    .template-controls .hint {
+      flex: 1;
+      align-self: center;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-align: right;
+    }
+
+    .print-button {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 20;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--plum-deep);
+      font: 800 13px Montserrat, Arial, sans-serif;
+      padding: 13px 22px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+    }
+
+    /* ---------- Page ---------- */
+    .page {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 28px;
+      overflow: hidden;
+      position: relative;
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ---------- Hero (purple box) ---------- */
+    .hero {
+      position: relative;
+      padding: 0.28in 0.55in 0.28in;
+      color: #fff;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(239, 217, 133, 0.28), transparent 1.3in),
+        radial-gradient(circle at 8% 92%, rgba(123, 44, 134, 0.55), transparent 1.6in),
+        linear-gradient(160deg, #4a075c 0%, #2e0a39 60%, #1b0524 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -0.85in;
+      right: -1.1in;
+      width: 3.4in;
+      height: 3.4in;
+      border: 1px solid rgba(239, 217, 133, 0.32);
+      transform: rotate(28deg);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -0.7in;
+      left: -0.7in;
+      width: 2.1in;
+      height: 2.1in;
+      border: 0.06in solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .brand-bar {
+      position: relative;
+      margin-bottom: 0.18in;
+      padding: 0.05in 0.12in;
+      background: rgba(31, 8, 40, 0.62);
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      display: inline-block;
+    }
+
+    .brand-bar p {
+      margin: 0;
+      color: var(--gold-light);
+      font-size: 7.8pt;
+      font-weight: 800;
+      letter-spacing: 1.4pt;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .partner-line {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.12in;
+      margin-bottom: 0.14in;
+      min-height: 0.5in;
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.2pt;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
+    }
+
+    .partner-line .invite-text {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .partner-line .rxvp-mark {
+      height: 0.46in;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.4));
+    }
+
+    .partner-line .partner-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.08in;
+      padding: 0.04in 0.14in;
+      background: #fff;
+      border-radius: 0.04in;
+      min-height: 0.38in;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
+    }
+
+    .partner-line .partner-logo span {
+      font-family: Montserrat, Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.4pt;
+      line-height: 1;
+    }
+
+    .partner-line .partner-logo.sandoz span {
+      color: #FF6E00;
+      font-size: 19pt;
+      letter-spacing: -0.6pt;
+    }
+
+    .partner-line .partner-logo.fortrea span {
+      color: #04323A;
+      font-size: 17pt;
+      letter-spacing: -0.2pt;
+    }
+
+    .partner-line .partner-logo.fortrea span .dot {
+      color: #5CC8C5;
+    }
+
+    .partner-line .partner-logo.iqvia span {
+      color: #005EB8;
+      font-size: 19pt;
+      letter-spacing: -0.4pt;
+    }
+
+    .partner-line .partner-logo.novartis span {
+      color: #0460A9;
+      font-size: 18pt;
+      letter-spacing: -0.3pt;
+    }
+
+    .partner-line .partner-logo.novartis span::before {
+      content: "";
+      display: inline-block;
+      width: 0.18in;
+      height: 0.18in;
+      margin-right: 0.05in;
+      background: radial-gradient(circle at 30% 30%, #f37b3f 0%, #f37b3f 18%, #0460A9 19%, #0460A9 100%);
+      border-radius: 50%;
+      vertical-align: middle;
+      transform: translateY(-0.01in);
+    }
+
+    h1.main-headline {
+      position: relative;
+      margin: 0 0 0.12in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 25pt;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.2pt;
+      max-width: 7.2in;
+      text-shadow: 0 4px 22px rgba(0, 0, 0, 0.5);
+    }
+
+    h1.main-headline .pride-accent {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .event-summary {
+      position: relative;
+      max-width: 6.8in;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 9.8pt;
+      font-weight: 500;
+      line-height: 1.4;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Pride rainbow stripe under hero */
+    .pride-stripe {
+      display: flex;
+      height: 0.16in;
+      width: 100%;
+    }
+
+    .pride-stripe span {
+      flex: 1;
+    }
+
+    .pride-stripe .s-red {
+      background: var(--pride-red);
+    }
+
+    .pride-stripe .s-orange {
+      background: var(--pride-orange);
+    }
+
+    .pride-stripe .s-yellow {
+      background: var(--pride-yellow);
+    }
+
+    .pride-stripe .s-green {
+      background: var(--pride-green);
+    }
+
+    .pride-stripe .s-blue {
+      background: var(--pride-blue);
+    }
+
+    .pride-stripe .s-purple {
+      background: var(--pride-purple);
+    }
+
+    /* ---------- Body content ---------- */
+    .body-content {
+      padding: 0.22in 0.55in 0.62in;
+    }
+
+    /* Date/time band */
+    .date-band {
+      display: flex;
+      align-items: center;
+      gap: 0.2in;
+      margin-bottom: 0.18in;
+      padding: 0.11in 0.18in;
+      background: linear-gradient(135deg, var(--paper-warm) 0%, #fff 60%);
+      border-left: 5px solid var(--gold);
+      box-shadow: 0 4px 18px rgba(53, 18, 63, 0.08);
+    }
+
+    .date-band .date-icon {
+      flex: 0 0 auto;
+      width: 0.52in;
+      height: 0.52in;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--aubergine), var(--plum));
+      color: #fff;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .date-band .date-icon .day {
+      font-size: 18pt;
+      font-weight: 700;
+    }
+
+    .date-band .date-icon .month {
+      display: block;
+      margin-top: 0.02in;
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 6.4pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      text-transform: uppercase;
+    }
+
+    .date-band .date-text {
+      flex: 1;
+    }
+
+    .date-band .date-text .label {
+      margin: 0 0 0.03in;
+      color: var(--gold-deep);
+      font-size: 7.2pt;
+      font-weight: 800;
+      letter-spacing: 1.4pt;
+      text-transform: uppercase;
+    }
+
+    .date-band .date-text .value {
+      margin: 0;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 16.5pt;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .date-band .date-text .value strong {
+      color: var(--plum-deep);
+      font-weight: 700;
+    }
+
+    /* Section heading */
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 0.16in;
+      margin: 0.02in 0 0.12in;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 19pt;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.2pt;
+    }
+
+    .section-heading .rule {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    }
+
+    .section-heading .count {
+      color: var(--gold-deep);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 1.4pt;
+      text-transform: uppercase;
+    }
+
+    /* Panelist grid */
+    .panelist-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.14in;
+      margin-bottom: 0.2in;
+    }
+
+    .panelist {
+      position: relative;
+      padding: 0.13in 0.14in 0.14in;
+      background: #fff;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 6px 22px rgba(53, 18, 63, 0.1);
+      overflow: hidden;
+    }
+
+    .panelist::before {
+      content: "";
+      position: absolute;
+      right: -0.32in;
+      top: -0.32in;
+      width: 1in;
+      height: 1in;
+      border-radius: 50%;
+      background: rgba(201, 165, 50, 0.1);
+    }
+
+    .panelist:nth-child(2)::before {
+      background: rgba(194, 59, 120, 0.1);
+    }
+
+    .panelist:nth-child(3)::before {
+      background: rgba(40, 91, 159, 0.1);
+    }
+
+    .panelist:nth-child(2) {
+      border-top-color: var(--rose);
+    }
+
+    .panelist:nth-child(3) {
+      border-top-color: #285b9f;
+    }
+
+    .panelist .headshot {
+      position: relative;
+      width: 1.04in;
+      height: 1.04in;
+      margin: 0 auto 0.09in;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #efe6f1;
+      box-shadow: 0 6px 18px rgba(53, 18, 63, 0.18);
+      border: 0.035in solid #fff;
+      outline: 1px solid rgba(201, 165, 50, 0.5);
+    }
+
+    .panelist .headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .panelist .name {
+      position: relative;
+      margin: 0 0 0.03in;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 14pt;
+      font-weight: 700;
+      line-height: 1.04;
+      text-align: center;
+    }
+
+    .panelist .location {
+      position: relative;
+      margin: 0 0 0.08in;
+      color: var(--gold-deep);
+      font-size: 7.2pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .panelist .title {
+      position: relative;
+      margin: 0;
+      color: var(--ink);
+      font-size: 7.9pt;
+      font-weight: 600;
+      line-height: 1.34;
+      text-align: center;
+    }
+
+    .panelist .title .company {
+      color: var(--aubergine);
+      font-weight: 800;
+    }
+
+    .panelist .title .extra {
+      display: block;
+      margin-top: 0.04in;
+      padding-top: 0.04in;
+      border-top: 1px solid rgba(74, 7, 92, 0.12);
+      color: var(--muted);
+      font-size: 7.2pt;
+      font-weight: 600;
+      line-height: 1.3;
+      font-style: italic;
+    }
+
+    /* Moderator block */
+    .moderator-row {
+      display: grid;
+      grid-template-columns: 1.05in 1fr;
+      gap: 0.2in;
+      align-items: center;
+      padding: 0.14in 0.2in;
+      background: linear-gradient(135deg, var(--plum) 0%, var(--aubergine) 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.18in;
+    }
+
+    .moderator-row::after {
+      content: "";
+      position: absolute;
+      right: -0.5in;
+      top: -0.55in;
+      width: 1.6in;
+      height: 1.6in;
+      border: 0.07in solid rgba(239, 217, 133, 0.2);
+      border-radius: 50%;
+    }
+
+    .moderator-row .headshot {
+      position: relative;
+      width: 0.95in;
+      height: 0.95in;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 0.035in solid var(--gold-light);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .moderator-row .headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .moderator-row .moderator-info {
+      position: relative;
+    }
+
+    .moderator-row .moderator-info .label {
+      margin: 0 0 0.04in;
+      color: var(--gold-light);
+      font-size: 7.2pt;
+      font-weight: 800;
+      letter-spacing: 1.6pt;
+      text-transform: uppercase;
+    }
+
+    .moderator-row .moderator-info .name {
+      margin: 0 0 0.03in;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18pt;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .moderator-row .moderator-info .location {
+      display: inline-block;
+      margin-bottom: 0.05in;
+      color: var(--gold-light);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: 1.1pt;
+      text-transform: uppercase;
+    }
+
+    .moderator-row .moderator-info .titles {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 8.4pt;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .moderator-row .moderator-info .titles .sep {
+      color: var(--gold-light);
+      margin: 0 0.06in;
+    }
+
+    /* CTA footer */
+    .cta-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.2in;
+      align-items: center;
+      padding: 0.14in 0.22in;
+      background: var(--paper-warm);
+      border-left: 5px solid var(--rose);
+      position: relative;
+    }
+
+    .cta-band .cta-copy h3 {
+      margin: 0 0 0.04in;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 16pt;
+      font-weight: 700;
+      line-height: 1.04;
+    }
+
+    .cta-band .cta-copy p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 8.4pt;
+      font-weight: 600;
+      line-height: 1.36;
+    }
+
+    .cta-band .cta-copy p.contact {
+      margin-top: 0.04in;
+      color: var(--muted);
+      font-size: 8pt;
+      font-weight: 600;
+    }
+
+    .cta-band .cta-copy p.contact a {
+      color: var(--aubergine);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .register-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.04in;
+      padding: 0.14in 0.28in;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--aubergine) 100%);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(74, 7, 92, 0.32);
+      transition: transform 0.15s ease;
+    }
+
+    .register-button strong {
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 11pt;
+      font-weight: 800;
+      letter-spacing: 0.4pt;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .register-button span {
+      font-size: 7.2pt;
+      font-weight: 700;
+      letter-spacing: 1pt;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      left: 0.55in;
+      right: 0.55in;
+      bottom: 0.24in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.1in;
+      border-top: 1px solid rgba(74, 7, 92, 0.16);
+      color: var(--muted);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: 0.7pt;
+      text-transform: uppercase;
+    }
+
+    .footer img {
+      height: 0.32in;
+      width: auto;
+      display: block;
+    }
+
+    .footer .center {
+      flex: 1;
+      text-align: center;
+      letter-spacing: 0.6pt;
+    }
+
+    .footer .right {
+      text-align: right;
+    }
+
+    /* India placeholder treatment */
+    .panelist.placeholder .headshot {
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(74, 7, 92, 0.05),
+          rgba(74, 7, 92, 0.05) 6px,
+          rgba(74, 7, 92, 0.1) 6px,
+          rgba(74, 7, 92, 0.1) 12px
+        );
+      display: grid;
+      place-items: center;
+      color: var(--aubergine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 36pt;
+      font-weight: 700;
+    }
+
+    .panelist.placeholder .name {
+      color: var(--muted);
+    }
+
+    .panelist.placeholder .title {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .moderator-row.placeholder .headshot {
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.08) 6px,
+          rgba(255, 255, 255, 0.16) 6px,
+          rgba(255, 255, 255, 0.16) 12px
+        );
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30pt;
+      font-weight: 700;
+    }
+
+    .india-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.08in;
+      margin-left: 0.14in;
+      padding: 0.04in 0.1in;
+      background: rgba(201, 165, 50, 0.18);
+      color: var(--gold-deep);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: 1.1pt;
+      text-transform: uppercase;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* Print rules */
+    @media print {
+      html,
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .template-controls,
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="template-controls" aria-label="Invite version controls">
+    <label>
+      Europe panel - partner version
+      <select id="partner-select">
+        <option value="none">RxVP invites you (no partner)</option>
+        <option value="sandoz" selected>RxVP and Sandoz invite you</option>
+        <option value="fortrea">RxVP and Fortrea invite you</option>
+        <option value="iqvia">RxVP and IQVIA invite you</option>
+        <option value="novartis">RxVP and Novartis invite you</option>
+      </select>
+    </label>
+    <p class="hint">Switch versions, then click Export PDF to save each one.</p>
+  </section>
+
+  <button class="print-button" type="button" onclick="window.print()">Export PDF</button>
+
+  <!-- ===========================================
+       PAGE 1 - EUROPE PRIDE PANEL
+       =========================================== -->
+  <main class="page" data-export-title="RxVP Pride Panel - Europe">
+    <section class="hero" aria-label="Europe Pride panel invitation">
+      <div class="brand-bar">
+        <p>The first &amp; only speaker's bureau in life sciences</p>
+      </div>
+
+      <div class="partner-line" id="partner-line">
+        <img class="rxvp-mark" src="../../assets/images/rxvp-logo.png" alt="RxVP">
+        <span id="and-text">and</span>
+        <span class="partner-logo sandoz" id="partner-logo">
+          <span>sandoz</span>
+        </span>
+        <span id="invite-verb">invite you</span>
+      </div>
+
+      <h1 class="main-headline">
+        An international conversation with <span class="pride-accent">Pride ERG leaders</span> who are powering change and inclusion.
+      </h1>
+
+      <p class="event-summary">
+        Join us as we bring together different companies and different countries to exchange best practices between Pride ERG leaders.
+      </p>
+    </section>
+
+    <div class="pride-stripe" aria-hidden="true">
+      <span class="s-red"></span>
+      <span class="s-orange"></span>
+      <span class="s-yellow"></span>
+      <span class="s-green"></span>
+      <span class="s-blue"></span>
+      <span class="s-purple"></span>
+    </div>
+
+    <section class="body-content">
+      <div class="date-band">
+        <div class="date-icon">
+          <div class="day">10</div>
+          <span class="month">Jun 2026</span>
+        </div>
+        <div class="date-text">
+          <p class="label">Wednesday — Live, Virtual</p>
+          <p class="value"><strong>June 10, 2026</strong> &nbsp;|&nbsp; 15:00 - 16:00 CET</p>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <h2>The Panelists</h2>
+        <span class="rule"></span>
+        <span class="count">3 Global Voices</span>
+      </div>
+
+      <div class="panelist-grid">
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/tamara-scheidl.jpeg" alt="Dr. Tamara Valkyrie Scheidl">
+          </div>
+          <p class="name">Dr. Tamara Valkyrie Scheidl</p>
+          <p class="location">Austria</p>
+          <p class="title">
+            Co-Lead, Global Pride LGBTQI+ Community of Belonging (ERG) &amp; Head, Global Quality Solutions at <span class="company">Sandoz</span>
+          </p>
+        </article>
+
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/cliff-hoffmann.jpg" alt="Cliff Hoffmann">
+          </div>
+          <p class="name">Cliff Hoffmann</p>
+          <p class="location">Austria</p>
+          <p class="title">
+            QA Expert at <span class="company">Novartis</span>
+            <span class="extra">Author of the series "The Fire and the Water," available on Amazon</span>
+          </p>
+        </article>
+
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/peter-bailey.jpeg" alt="Peter Bailey">
+          </div>
+          <p class="name">Peter Bailey</p>
+          <p class="location">United Kingdom</p>
+          <p class="title">
+            Executive Director, Customer Facing &amp; Strategic Finance Initiatives at <span class="company">Fortrea</span>
+          </p>
+        </article>
+      </div>
+
+      <div class="section-heading">
+        <h2>The Moderator</h2>
+        <span class="rule"></span>
+        <span class="count">Convening the Conversation</span>
+      </div>
+
+      <div class="moderator-row">
+        <div class="headshot">
+          <img src="assets/eric-klaver.png" alt="Eric Klaver">
+        </div>
+        <div class="moderator-info">
+          <p class="label">Moderator</p>
+          <p class="name">Eric Klaver</p>
+          <p class="location">Amsterdam</p>
+          <p class="titles">
+            Director, Information Governance at IQVIA
+            <span class="sep">|</span>
+            Global Co-Lead, IQVIA PRIDE ERG
+            <span class="sep">|</span>
+            Founder, Rainbow Salute Foundation
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div class="cta-copy">
+          <h3>Seats are limited — first come, first served.</h3>
+          <p>If you register and find you cannot attend, please cancel your registration so your seat is available for someone else.</p>
+          <p class="contact">For more information, contact Bonnie Lappin: <a href="mailto:bonnie@rxvp.org">bonnie@rxvp.org</a></p>
+        </div>
+        <a class="register-button" href="https://us06web.zoom.us/meeting/register/GozqNtQcQR64rVNdKkV97Q" target="_blank" rel="noopener">
+          <strong>Click Here to Register</strong>
+          <span>Reserve Your Seat</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
+      <span class="center">Pride Panel · June 10, 2026 · 15:00 CET · Virtual</span>
+      <span class="right">www.rxvp.org</span>
+    </footer>
+  </main>
+
+  <!-- ===========================================
+       PAGE 2 - INDIA PRIDE PANEL
+       =========================================== -->
+  <main class="page" data-export-title="RxVP Pride Panel - India">
+    <section class="hero" aria-label="India Pride panel invitation">
+      <div class="brand-bar">
+        <p>The first &amp; only speaker's bureau in life sciences</p>
+      </div>
+
+      <div class="partner-line">
+        <img class="rxvp-mark" src="../../assets/images/rxvp-logo.png" alt="RxVP">
+        <span>invites you</span>
+        <span class="india-status">Partner Slot Available</span>
+      </div>
+
+      <h1 class="main-headline">
+        Powering Change &amp; Inclusion: <span class="pride-accent">Driving the Next Era.</span>
+      </h1>
+
+      <p class="event-summary">
+        True inclusion requires bold leadership. Join us for a definitive virtual conversation exploring how top executives are dismantling barriers and building diverse, high-performing corporate cultures.
+      </p>
+    </section>
+
+    <div class="pride-stripe" aria-hidden="true">
+      <span class="s-red"></span>
+      <span class="s-orange"></span>
+      <span class="s-yellow"></span>
+      <span class="s-green"></span>
+      <span class="s-blue"></span>
+      <span class="s-purple"></span>
+    </div>
+
+    <section class="body-content">
+      <div class="date-band">
+        <div class="date-icon">
+          <div class="day">18</div>
+          <span class="month">Jun 2026</span>
+        </div>
+        <div class="date-text">
+          <p class="label">Thursday — Live, Virtual</p>
+          <p class="value"><strong>June 18, 2026</strong> &nbsp;|&nbsp; Time TBD &middot; IST</p>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <h2>The Panelists</h2>
+        <span class="rule"></span>
+        <span class="count">3 Confirmed · Amgen &amp; JnJ Pending</span>
+      </div>
+
+      <div class="panelist-grid">
+        <article class="panelist placeholder">
+          <div class="headshot">01</div>
+          <p class="name">Panelist 1</p>
+          <p class="location">Country TBD</p>
+          <p class="title">
+            Title, <span class="company">Company</span>
+          </p>
+        </article>
+
+        <article class="panelist placeholder">
+          <div class="headshot">02</div>
+          <p class="name">Panelist 2</p>
+          <p class="location">Country TBD</p>
+          <p class="title">
+            Title, <span class="company">Company</span>
+          </p>
+        </article>
+
+        <article class="panelist placeholder">
+          <div class="headshot">03</div>
+          <p class="name">Panelist 3</p>
+          <p class="location">Country TBD</p>
+          <p class="title">
+            Title, <span class="company">Company</span>
+          </p>
+        </article>
+      </div>
+
+      <div class="section-heading">
+        <h2>The Moderator</h2>
+        <span class="rule"></span>
+        <span class="count">Convening the Conversation</span>
+      </div>
+
+      <div class="moderator-row placeholder">
+        <div class="headshot">M</div>
+        <div class="moderator-info">
+          <p class="label">Moderator</p>
+          <p class="name">Moderator Name</p>
+          <p class="location">Country</p>
+          <p class="titles">
+            Title, Company
+            <span class="sep">|</span>
+            Additional credentials to be confirmed
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div class="cta-copy">
+          <h3>Seats are limited — first come, first served.</h3>
+          <p>An exclusive, live 30-minute Q&amp;A is included. Come ready to ask tough questions and get unfiltered insights directly from the source.</p>
+          <p class="contact">For more information, contact Bonnie Lappin: <a href="mailto:bonnie@rxvp.org">bonnie@rxvp.org</a></p>
+        </div>
+        <a class="register-button" href="#" target="_blank" rel="noopener">
+          <strong>Registration Opens Soon</strong>
+          <span>Link Coming Shortly</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
+      <span class="center">Pride Panel · India Edition · June 18, 2026 · Virtual</span>
+      <span class="right">www.rxvp.org</span>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const select = document.getElementById('partner-select');
+      const andText = document.getElementById('and-text');
+      const partnerLogo = document.getElementById('partner-logo');
+      const inviteVerb = document.getElementById('invite-verb');
+
+      const PARTNERS = {
+        none: { logoClass: '', logoHtml: '' },
+        sandoz: { logoClass: 'partner-logo sandoz', logoHtml: '<span>sandoz</span>' },
+        fortrea: { logoClass: 'partner-logo fortrea', logoHtml: '<span>fortrea<span class="dot">.</span></span>' },
+        iqvia: { logoClass: 'partner-logo iqvia', logoHtml: '<span>IQVIA</span>' },
+        novartis: { logoClass: 'partner-logo novartis', logoHtml: '<span>NOVARTIS</span>' },
+      };
+
+      function applyVersion(key) {
+        const data = PARTNERS[key] || PARTNERS.none;
+        const hasPartner = !!data.logoClass;
+        andText.style.display = hasPartner ? '' : 'none';
+        partnerLogo.style.display = hasPartner ? '' : 'none';
+        partnerLogo.className = data.logoClass;
+        partnerLogo.innerHTML = data.logoHtml;
+        inviteVerb.textContent = hasPartner ? 'invite you' : 'invites you';
+      }
+
+      select.addEventListener('change', (event) => applyVersion(event.target.value));
+      applyVersion(select.value);
+    })();
+  </script>
+</body>
+</html>

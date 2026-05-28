@@ -146,6 +146,14 @@ export const clients: Client[] = [
         category: 'Partnership, 2026-2027',
         color: 'from-fuchsia-800 to-teal-600',
       },
+      {
+        slug: 'pride-panel-invites',
+        title: 'Pride Panel Invites, Europe & India',
+        description:
+          'Two-page invite kit for the June 2026 Pride ERG panels: a switchable Europe partner version (Sandoz, Fortrea, IQVIA, Novartis, or RxVP-only) and an India edition.',
+        category: 'Pride Month, June 2026',
+        color: 'from-purple-700 to-rose-500',
+      },
     ],
   },
 ]
