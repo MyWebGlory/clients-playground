@@ -489,9 +489,8 @@
       border-radius: 50%;
       overflow: hidden;
       background: #efe6f1;
-      box-shadow: 0 6px 18px rgba(53, 18, 63, 0.18);
       border: 0.035in solid #fff;
-      outline: 1px solid rgba(201, 165, 50, 0.5);
+      box-shadow: 0 0 0 1px rgba(201, 165, 50, 0.5), 0 6px 18px rgba(53, 18, 63, 0.18);
     }
 
     .panelist .headshot img {
@@ -826,6 +825,29 @@
       .template-controls,
       .print-button {
         display: none;
+      }
+
+      /*
+        Browser print-to-PDF cannot vectorize blurred shadow effects
+        (text-shadow, box-shadow, drop-shadow), so it falls back to filling
+        each effect's bounding box with a solid rectangle. We strip every
+        blurred shadow for print only — on-screen rendering is unchanged.
+      */
+      *,
+      *::before,
+      *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+      }
+
+      /*
+        Re-add the gold ring on panelist headshots as a 0-blur ring. A hard
+        spread has no blur to rasterize, so it exports cleanly as a crisp
+        ring that still follows the circular border-radius.
+      */
+      .panelist .headshot {
+        box-shadow: 0 0 0 1px rgba(201, 165, 50, 0.5) !important;
       }
     }
   </style>
