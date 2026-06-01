@@ -223,51 +223,10 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
     }
 
-    .partner-line .partner-logo span {
-      font-family: Montserrat, Arial, sans-serif;
-      font-weight: 900;
-      letter-spacing: -0.4pt;
-      line-height: 1;
-    }
-
-    .partner-line .partner-logo.sandoz span {
-      color: #FF6E00;
-      font-size: 19pt;
-      letter-spacing: -0.6pt;
-    }
-
-    .partner-line .partner-logo.fortrea span {
-      color: #04323A;
-      font-size: 17pt;
-      letter-spacing: -0.2pt;
-    }
-
-    .partner-line .partner-logo.fortrea span .dot {
-      color: #5CC8C5;
-    }
-
-    .partner-line .partner-logo.iqvia span {
-      color: #005EB8;
-      font-size: 19pt;
-      letter-spacing: -0.4pt;
-    }
-
-    .partner-line .partner-logo.novartis span {
-      color: #0460A9;
-      font-size: 18pt;
-      letter-spacing: -0.3pt;
-    }
-
-    .partner-line .partner-logo.novartis span::before {
-      content: "";
-      display: inline-block;
-      width: 0.18in;
-      height: 0.18in;
-      margin-right: 0.05in;
-      background: radial-gradient(circle at 30% 30%, #f37b3f 0%, #f37b3f 18%, #0460A9 19%, #0460A9 100%);
-      border-radius: 50%;
-      vertical-align: middle;
-      transform: translateY(-0.01in);
+    .partner-line .partner-logo img {
+      height: 0.28in;
+      width: auto;
+      display: block;
     }
 
     h1.main-headline {
@@ -802,6 +761,150 @@
       border-left: 2px solid var(--gold);
     }
 
+    .panelist.pending .headshot,
+    .moderator-row.pending .headshot {
+      background:
+        linear-gradient(160deg, rgba(74, 7, 92, 0.08), rgba(201, 165, 50, 0.16)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(74, 7, 92, 0.05),
+          rgba(74, 7, 92, 0.05) 6px,
+          rgba(74, 7, 92, 0.12) 6px,
+          rgba(74, 7, 92, 0.12) 12px
+        );
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--aubergine);
+      font-size: 7pt;
+      font-weight: 800;
+      letter-spacing: 1pt;
+      line-height: 1.3;
+      text-transform: uppercase;
+      padding: 0.12in;
+    }
+
+    .moderator-row.pending .headshot {
+      color: var(--gold-light);
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .main-headline {
+      max-width: 6.45in;
+      font-size: 27pt;
+      line-height: 0.95;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .event-summary {
+      max-width: 6.25in;
+      font-size: 9.5pt;
+      line-height: 1.45;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .body-content {
+      padding-top: 0.18in;
+      padding-bottom: 0.48in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .date-band {
+      margin-bottom: 0.14in;
+      padding-block: 0.09in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .date-band .date-text .label {
+      margin-bottom: 0.02in;
+      font-size: 6.9pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .date-band .date-text .value {
+      font-size: 15.4pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .section-heading {
+      margin: 0.01in 0 0.1in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .section-heading .count {
+      letter-spacing: 1.1pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist-grid {
+      margin-bottom: 0.14in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist {
+      padding: 0.11in 0.11in 0.12in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist .headshot {
+      width: 0.94in;
+      height: 0.94in;
+      margin-bottom: 0.07in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist .name {
+      font-size: 12.4pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist .location {
+      margin-bottom: 0.05in;
+      font-size: 6.4pt;
+      letter-spacing: 1pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist .title {
+      font-size: 6.7pt;
+      line-height: 1.24;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .panelist .title .extra {
+      margin-top: 0.03in;
+      padding-top: 0.03in;
+      font-size: 6.6pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .moderator-row {
+      margin-bottom: 0.14in;
+      padding-block: 0.12in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .moderator-row .headshot {
+      width: 0.84in;
+      height: 0.84in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .moderator-row .moderator-info .name {
+      font-size: 15.2pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .moderator-row .moderator-info .titles {
+      font-size: 7.6pt;
+      line-height: 1.28;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .cta-band .cta-copy p {
+      font-size: 7.3pt;
+      line-height: 1.24;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .cta-band .cta-copy h3 {
+      font-size: 14.2pt;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .register-button {
+      min-width: 2.18in;
+      padding: 0.12in 0.18in;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .register-button strong {
+      font-size: 9.1pt;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .page[data-export-title="RxVP Pride Panel - India"] .register-button span {
+      font-size: 6.6pt;
+    }
+
     /* Print rules */
     @media print {
       html,
@@ -862,6 +965,8 @@
         <option value="fortrea">RxVP and Fortrea invite you</option>
         <option value="iqvia">RxVP and IQVIA invite you</option>
         <option value="novartis">RxVP and Novartis invite you</option>
+        <option value="eli-lilly">RxVP and Eli Lilly invite you</option>
+        <option value="zs-associates">RxVP and ZS Associates invite you</option>
       </select>
     </label>
     <p class="hint">Switch versions, then click Export PDF to save each one.</p>
@@ -881,9 +986,7 @@
       <div class="partner-line" id="partner-line">
         <img class="rxvp-mark" src="../../assets/images/rxvp-logo.png" alt="RxVP">
         <span id="and-text">and</span>
-        <span class="partner-logo sandoz" id="partner-logo">
-          <span>sandoz</span>
-        </span>
+        <span class="partner-logo" id="partner-logo"></span>
         <span id="invite-verb">invite you</span>
       </div>
 
@@ -1014,16 +1117,17 @@
 
       <div class="partner-line">
         <img class="rxvp-mark" src="../../assets/images/rxvp-logo.png" alt="RxVP">
-        <span>invites you</span>
-        <span class="india-status">Partner Slot Available</span>
+        <span id="and-text-india">and</span>
+        <span class="partner-logo" id="partner-logo-india"></span>
+        <span id="invite-verb-india">invite you</span>
       </div>
 
       <h1 class="main-headline">
-        Powering Change &amp; Inclusion: <span class="pride-accent">Driving the Next Era.</span>
+        An international conversation with Pride ERG leaders who are <span class="pride-accent">powering change and inclusion.</span>
       </h1>
 
       <p class="event-summary">
-        True inclusion requires bold leadership. Join us for a definitive virtual conversation exploring how top executives are dismantling barriers and building diverse, high-performing corporate cultures.
+        Join us as we bring together different companies and different countries to exchange best practices between Pride ERG leaders.
       </p>
     </section>
 
@@ -1043,42 +1147,48 @@
           <span class="month">Jun 2026</span>
         </div>
         <div class="date-text">
-          <p class="label">Thursday — Live, Virtual</p>
-          <p class="value"><strong>June 18, 2026</strong> &nbsp;|&nbsp; Time TBD &middot; IST</p>
+          <p class="label">Thursday — Live, Virtual — Includes exclusive 30-minute Q&amp;A</p>
+          <p class="value"><strong>June 18, 2026</strong> &nbsp;|&nbsp; 16:30 IST</p>
         </div>
       </div>
 
       <div class="section-heading">
         <h2>The Panelists</h2>
         <span class="rule"></span>
-        <span class="count">3 Confirmed · Amgen &amp; JnJ Pending</span>
+        <span class="count">3 Confirmed Voices</span>
       </div>
 
       <div class="panelist-grid">
-        <article class="panelist placeholder">
-          <div class="headshot">01</div>
-          <p class="name">Panelist 1</p>
-          <p class="location">Country TBD</p>
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/ali-khan.jpeg" alt="Ali Khan">
+          </div>
+          <p class="name">Ali Khan</p>
+          <p class="location">India</p>
           <p class="title">
-            Title, <span class="company">Company</span>
+            Global Director - Governance, Risk &amp; Compliance; Health, Safety &amp; Wellbeing Committee Chair (India); Global Lead Pride@ZS, Member Inclusion &amp; Belonging Council at <span class="company">ZS Associates</span>
           </p>
         </article>
 
-        <article class="panelist placeholder">
-          <div class="headshot">02</div>
-          <p class="name">Panelist 2</p>
-          <p class="location">Country TBD</p>
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/jeff-trull.jpg" alt="Jeffrey Trull">
+          </div>
+          <p class="name">Jeffrey Trull</p>
+          <p class="location">USA</p>
           <p class="title">
-            Title, <span class="company">Company</span>
+            Global Transparency Manager &amp; Global PRIDE ERG Lead at <span class="company">Fortrea</span>
           </p>
         </article>
 
-        <article class="panelist placeholder">
-          <div class="headshot">03</div>
-          <p class="name">Panelist 3</p>
-          <p class="location">Country TBD</p>
+        <article class="panelist">
+          <div class="headshot">
+            <img src="assets/yerram-raju-behara.png" alt="Yerram Raju Behara">
+          </div>
+          <p class="name">Yerram Raju Behara</p>
+          <p class="location">India · they/she</p>
           <p class="title">
-            Title, <span class="company">Company</span>
+            Inclusive Governance Lead, Mental Health Practitioner.
           </p>
         </article>
       </div>
@@ -1089,16 +1199,20 @@
         <span class="count">Convening the Conversation</span>
       </div>
 
-      <div class="moderator-row placeholder">
-        <div class="headshot">M</div>
+      <div class="moderator-row">
+        <div class="headshot">
+          <img src="assets/rajib-dutta.jpg" alt="Rajib Dutta">
+        </div>
         <div class="moderator-info">
           <p class="label">Moderator</p>
-          <p class="name">Moderator Name</p>
-          <p class="location">Country</p>
+          <p class="name">Rajib Dutta</p>
+          <p class="location">India</p>
           <p class="titles">
-            Title, Company
+            Global P&amp;O Compliance Partner at Sandoz
             <span class="sep">|</span>
-            Additional credentials to be confirmed
+            Co-Lead Global Pride Community of Belonging
+            <span class="sep">|</span>
+            Sandoz
           </p>
         </div>
       </div>
@@ -1106,19 +1220,20 @@
       <div class="cta-band">
         <div class="cta-copy">
           <h3>Seats are limited — first come, first served.</h3>
-          <p>An exclusive, live 30-minute Q&amp;A is included. Come ready to ask tough questions and get unfiltered insights directly from the source.</p>
-          <p class="contact">For more information, contact Bonnie Lappin: <a href="mailto:bonnie@rxvp.org">bonnie@rxvp.org</a></p>
+          <p>If you register for a seat and are not able to attend, then please cancel your registration, such that your seat is available.</p>
+          <p>An exclusive, live 30-minute Q&amp;A is included. Come ready to ask tough questions and get unfiltered insights.</p>
+          <p class="contact">For more information, contact Bonnie Lappin: <a href="mailto:bonnie@rxvp.org">bonnie@rxvp.org</a> &amp; Dr Deepa Desai: <a href="mailto:deepa@rxvp.org">deepa@rxvp.org</a></p>
         </div>
-        <a class="register-button" href="#" target="_blank" rel="noopener">
-          <strong>Registration Opens Soon</strong>
-          <span>Link Coming Shortly</span>
+        <a class="register-button" href="https://us06web.zoom.us/meeting/register/yWz3oL8USg2avsq1q0hfMA" target="_blank" rel="noopener">
+          <strong>Click Here to Register for Your Seat</strong>
+          <span>Registration Link Pending</span>
         </a>
       </div>
     </section>
 
     <footer class="footer">
       <img src="../../assets/images/rxvp-logo.png" alt="RxVP">
-      <span class="center">Pride Panel · India Edition · June 18, 2026 · Virtual</span>
+      <span class="center">Pride Panel · India Edition · June 18, 2026 · 16:30 IST</span>
       <span class="right">www.rxvp.org</span>
     </footer>
   </main>
@@ -1129,23 +1244,34 @@
       const andText = document.getElementById('and-text');
       const partnerLogo = document.getElementById('partner-logo');
       const inviteVerb = document.getElementById('invite-verb');
+      const andTextIndia = document.getElementById('and-text-india');
+      const partnerLogoIndia = document.getElementById('partner-logo-india');
+      const inviteVerbIndia = document.getElementById('invite-verb-india');
 
+      const BASE = '../../assets/images/';
       const PARTNERS = {
-        none: { logoClass: '', logoHtml: '' },
-        sandoz: { logoClass: 'partner-logo sandoz', logoHtml: '<span>sandoz</span>' },
-        fortrea: { logoClass: 'partner-logo fortrea', logoHtml: '<span>fortrea<span class="dot">.</span></span>' },
-        iqvia: { logoClass: 'partner-logo iqvia', logoHtml: '<span>IQVIA</span>' },
-        novartis: { logoClass: 'partner-logo novartis', logoHtml: '<span>NOVARTIS</span>' },
+        none:           { img: '',                          alt: '' },
+        sandoz:         { img: BASE + 'sandoz.png',         alt: 'Sandoz' },
+        fortrea:        { img: BASE + 'fortea.png',         alt: 'Fortrea' },
+        iqvia:          { img: BASE + 'iqvia.png',          alt: 'IQVIA' },
+        novartis:       { img: BASE + 'novartis.png',       alt: 'Novartis' },
+        'eli-lilly':    { img: BASE + 'eli-lilly.png',      alt: 'Eli Lilly' },
+        'zs-associates': { img: BASE + 'zs-associates.png', alt: 'ZS Associates' },
       };
+
+      function applyLogo(logoEl, andEl, verbEl, data) {
+        const hasPartner = !!data.img;
+        andEl.style.display = hasPartner ? '' : 'none';
+        logoEl.style.display = hasPartner ? '' : 'none';
+        logoEl.className = 'partner-logo';
+        logoEl.innerHTML = hasPartner ? `<img src="${data.img}" alt="${data.alt}">` : '';
+        verbEl.textContent = hasPartner ? 'invite you' : 'invites you';
+      }
 
       function applyVersion(key) {
         const data = PARTNERS[key] || PARTNERS.none;
-        const hasPartner = !!data.logoClass;
-        andText.style.display = hasPartner ? '' : 'none';
-        partnerLogo.style.display = hasPartner ? '' : 'none';
-        partnerLogo.className = data.logoClass;
-        partnerLogo.innerHTML = data.logoHtml;
-        inviteVerb.textContent = hasPartner ? 'invite you' : 'invites you';
+        applyLogo(partnerLogo, andText, inviteVerb, data);
+        applyLogo(partnerLogoIndia, andTextIndia, inviteVerbIndia, data);
       }
 
       select.addEventListener('change', (event) => applyVersion(event.target.value));
