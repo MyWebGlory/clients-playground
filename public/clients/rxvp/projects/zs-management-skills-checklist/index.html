@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZS Emerging Leaders Management Skills Checklist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --rxvp-plum: #3d164d;
+      --rxvp-violet: #752a86;
+      --rxvp-gold: #c9a532;
+      --zs-blue: #005eb8;
+      --ink: #20202a;
+      --muted: #5e6270;
+      --line: #ded8cc;
+      --paper: #fffdfa;
+      --soft-blue: #eef6ff;
+      --soft-gold: #fbf4dc;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #d8d4ca;
+      color: var(--ink);
+      font-family: "Libre Franklin", Arial, sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    img {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(0, 94, 184, 0.1), transparent 2.6in),
+        linear-gradient(135deg, rgba(201, 165, 50, 0.16), transparent 2.7in),
+        var(--paper);
+      border: 1px solid rgba(32, 32, 42, 0.16);
+    }
+
+    .top-rule {
+      height: 0.12in;
+      background: linear-gradient(90deg, var(--rxvp-plum), var(--zs-blue), var(--rxvp-gold));
+    }
+
+    .brand-header {
+      display: grid;
+      grid-template-columns: 1.3in 1fr 1.1in;
+      align-items: center;
+      gap: 0.22in;
+      padding: 0.28in 0.48in 0.2in;
+      border-bottom: 1px solid rgba(61, 22, 77, 0.12);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0.72in;
+      padding: 0.07in;
+      border: 1px solid rgba(32, 32, 42, 0.09);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .brand-lockup img {
+      display: block;
+      max-width: 100%;
+      max-height: 0.58in;
+      object-fit: contain;
+    }
+
+    .document-label {
+      margin: 0 0 0.06in;
+      color: var(--zs-blue);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 1.3pt;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--rxvp-plum);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 25pt;
+      font-weight: 700;
+      line-height: 1.02;
+      text-align: center;
+      letter-spacing: -0.35pt;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.12in;
+      align-items: stretch;
+      padding: 0.2in 0.48in 0.18in;
+    }
+
+    .instruction-card,
+    .participant-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.1in;
+      align-content: start;
+      border-radius: 16px;
+      border: 1px solid rgba(32, 32, 42, 0.1);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .instruction-card {
+      min-height: 1.24in;
+      padding: 0.13in 0.22in;
+    }
+
+    .instruction-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10.3pt;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .instruction-card strong {
+      color: var(--rxvp-plum);
+      font-weight: 800;
+    }
+
+    .participant-card {
+      padding: 0.15in 0.2in 0.16in;
+    }
+
+    .participant-card label {
+      display: block;
+      margin: 0 0 0.02in;
+      color: var(--rxvp-plum);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 0.8pt;
+      text-transform: uppercase;
+    }
+
+    .name-line {
+      min-height: 0.34in;
+      border-bottom: 1.5px solid var(--line);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.16in;
+      padding: 0 0.48in 0.34in;
+    }
+
+    .skill-section {
+      overflow: hidden;
+      border: 1px solid rgba(32, 32, 42, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .skill-section.wide {
+      grid-column: 1 / -1;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.1in;
+      min-height: 0.38in;
+      padding: 0.1in 0.16in;
+      background: linear-gradient(90deg, rgba(61, 22, 77, 0.96), rgba(0, 94, 184, 0.92));
+      color: white;
+      font-size: 10pt;
+      margin-top: 0;
+      font-weight: 800;
+      letter-spacing: 0.2pt;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 0.12in;
+      height: 0.12in;
+      border-radius: 999px;
+      background: var(--rxvp-gold);
+      border: 3px solid rgba(201, 165, 50, 0.28);
+      flex: 0 0 auto;
+      align-self: center;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0.02in;
+      padding: 0.1in 0.14in 0.14in;
+      list-style: none;
+      margin: 0;
+    }
+
+    .wide .checklist {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0.18in;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: 0.18in 1fr;
+      gap: 0.08in;
+      align-items: start;
+      min-height: 0.28in;
+      padding: 0.045in 0;
+      color: var(--ink);
+      font-size: 8.7pt;
+      font-weight: 600;
+      line-height: 1.32;
+    }
+
+    .box {
+      width: 0.15in;
+      height: 0.15in;
+      margin-top: 0.01in;
+      border: 1.5px solid var(--zs-blue);
+      border-radius: 3px;
+      background: white;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0.48in;
+      right: 0.48in;
+      bottom: 0.24in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(32, 32, 42, 0.12);
+      padding-top: 0.12in;
+      color: var(--muted);
+      font-size: 7.7pt;
+      font-weight: 700;
+      letter-spacing: 0.15pt;
+    }
+
+    .footer span:last-child {
+      color: var(--rxvp-plum);
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        border: 0;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      body > .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" data-export-title="ZS Emerging Leaders Management Skills Checklist">
+    <div class="top-rule"></div>
+
+    <header class="brand-header">
+      <div class="brand-lockup">
+        <img src="../../assets/images/rxvp-logo.png" alt="RxVP logo">
+      </div>
+      <div>
+        <p class="document-label">Manager Input Document</p>
+        <h1>ZS Emerging Leaders Management Skills Checklist</h1>
+      </div>
+      <div class="brand-lockup">
+        <img src="../../assets/images/zs-associates.png" alt="ZS Associates logo">
+      </div>
+    </header>
+
+    <section class="intro" aria-label="Checklist instructions">
+      <div class="participant-card">
+        <label for="participant-name">Participant Name</label>
+        <div id="participant-name" class="name-line" aria-hidden="true"></div>
+      </div>
+      <div class="instruction-card">
+        <p>Please select the <strong>top five skills</strong> the participant should strengthen.</p>
+      </div>
+    </section>
+
+    <section class="skills-grid" aria-label="Management skills checklist">
+      <article class="skill-section">
+        <h2 class="section-title">Time Management and Prioritization</h2>
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Maintains focus on end goals without getting distracted by minor issues</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Prioritizes work deliverables and provides solutions</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Sets clear expectations for individual work output</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Connects day-to-day work to broader business objectives</span></li>
+        </ul>
+      </article>
+
+      <article class="skill-section">
+        <h2 class="section-title">Skills for Participants with Direct Reports</h2>
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Sets clear expectations for teamwork output</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Effectively delegate work</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Holds team members accountable</span></li>
+        </ul>
+      </article>
+
+      <article class="skill-section wide">
+        <h2 class="section-title">Communication Skills</h2>
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Contributes strongly to brainstorming discussions</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Is comfortable presenting an opposing opinion</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Provides constructive feedback</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Manages difficult conversations effectively</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Presents ideas with confidence</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Facilitates effective meetings</span></li>
+        </ul>
+      </article>
+
+      <article class="skill-section">
+        <h2 class="section-title">Strategic Thinking</h2>
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Drives execution of strategic priorities</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Identifies risks and mitigation strategies</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Works productively with ambiguous information</span></li>
+        </ul>
+      </article>
+
+      <article class="skill-section">
+        <h2 class="section-title">Relationship Building</h2>
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Manages cross-functional stakeholders effectively</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Builds trust and credibility with senior leaders</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Is viewed as a positive collaborator by peers</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Defuses tension related to work deliverables</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span>RxVP Emerging Leader Program for ZS Associates India</span>
+      <span>Confidential manager input</span>
+    </footer>
+  </main>
+</body>
+</html>

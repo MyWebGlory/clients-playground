@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RxVP Emerging Leader Training Program Proposal for ZS Associates India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --rxvp-plum: #3d164d;
+      --rxvp-violet: #752a86;
+      --rxvp-gold: #c9a532;
+      --zs-blue: #005eb8;
+      --ink: #20202a;
+      --muted: #5c6170;
+      --paper: #fffdfa;
+      --line: #ded8cc;
+      --soft-blue: #edf6ff;
+      --soft-gold: #fbf3d6;
+      --soft-plum: #f4edf6;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #d8d4ca;
+      color: var(--ink);
+      font-family: "Libre Franklin", Arial, sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    img {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(0, 94, 184, 0.13), transparent 2.4in),
+        radial-gradient(circle at 8% 92%, rgba(201, 165, 50, 0.16), transparent 2.2in),
+        var(--paper);
+      border: 1px solid rgba(32, 32, 42, 0.16);
+    }
+
+    .top-rule {
+      height: 0.12in;
+      background: linear-gradient(90deg, var(--rxvp-plum), var(--zs-blue), var(--rxvp-gold));
+    }
+
+    .brand-header {
+      display: grid;
+      grid-template-columns: 1.25in 1fr 1.05in;
+      align-items: center;
+      gap: 0.22in;
+      padding: 0.28in 0.5in 0.22in;
+      border-bottom: 1px solid rgba(61, 22, 77, 0.12);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0.72in;
+      padding: 0.07in;
+      border: 1px solid rgba(32, 32, 42, 0.09);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .brand-lockup img {
+      display: block;
+      max-width: 100%;
+      max-height: 0.58in;
+      object-fit: contain;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.07in;
+      color: var(--zs-blue);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 1.4pt;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--rxvp-plum);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 25pt;
+      font-weight: 700;
+      line-height: 1.02;
+      text-align: center;
+      letter-spacing: -0.35pt;
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.14in;
+      padding: 0.22in 0.5in 0.1in;
+    }
+
+    .summary-card {
+      min-height: 0.72in;
+      padding: 0.13in 0.16in;
+      border: 1px solid rgba(32, 32, 42, 0.1);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--rxvp-plum);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 20pt;
+      line-height: 0.95;
+    }
+
+    .summary-card span {
+      display: block;
+      margin-top: 0.05in;
+      color: var(--muted);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: 0.65pt;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      padding: 0.08in 0.5in 0.38in;
+    }
+
+    .timeline h2 {
+      margin: 0 0 0.14in;
+      color: var(--rxvp-plum);
+      font-size: 9.5pt;
+      font-weight: 800;
+      letter-spacing: 1.2pt;
+      text-transform: uppercase;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 0.1in;
+    }
+
+    .month-card {
+      display: grid;
+      grid-template-columns: 1.08in 1fr;
+      gap: 0.14in;
+      align-items: stretch;
+      overflow: hidden;
+      border: 1px solid rgba(32, 32, 42, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .month {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.12in;
+      background: linear-gradient(150deg, var(--rxvp-plum), var(--zs-blue));
+      color: white;
+      text-align: center;
+    }
+
+    .month strong {
+      display: block;
+      font-size: 11.5pt;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .month span {
+      display: block;
+      margin-top: 0.03in;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 7.3pt;
+      font-weight: 800;
+      letter-spacing: 0.8pt;
+      text-transform: uppercase;
+    }
+
+    .month-card:nth-child(3n) .month {
+      background: linear-gradient(150deg, var(--zs-blue), #2680c2);
+    }
+
+    .month-card:nth-child(3n + 1) .month {
+      background: linear-gradient(150deg, var(--rxvp-plum), var(--rxvp-violet));
+    }
+
+    .month-card:nth-child(3n + 2) .month {
+      background: linear-gradient(150deg, #6f5310, var(--rxvp-gold));
+    }
+
+    .actions {
+      margin: 0;
+      padding: 0.11in 0.18in 0.11in 0.02in;
+      list-style: none;
+    }
+
+    .actions li {
+      display: grid;
+      grid-template-columns: 0.1in 1fr;
+      column-gap: 0.08in;
+      align-items: start;
+      margin: 0;
+      padding: 0.025in 0 0.035in;
+      color: var(--ink);
+      font-size: 8.4pt;
+      font-weight: 600;
+      line-height: 1.34;
+    }
+
+    .actions li::before {
+      content: "";
+      width: 0.07in;
+      height: 0.07in;
+      margin-top: 0.035in;
+      border-radius: 999px;
+      background: var(--rxvp-gold);
+      border: 2px solid rgba(201, 165, 50, 0.24);
+    }
+
+    .footer {
+      position: absolute;
+      left: 0.5in;
+      right: 0.5in;
+      bottom: 0.24in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(32, 32, 42, 0.12);
+      padding-top: 0.12in;
+      color: var(--muted);
+      font-size: 7.7pt;
+      font-weight: 700;
+      letter-spacing: 0.15pt;
+    }
+
+    .footer span:last-child {
+      color: var(--rxvp-plum);
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        border: 0;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" data-export-title="RxVP Emerging Leader Training Program Proposal">
+    <div class="top-rule"></div>
+
+    <header class="brand-header">
+      <div class="brand-lockup">
+        <img src="../../assets/images/rxvp-logo.png" alt="RxVP logo">
+      </div>
+      <div>
+        <p class="eyebrow">Program Proposal</p>
+        <h1>RxVP Emerging Leader Training Program Proposal for ZS Associates India</h1>
+      </div>
+      <div class="brand-lockup">
+        <img src="../../assets/images/zs-associates.png" alt="ZS Associates logo">
+      </div>
+    </header>
+
+    <section class="summary-strip" aria-label="Program summary">
+      <div class="summary-card">
+        <strong>50</strong>
+        <span>participants identified with managers and HR</span>
+      </div>
+      <div class="summary-card">
+        <strong>30</strong>
+        <span>finalists selected for the emerging leader cohort</span>
+      </div>
+      <div class="summary-card">
+        <strong>10 mo.</strong>
+        <span>selection, coaching, workshops, events, and graduation</span>
+      </div>
+    </section>
+
+    <section class="timeline" aria-label="Program timeline page one">
+      <h2>Program Roadmap</h2>
+      <div class="timeline-list">
+        <article class="month-card">
+          <div class="month"><strong>June</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Work with managers and HR to identify 50 appropriate participants.</li>
+            <li>Create the program invitation outlining the honor of being selected, expected time commitment, application, and program goals.</li>
+            <li>Include a LinkedIn announcement participants can share if selected.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>July</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Review applications and select 30 participants plus 9 runners-up.</li>
+            <li>Notify selected emerging leaders and collect acceptances or rejections.</li>
+            <li>Replace any declined spots with runners-up and notify them promptly.</li>
+            <li>Finalize the cohort of 30 and share the list with participants and their managers.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>August</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Hold a workshop with the managers of the 30 finalists and have each manager complete a skill development checklist for their participant.</li>
+            <li>Run two introductory workshops for emerging leaders to help the cohort bond and align on participant needs.</li>
+            <li>Most participant workshops will be delivered in two sessions of 15 people each.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>September</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Conduct one-on-one coaching assessment sessions with all 30 participants.</li>
+            <li>Form coaching subgroups based on the needs identified in those assessments.</li>
+            <li>Create short video of each participant to compare before and after delivery skills.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>October</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Run two participant workshops using role-play to address time management, prioritization, delegation, and the art of saying no.</li>
+            <li>Hold coach meetings to prepare for the one-on-one manager meetings in November.</li>
+            <li>Schedule the November manager meetings.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>RxVP and ZS Associates India</span>
+      <span>Page 1</span>
+    </footer>
+  </main>
+
+  <section class="page" data-export-title="RxVP Emerging Leader Training Program Proposal - Timeline Continuation">
+    <div class="top-rule"></div>
+
+    <header class="brand-header">
+      <div class="brand-lockup">
+        <img src="../../assets/images/rxvp-logo.png" alt="RxVP logo">
+      </div>
+      <div>
+        <p class="eyebrow">Program Proposal</p>
+        <h1>Emerging Leader Training Program Timeline</h1>
+      </div>
+      <div class="brand-lockup">
+        <img src="../../assets/images/zs-associates.png" alt="ZS Associates logo">
+      </div>
+    </header>
+
+    <section class="timeline" aria-label="Program timeline page two">
+      <h2>Continuation</h2>
+      <div class="timeline-list">
+        <article class="month-card">
+          <div class="month"><strong>November</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Run two participant workshops focused on fear of failure, fear of negative responses, and fear of personal brand damage.</li>
+            <li>Complete a post-meeting analysis of manager meetings.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>December</strong><span>2026</span></div>
+          <ul class="actions">
+            <li>Run two participant workshops to plan the January events, including content, panelists, moderators, and audience members, all drawn from the training group.</li>
+            <li>Conduct participant/manager meetings.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>January</strong><span>2027</span></div>
+          <ul class="actions">
+            <li>Hold the Emerging Leader panel events, fireside chats, and Ted talks.</li>
+            <li>Conduct a post-panel analysis for each participant.</li>
+            <li>Set up one-on-one manager meetings for February.</li>
+            <li>Determine the graduation event content and audience, assign event responsibilities, and set the graduation date.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>February</strong><span>2027</span></div>
+          <ul class="actions">
+            <li>Prepare for graduation.</li>
+          </ul>
+        </article>
+
+        <article class="month-card">
+          <div class="month"><strong>March</strong><span>2027</span></div>
+          <ul class="actions">
+            <li>Hold the Emerging Leaders graduation event.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>RxVP and ZS Associates India</span>
+      <span>Page 2</span>
+    </footer>
+  </section>
+</body>
+</html>

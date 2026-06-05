@@ -154,6 +154,22 @@ export const clients: Client[] = [
         category: 'Pride Month, June 2026',
         color: 'from-purple-700 to-rose-500',
       },
+      {
+        slug: 'zs-management-skills-checklist',
+        title: 'ZS Management Skills Checklist',
+        description:
+          'One-page manager checklist for the ZS Associates India Emerging Leaders program, branded with RxVP and ZS logos.',
+        category: 'Emerging Leaders, 2026',
+        color: 'from-purple-800 to-blue-600',
+      },
+      {
+        slug: 'zs-emerging-leaders-training-program',
+        title: 'ZS Emerging Leaders Training Program',
+        description:
+          'Two-page proposal and month-by-month roadmap for the ZS Associates India Emerging Leaders training program.',
+        category: 'Training Proposal, 2026-2027',
+        color: 'from-blue-700 to-amber-500',
+      },
     ],
   },
 ]
